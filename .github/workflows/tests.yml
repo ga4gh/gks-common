@@ -26,4 +26,4 @@ jobs:
         run: |
           pytest
         env:
-          PYTHONPATH: /home/runner/work/vrs/vrs/
+          PYTHONPATH: /home/runner/work/gks-common/gks-common/

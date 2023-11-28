@@ -11,7 +11,7 @@ def get_schema(schema_file, schema_class, kw="$defs"):
     }
 
 
-@pytest.skip("No examples defined")
+@pytest.mark.skip("No examples defined")
 def test_examples():
     with open(test_dir / 'test_definitions.yaml') as def_file:
         test_spec = yaml.safe_load(def_file)

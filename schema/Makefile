@@ -1,4 +1,3 @@
-vpath %.yaml jsy
 vpath %tag build
 vpath %.classes build
 

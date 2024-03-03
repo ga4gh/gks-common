@@ -1,0 +1,33 @@
+{
+   "$schema": "http://json-schema.org/draft/2020-12/schema",
+   "title": "Extension",
+   "type": "object",
+   "maturity": "draft",
+   "description": "The Extension class provides VODs with a means to extend descriptions with other attributes unique to a content provider. These extensions are not expected to be natively understood under VRSATILE, but may be used for pre-negotiated exchange of message attributes when needed.",
+   "properties": {
+      "type": {
+         "type": "string",
+         "const": "Extension",
+         "description": "MUST be \"Extension\"."
+      },
+      "name": {
+         "type": "string",
+         "description": "A name for the Extension"
+      },
+      "value": {
+         "type": [
+            "number",
+            "string",
+            "boolean",
+            "object",
+            "array",
+            "null"
+         ],
+         "description": "Any primitive or structured object"
+      }
+   },
+   "required": [
+      "name"
+   ],
+   "additionalProperties": false
+}

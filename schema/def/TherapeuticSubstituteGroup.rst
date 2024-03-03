@@ -1,10 +1,10 @@
 **Computational Definition**
 
-A therapeutic procedure that involves multiple different therapeutic procedures  performed in combination.
+A group of therapeutic procedures that may be treated as substitutes for one another.
 
     **Information Model**
     
-Some CombinationTherapy attributes are inherited from :ref:`DomainEntity`.
+Some TherapeuticSubstituteGroup attributes are inherited from :ref:`core:DomainEntity`.
 
     .. list-table::
        :class: clean-wrap
@@ -29,11 +29,11 @@ Some CombinationTherapy attributes are inherited from :ref:`DomainEntity`.
           - 0..1
           - A free-text description of the entity.
        *  - extensions
-          - :ref:`Extension`
+          - `Extension <core.json#/$defs/Extension>`_
           - 0..m
           - 
        *  - mappings
-          - :ref:`Mapping`
+          - `Mapping <core.json#/$defs/Mapping>`_
           - 0..m
           - 
        *  - aliases
@@ -43,8 +43,8 @@ Some CombinationTherapy attributes are inherited from :ref:`DomainEntity`.
        *  - type
           - string
           - 1..1
-          - MUST be "CombinationTherapy".
-       *  - components
-          - :ref:`TherapeuticSubstituteGroup` | :ref:`TherapeuticAction` | :ref:`TherapeuticAgent`
+          - MUST be "TherapeuticSubstituteGroup".
+       *  - substitutes
+          - :ref:`TherapeuticAction` | :ref:`TherapeuticAgent`
           - 2..m
-          - The individual therapeutic procedure components that constitute the combination therapy.
+          - The individual therapeutic procedures that may be treated as substitutes.

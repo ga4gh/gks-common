@@ -7,27 +7,24 @@ CLASS_FILES = $(wildcard *.classes)
 CLASSES = $(strip $(shell cat ${CLASS_FILES} | tr "\n" " "))
 JSONS = $(CLASSES:%=%.json)
 
+.SECONDARY:
+.DELETE_ON_ERROR:
+
 all: ${TAGS}
 
-%.tag: %.classes %.yaml-tag %.json-tag %.defs-tag prune
+%.tag: %.json-tag %.defs-tag
 	touch $@
 
 %.classes: %-source.yaml
-	source2classes.py <$<
+	source2classes.py <$< >$@
 
-%.yaml-tag: %-source.yaml ${IMPORTS}
-	source2jsy.py <$< --out jsy
+%.json-tag: %-source.yaml ${IMPORTS}
+	source2splitjs.py $<
 	touch $@
 
 %.defs-tag: %-source.yaml ${IMPORTS}
-	y2t.py <$< --out defs
+	y2t.py $<
 	touch $@
-
-%.json-tag: ${JSONS}
-	touch $@
-
-%.json: jsy/%.yaml
-	jsy2js.py <$< >json/$@
 
 prune:
 	echo "Write prune method."

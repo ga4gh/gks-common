@@ -1,0 +1,98 @@
+$schema: http://json-schema.org/draft/2020-12/schema
+title: GKS Common Library Core Definitions
+strict: true
+
+imports:
+  core: core-source.yaml
+
+$defs:
+  TherapeuticProcedure:
+    inherits: core:DomainEntity
+    description: >-
+      An action or administration of therapeutic agents to produce an effect 
+      that is intended to alter or stop a pathologic process.
+    oneOf:
+      - $ref: "#/$defs/CombinationTherapy"
+      - $ref: "#/$defs/TherapeuticSubstituteGroup"
+      - $ref: "#/$defs/TherapeuticAction"
+      - $ref: "#/$defs/TherapeuticAgent"
+
+  TherapeuticAction:
+    type: object
+    maturity: draft
+    inherits: TherapeuticProcedure
+    description: >-
+      A therapeutic action taken that is intended to alter or stop a pathologic
+      process.
+    properties:
+      type:
+        extends: type
+        const: TherapeuticAction
+        default: TherapeuticAction
+        description: MUST be "TherapeuticAction".
+
+  TherapeuticAgent:
+    type: object
+    maturity: draft
+    inherits: TherapeuticProcedure
+    description: >-
+      An administered therapeutic agent that is intended to alter or stop a pathologic
+      process.
+    properties:
+      type:
+        extends: type
+        const: TherapeuticAgent
+        default: TherapeuticAgent
+        description: MUST be "TherapeuticAgent".
+
+  CombinationTherapy:
+    type: object
+    maturity: draft
+    inherits: TherapeuticProcedure
+    description: >-
+      A therapeutic procedure that involves multiple different therapeutic procedures 
+      performed in combination.
+    properties:
+      type:
+        extends: type
+        const: CombinationTherapy
+        default: CombinationTherapy
+        description: MUST be "CombinationTherapy".
+      components:
+        type: array
+        ordered: false
+        description: >-
+          The individual therapeutic procedure components that constitute the combination therapy.
+        items:
+          anyOf:
+            - $ref: "#/$defs/TherapeuticSubstituteGroup"
+            - $ref: "#/$defs/TherapeuticAction"
+            - $ref: "#/$defs/TherapeuticAgent"
+        minItems: 2
+    required:
+      - components
+
+  TherapeuticSubstituteGroup:
+    type: object
+    maturity: draft
+    inherits: TherapeuticProcedure
+    description: >-
+      A group of therapeutic procedures that may be treated as substitutes for one another.
+    properties:
+      type:
+        extends: type
+        const: TherapeuticSubstituteGroup
+        default: TherapeuticSubstituteGroup
+        description: MUST be "TherapeuticSubstituteGroup".
+      substitutes:
+        type: array
+        ordered: false
+        description: >-
+          The individual therapeutic procedures that may be treated as substitutes.
+        items:
+          anyOf:
+            - $ref: "#/$defs/TherapeuticAction"
+            - $ref: "#/$defs/TherapeuticAgent"
+        minItems: 2
+    required:
+      - substitutes

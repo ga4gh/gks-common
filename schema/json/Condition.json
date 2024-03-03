@@ -1,0 +1,16 @@
+{
+   "$schema": "http://json-schema.org/draft/2020-12/schema",
+   "title": "Condition",
+   "description": "A disease or other medical disorder.",
+   "oneOf": [
+      {
+         "$ref": "Disease.json"
+      },
+      {
+         "$ref": "Phenotype.json"
+      },
+      {
+         "$ref": "TraitSet.json"
+      }
+   ]
+}

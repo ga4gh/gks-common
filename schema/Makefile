@@ -10,13 +10,11 @@ SOURCES := $(wildcard *-source.yaml)
 TAGS := $(SOURCES:-source.yaml=.tag)
 IMPORTS := $(wildcard imports/*-source.yaml)
 
-
-
 all: build-ordered ${TAGS} prune.tag
 
 build-ordered: | $(BUILD_DIR)
 
-build:
+$(BUILD_DIR):
 	mkdir $(BUILD_DIR)
 
 %.tag: %.classes %.json-tag %.defs-tag

@@ -1,5 +1,5 @@
 $schema: http://json-schema.org/draft/2020-12/schema
-title: GKS Common Library Core Definitions
+title: GKS Common Library Therapeutics Definitions
 strict: true
 
 imports:

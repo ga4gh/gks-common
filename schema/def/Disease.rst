@@ -4,7 +4,7 @@ A particular abnormal condition that negatively affects the structure or functio
 
     **Information Model**
     
-Some Disease attributes are inherited from :ref:`DomainEntity`.
+Some Disease attributes are inherited from :ref:`core:DomainEntity`.
 
     .. list-table::
        :class: clean-wrap
@@ -29,11 +29,11 @@ Some Disease attributes are inherited from :ref:`DomainEntity`.
           - 0..1
           - A free-text description of the entity.
        *  - extensions
-          - :ref:`Extension`
+          - `Extension <core.json#/$defs/Extension>`_
           - 0..m
           - 
        *  - mappings
-          - :ref:`Mapping`
+          - `Mapping <core.json#/$defs/Mapping>`_
           - 0..m
           - 
        *  - aliases

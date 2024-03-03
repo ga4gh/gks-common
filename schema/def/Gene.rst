@@ -4,7 +4,7 @@ A basic physical and functional unit of heredity.
 
     **Information Model**
     
-Some Gene attributes are inherited from :ref:`DomainEntity`.
+Some Gene attributes are inherited from :ref:`core:DomainEntity`.
 
     .. list-table::
        :class: clean-wrap
@@ -29,11 +29,11 @@ Some Gene attributes are inherited from :ref:`DomainEntity`.
           - 0..1
           - A free-text description of the entity.
        *  - extensions
-          - :ref:`Extension`
+          - `Extension <core.json#/$defs/Extension>`_
           - 0..m
           - 
        *  - mappings
-          - :ref:`Mapping`
+          - `Mapping <core.json#/$defs/Mapping>`_
           - 0..m
           - 
        *  - type

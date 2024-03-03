@@ -1,0 +1,66 @@
+$schema: http://json-schema.org/draft/2020-12/schema
+title: GKS Common Library Conditions Definitions
+strict: true
+
+imports:
+  core: core-source.yaml
+
+$defs:
+  Condition:
+    inherits: core:DomainEntity
+    description: >-
+      A disease or other medical disorder.
+    oneOf:
+      - $ref: "#/$defs/TraitSet"
+      - $ref: "#/$defs/Disease"
+      - $ref: "#/$defs/Phenotype"
+
+  TraitSet:
+    type: object
+    maturity: draft
+    description: >-
+      A set of phenotype and/or disease concepts that together constitute a condition.
+    inherits: Condition
+    properties:
+      type:
+        extends: type
+        const: TraitSet
+        default: TraitSet
+        description: MUST be "TraitSet".
+      traits:
+        type: array
+        ordered: false
+        items:
+          anyOf:
+            - $ref: "#/$defs/Disease"
+            - $ref: "#/$defs/Phenotype"
+        minItems: 2
+    required:
+      - traits
+
+  Disease:
+    type: object
+    maturity: draft
+    inherits: Condition
+    description: >-
+      A particular abnormal condition that negatively affects the structure or function 
+      of all or part of an organism and is not immediately due to any external injury.
+    properties:
+      type:
+        extends: type
+        const: Disease
+        default: Disease
+        description: MUST be "Disease".
+
+  Phenotype:
+    type: object
+    maturity: draft
+    inherits: Condition
+    description: >-
+      An observable characteristic or trait of an organism.
+    properties:
+      type:
+        extends: type
+        const: Phenotype
+        default: Phenotype
+        description: MUST be "Phenotype".

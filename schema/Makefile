@@ -2,13 +2,14 @@
 .DELETE_ON_ERROR:
 
 BUILD_DIR := build
+IMPORT_DIR := import
 
 vpath %tag $(BUILD_DIR)
 vpath %.classes $(BUILD_DIR)
 
 SOURCES := $(wildcard *-source.yaml)
 TAGS := $(SOURCES:-source.yaml=.tag)
-IMPORTS := $(wildcard imports/*-source.yaml)
+IMPORTS := $(wildcard $(IMPORT_DIR)/*-source.yaml)
 
 all: build-ordered ${TAGS} prune.tag
 

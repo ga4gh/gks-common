@@ -1,22 +1,37 @@
-.PHONY: defs FORCE
-.SECONDARY:
-.SUFFIXES:
-.DELETE_ON_ERROR:
+vpath %.yaml jsy
 
-JSYAMLS:=gks.common.yaml
-JSONS:=${JSYAMLS:.yaml=.json}
+SOURCES := $(wildcard *-source.yaml)
+TAGS := $(SOURCES:-source.yaml=.tag)
+IMPORTS := $(wildcard imports/*-source.yaml)
+CLASS_FILES = $(wildcard *.classes)
+CLASSES = $(strip $(shell cat ${CLASS_FILES} | tr "\n" " "))
+JSONS = $(CLASSES:%=%.json)
 
-all: ${JSONS} defs
+all: ${TAGS}
 
-%.json: %.yaml
-	jsy2js.py <$< >$@
+%.tag: %.classes %.yaml-tag %.json-tag %.defs-tag prune
+	touch $@
 
-%.yaml: %-source.yaml
-	source2jsy.py $< >$@
+%.classes: %-source.yaml
+	source2classes.py <$<
 
-defs:
-	rm -rf defs
-	y2t.py gks.common-source.yaml
+%.yaml-tag: %-source.yaml ${IMPORTS}
+	source2jsy.py <$< --out jsy
+	touch $@
 
-watch:
-	-while true; do ls -1 *.yaml | entr -dn make ${JSONS}; done
+%.defs-tag: %-source.yaml ${IMPORTS}
+	y2t.py <$< --out defs
+	touch $@
+
+%.json-tag: ${JSONS}
+	touch $@
+
+%.json: jsy/%.yaml
+	jsy2js.py <$< >json/$@
+
+prune:
+	echo "Write prune method."
+
+clean:
+	rm *.classes
+	rm *tag

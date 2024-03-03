@@ -1,5 +1,5 @@
 $schema: http://json-schema.org/draft/2020-12/schema
-title: GA4GH-GKS-Common-Definitions
+title: GKS Common Library Definitions
 type: object
 strict: true
 
@@ -27,8 +27,6 @@ $defs:
         ordered: true
         items:
           $ref: "#/$defs/Extension"
-    discriminator:
-      propertyName: type
 
   MappableEntity:
     inherits: Entity

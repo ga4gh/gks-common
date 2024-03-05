@@ -1,5 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/json/Phenotype",
    "title": "Phenotype",
    "type": "object",
    "maturity": "draft",
@@ -21,14 +22,14 @@
          "type": "array",
          "ordered": true,
          "items": {
-            "$ref": "Extension.json"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Extension"
          }
       },
       "mappings": {
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "Mapping.json"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Mapping"
          }
       },
       "aliases": {

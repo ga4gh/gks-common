@@ -1,9 +1,10 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "title": "Gene",
-   "maturity": "draft",
-   "description": "A basic physical and functional unit of heredity.",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/json/TraitSet",
+   "title": "TraitSet",
    "type": "object",
+   "maturity": "draft",
+   "description": "A set of phenotype and/or disease concepts that together constitute a condition.",
    "properties": {
       "id": {
          "type": "string",
@@ -21,21 +22,15 @@
          "type": "array",
          "ordered": true,
          "items": {
-            "$ref": "Extension.json"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Extension"
          }
       },
       "mappings": {
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "Mapping.json"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Mapping"
          }
-      },
-      "type": {
-         "type": "string",
-         "const": "Gene",
-         "default": "Gene",
-         "description": "MUST be \"Gene\""
       },
       "aliases": {
          "description": "Aliases are alternate labels for a Domain Entity.",
@@ -44,9 +39,31 @@
          "items": {
             "type": "string"
          }
+      },
+      "type": {
+         "type": "string",
+         "const": "TraitSet",
+         "default": "TraitSet",
+         "description": "MUST be \"TraitSet\"."
+      },
+      "traits": {
+         "type": "array",
+         "ordered": false,
+         "items": {
+            "anyOf": [
+               {
+                  "$ref": "/ga4gh/schema/gks-common/json/Disease"
+               },
+               {
+                  "$ref": "/ga4gh/schema/gks-common/json/Phenotype"
+               }
+            ]
+         },
+         "minItems": 2
       }
    },
    "required": [
+      "traits",
       "type"
    ],
    "additionalProperties": false

@@ -1,9 +1,10 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "title": "TherapeuticAction",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/json/Mapping",
+   "title": "Mapping",
    "type": "object",
    "maturity": "draft",
-   "description": "A therapeutic action taken that is intended to alter or stop a pathologic process.",
+   "description": "A mapping to a concept in a terminology system.",
    "properties": {
       "id": {
          "type": "string",
@@ -21,33 +22,27 @@
          "type": "array",
          "ordered": true,
          "items": {
-            "$ref": "Extension.json"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Extension"
          }
       },
-      "mappings": {
-         "type": "array",
-         "ordered": false,
-         "items": {
-            "$ref": "Mapping.json"
-         }
+      "coding": {
+         "$ref": "/ga4gh/schema/gks-common/1.x/json/Coding"
       },
-      "aliases": {
-         "description": "Aliases are alternate labels for a Domain Entity.",
-         "ordered": false,
-         "type": "array",
-         "items": {
-            "type": "string"
-         }
-      },
-      "type": {
+      "relation": {
+         "description": "A mapping relation between concepts as defined by the Simple Knowledge Organization System (SKOS).",
          "type": "string",
-         "const": "TherapeuticAction",
-         "default": "TherapeuticAction",
-         "description": "MUST be \"TherapeuticAction\"."
+         "enum": [
+            "closeMatch",
+            "exactMatch",
+            "broadMatch",
+            "narrowMatch",
+            "relatedMatch"
+         ]
       }
    },
    "required": [
-      "type"
+      "coding",
+      "relation"
    ],
    "additionalProperties": false
 }

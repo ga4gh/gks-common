@@ -1,9 +1,10 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "title": "TraitSet",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/json/TherapeuticSubstituteGroup",
+   "title": "TherapeuticSubstituteGroup",
    "type": "object",
    "maturity": "draft",
-   "description": "A set of phenotype and/or disease concepts that together constitute a condition.",
+   "description": "A group of therapeutic procedures that may be treated as substitutes for one another.",
    "properties": {
       "id": {
          "type": "string",
@@ -21,14 +22,14 @@
          "type": "array",
          "ordered": true,
          "items": {
-            "$ref": "Extension.json"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Extension"
          }
       },
       "mappings": {
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "Mapping.json"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Mapping"
          }
       },
       "aliases": {
@@ -41,20 +42,21 @@
       },
       "type": {
          "type": "string",
-         "const": "TraitSet",
-         "default": "TraitSet",
-         "description": "MUST be \"TraitSet\"."
+         "const": "TherapeuticSubstituteGroup",
+         "default": "TherapeuticSubstituteGroup",
+         "description": "MUST be \"TherapeuticSubstituteGroup\"."
       },
-      "traits": {
+      "substitutes": {
          "type": "array",
          "ordered": false,
+         "description": "The individual therapeutic procedures that may be treated as substitutes.",
          "items": {
             "anyOf": [
                {
-                  "$ref": "Disease.json"
+                  "$ref": "/ga4gh/schema/gks-common/json/TherapeuticAction"
                },
                {
-                  "$ref": "Phenotype.json"
+                  "$ref": "/ga4gh/schema/gks-common/json/TherapeuticAgent"
                }
             ]
          },
@@ -62,7 +64,7 @@
       }
    },
    "required": [
-      "traits",
+      "substitutes",
       "type"
    ],
    "additionalProperties": false

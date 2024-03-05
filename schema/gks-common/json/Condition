@@ -1,0 +1,17 @@
+{
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/json/Condition",
+   "title": "Condition",
+   "description": "A disease or other medical disorder.",
+   "oneOf": [
+      {
+         "$ref": "/ga4gh/schema/gks-common/json/Disease"
+      },
+      {
+         "$ref": "/ga4gh/schema/gks-common/json/Phenotype"
+      },
+      {
+         "$ref": "/ga4gh/schema/gks-common/json/TraitSet"
+      }
+   ]
+}

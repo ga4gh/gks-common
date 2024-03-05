@@ -1,9 +1,10 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "title": "Mapping",
-   "type": "object",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/json/Gene",
+   "title": "Gene",
    "maturity": "draft",
-   "description": "A mapping to a concept in a terminology system.",
+   "description": "A basic physical and functional unit of heredity.",
+   "type": "object",
    "properties": {
       "id": {
          "type": "string",
@@ -21,27 +22,33 @@
          "type": "array",
          "ordered": true,
          "items": {
-            "$ref": "Extension.json"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Extension"
          }
       },
-      "coding": {
-         "$ref": "Coding.json"
+      "mappings": {
+         "type": "array",
+         "ordered": false,
+         "items": {
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Mapping"
+         }
       },
-      "relation": {
-         "description": "A mapping relation between concepts as defined by the Simple Knowledge Organization System (SKOS).",
+      "type": {
          "type": "string",
-         "enum": [
-            "closeMatch",
-            "exactMatch",
-            "broadMatch",
-            "narrowMatch",
-            "relatedMatch"
-         ]
+         "const": "Gene",
+         "default": "Gene",
+         "description": "MUST be \"Gene\""
+      },
+      "aliases": {
+         "description": "Aliases are alternate labels for a Domain Entity.",
+         "ordered": false,
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
       }
    },
    "required": [
-      "coding",
-      "relation"
+      "type"
    ],
    "additionalProperties": false
 }

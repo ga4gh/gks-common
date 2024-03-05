@@ -1,9 +1,10 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "title": "TherapeuticSubstituteGroup",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/json/CombinationTherapy",
+   "title": "CombinationTherapy",
    "type": "object",
    "maturity": "draft",
-   "description": "A group of therapeutic procedures that may be treated as substitutes for one another.",
+   "description": "A therapeutic procedure that involves multiple different therapeutic procedures  performed in combination.",
    "properties": {
       "id": {
          "type": "string",
@@ -21,14 +22,14 @@
          "type": "array",
          "ordered": true,
          "items": {
-            "$ref": "Extension.json"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Extension"
          }
       },
       "mappings": {
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "Mapping.json"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Mapping"
          }
       },
       "aliases": {
@@ -41,21 +42,24 @@
       },
       "type": {
          "type": "string",
-         "const": "TherapeuticSubstituteGroup",
-         "default": "TherapeuticSubstituteGroup",
-         "description": "MUST be \"TherapeuticSubstituteGroup\"."
+         "const": "CombinationTherapy",
+         "default": "CombinationTherapy",
+         "description": "MUST be \"CombinationTherapy\"."
       },
-      "substitutes": {
+      "components": {
          "type": "array",
          "ordered": false,
-         "description": "The individual therapeutic procedures that may be treated as substitutes.",
+         "description": "The individual therapeutic procedure components that constitute the combination therapy.",
          "items": {
             "anyOf": [
                {
-                  "$ref": "TherapeuticAction.json"
+                  "$ref": "/ga4gh/schema/gks-common/json/TherapeuticSubstituteGroup"
                },
                {
-                  "$ref": "TherapeuticAgent.json"
+                  "$ref": "/ga4gh/schema/gks-common/json/TherapeuticAction"
+               },
+               {
+                  "$ref": "/ga4gh/schema/gks-common/json/TherapeuticAgent"
                }
             ]
          },
@@ -63,7 +67,7 @@
       }
    },
    "required": [
-      "substitutes",
+      "components",
       "type"
    ],
    "additionalProperties": false

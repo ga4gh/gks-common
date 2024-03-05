@@ -1,9 +1,10 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "title": "CombinationTherapy",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/json/TherapeuticAgent",
+   "title": "TherapeuticAgent",
    "type": "object",
    "maturity": "draft",
-   "description": "A therapeutic procedure that involves multiple different therapeutic procedures  performed in combination.",
+   "description": "An administered therapeutic agent that is intended to alter or stop a pathologic process.",
    "properties": {
       "id": {
          "type": "string",
@@ -21,14 +22,14 @@
          "type": "array",
          "ordered": true,
          "items": {
-            "$ref": "Extension.json"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Extension"
          }
       },
       "mappings": {
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "Mapping.json"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Mapping"
          }
       },
       "aliases": {
@@ -41,32 +42,12 @@
       },
       "type": {
          "type": "string",
-         "const": "CombinationTherapy",
-         "default": "CombinationTherapy",
-         "description": "MUST be \"CombinationTherapy\"."
-      },
-      "components": {
-         "type": "array",
-         "ordered": false,
-         "description": "The individual therapeutic procedure components that constitute the combination therapy.",
-         "items": {
-            "anyOf": [
-               {
-                  "$ref": "TherapeuticSubstituteGroup.json"
-               },
-               {
-                  "$ref": "TherapeuticAction.json"
-               },
-               {
-                  "$ref": "TherapeuticAgent.json"
-               }
-            ]
-         },
-         "minItems": 2
+         "const": "TherapeuticAgent",
+         "default": "TherapeuticAgent",
+         "description": "MUST be \"TherapeuticAgent\"."
       }
    },
    "required": [
-      "components",
       "type"
    ],
    "additionalProperties": false

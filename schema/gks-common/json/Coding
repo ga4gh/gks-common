@@ -1,5 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/json/Coding",
    "title": "Coding",
    "type": "object",
    "maturity": "draft",
@@ -18,7 +19,7 @@
          "description": "Version of the terminology system."
       },
       "code": {
-         "$ref": "Code.json",
+         "$ref": "/ga4gh/schema/gks-common/1.x/json/Code",
          "description": "Symbol in syntax defined by the terminology system."
       }
    },

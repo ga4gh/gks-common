@@ -1,9 +1,10 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "title": "TherapeuticAgent",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/json/TherapeuticAction",
+   "title": "TherapeuticAction",
    "type": "object",
    "maturity": "draft",
-   "description": "An administered therapeutic agent that is intended to alter or stop a pathologic process.",
+   "description": "A therapeutic action taken that is intended to alter or stop a pathologic process.",
    "properties": {
       "id": {
          "type": "string",
@@ -21,14 +22,14 @@
          "type": "array",
          "ordered": true,
          "items": {
-            "$ref": "Extension.json"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Extension"
          }
       },
       "mappings": {
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "Mapping.json"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Mapping"
          }
       },
       "aliases": {
@@ -41,9 +42,9 @@
       },
       "type": {
          "type": "string",
-         "const": "TherapeuticAgent",
-         "default": "TherapeuticAgent",
-         "description": "MUST be \"TherapeuticAgent\"."
+         "const": "TherapeuticAction",
+         "default": "TherapeuticAction",
+         "description": "MUST be \"TherapeuticAction\"."
       }
    },
    "required": [

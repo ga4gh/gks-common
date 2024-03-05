@@ -1,5 +1,5 @@
 $schema: "https://json-schema.org/draft/2020-12/schema"
-$id: "https://w3id.org/ga4gh/gks-common/genes-source.yaml"
+$id: "https://w3id.org/ga4gh/schema/gks-common/genes-source.yaml"
 title: GKS Common Library Gene Definition
 strict: true
 

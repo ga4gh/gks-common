@@ -1,4 +1,5 @@
-$schema: https://json-schema.org/draft/2020-12/schema
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://w3id.org/ga4gh/gks-common/core-source.yaml"
 title: GKS Common Library Core Definitions
 strict: true
 

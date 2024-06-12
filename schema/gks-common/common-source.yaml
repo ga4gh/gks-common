@@ -139,6 +139,7 @@ $defs:
           type: string
     heritableRequired:
       - type
+      
   Expression:
     type: object
     maturity: draft

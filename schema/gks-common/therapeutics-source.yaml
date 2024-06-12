@@ -4,13 +4,13 @@ title: GKS Common Library Therapeutics Definitions
 strict: true
 
 imports:
-  core: core-source.yaml
+  common: common-source.yaml
 
 $defs:
   TherapeuticProcedure:
-    inherits: core:DomainEntity
+    inherits: common:DomainEntity
     description: >-
-      An action or administration of therapeutic agents to produce an effect 
+      An action or administration of therapeutic agents to produce an effect
       that is intended to alter or stop a pathologic process.
     oneOf:
       - $ref: "#/$defs/CombinationTherapy"
@@ -51,7 +51,7 @@ $defs:
     maturity: draft
     inherits: TherapeuticProcedure
     description: >-
-      A therapeutic procedure that involves multiple different therapeutic procedures 
+      A therapeutic procedure that involves multiple different therapeutic procedures
       performed in combination.
     properties:
       type:

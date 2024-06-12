@@ -4,11 +4,11 @@ title: GKS Common Library Conditions Definitions
 strict: true
 
 imports:
-  core: core-source.yaml
+  common: common-source.yaml
 
 $defs:
   Condition:
-    inherits: core:DomainEntity
+    inherits: common:DomainEntity
     description: >-
       A disease or other medical disorder.
     oneOf:
@@ -44,7 +44,7 @@ $defs:
     maturity: draft
     inherits: Condition
     description: >-
-      A particular abnormal condition that negatively affects the structure or function 
+      A particular abnormal condition that negatively affects the structure or function
       of all or part of an organism and is not immediately due to any external injury.
     properties:
       type:

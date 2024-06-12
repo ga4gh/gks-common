@@ -2,7 +2,7 @@
    "$schema": "https://json-schema.org/draft/2020-12/schema",
    "$id": "https://w3id.org/ga4gh/schema/gks-common/json/TherapeuticProcedure",
    "title": "TherapeuticProcedure",
-   "description": "An action or administration of therapeutic agents to produce an effect  that is intended to alter or stop a pathologic process.",
+   "description": "An action or administration of therapeutic agents to produce an effect that is intended to alter or stop a pathologic process.",
    "oneOf": [
       {
          "$ref": "/ga4gh/schema/gks-common/json/CombinationTherapy"

@@ -4,11 +4,11 @@ title: GKS Common Library Gene Definition
 strict: true
 
 imports:
-  core: core-source.yaml
+  common: common-source.yaml
 
 $defs:
   Gene:
-    inherits: core:DomainEntity
+    inherits: common:DomainEntity
     maturity: draft
     description: >-
       A basic physical and functional unit of heredity.

@@ -16,9 +16,17 @@ $defs:
           The 'logical' identifier of the entity in the system of record, e.g. a UUID. This 'id' is
           unique within a given system. The identified entity may have a different 'id' in a different
           system, or may refer to an 'id' for the shared concept in another system (e.g. a CURIE).
+      identifiers: 
+        type: array
+        ordered: false
+        items: string
+        description >-
+          A 'business' identifier or accession number, typically provided by an external system or authority,
+          that is globally unique and used to connect entities across systems. A given Enitty may have many 
+          buisiness identifers defined by different systems, and captured in this 'identifiers' property.
       label:
         type: string
-        description: A primary label for the entity.
+        description: A primary name for the entity.
       description:
         type: string
         description: A free-text description of the entity.

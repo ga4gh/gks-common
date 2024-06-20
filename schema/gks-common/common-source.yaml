@@ -28,16 +28,6 @@ $defs:
         items:
           $ref: "#/$defs/Extension"
 
-  MappableEntity:
-    inherits: Entity
-    description: an Entity that is mappable to codings in other terminology systems.
-    heritableProperties:
-      mappings:
-        type: array
-        ordered: false
-        items:
-          $ref: "#/$defs/Mapping"
-
   Coding:
     type: object
     maturity: draft
@@ -59,12 +49,11 @@ $defs:
       - system
       - code
 
-  Mapping:
+  ConceptMapping:
     type: object
-    inherits: Entity
     maturity: draft
     description: >-
-      A mapping to a concept in a terminology system.
+      A mapping to a concept in a terminology or code system.
     properties:
       coding:
         $ref: '#/$defs/Coding'
@@ -126,10 +115,12 @@ $defs:
     format: iri-reference
 
   DomainEntity:
-    inherits: MappableEntity
+    inherits: Entity
     description: >-
-      An Entity that is specific to a particular biomedical domain such as disease, therapeutics,
-      or genes.
+      An Entity that is specific to a particular biomedical domain such as disease, therapeutics, or genes.
+      Domain Entities are considerd as 'concept-level' entities, as opposed to particular instances. e.g. 
+      'Lung Cancer', not 'patient123's lung cancer'. Or 'Erlotinib', not the particular doses given to a 
+      patient on a specific occasion.
     heritableProperties:
       type:
         type: string
@@ -139,6 +130,11 @@ $defs:
         type: array
         items:
           type: string
+      mappings:
+        type: array
+        ordered: false
+        items:
+          $ref: "#/$defs/ConceptMapping"
     heritableRequired:
       - type
       

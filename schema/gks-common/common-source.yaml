@@ -22,6 +22,11 @@ $defs:
       description:
         type: string
         description: A free-text description of the entity.
+      mappings:
+        type: array
+        ordered: false
+        items:
+          $ref: "#/$defs/ConceptMapping"
       extensions:
         type: array
         ordered: true
@@ -130,11 +135,6 @@ $defs:
         type: array
         items:
           type: string
-      mappings:
-        type: array
-        ordered: false
-        items:
-          $ref: "#/$defs/ConceptMapping"
     heritableRequired:
       - type
       

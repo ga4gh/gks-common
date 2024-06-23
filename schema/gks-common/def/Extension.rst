@@ -21,8 +21,12 @@ The Extension class provides entities with a means to include additional attribu
        *  - name
           - string
           - 1..1
-          - A name for the Extension
+          - A name for the Extension. Should be indicative of its meaning and/or the type of  information it value represents.
        *  - value
           - ['number', 'string', 'boolean', 'object', 'array', 'null']
+          - 1..1
+          - The value of the Extension - can be any primitive or structured object
+       *  - extensionDescription
+          - string
           - 0..1
-          - Any primitive or structured object
+          - A description of the meaning or utility of the Extension, to explain  the type of information it is meant to hold. 

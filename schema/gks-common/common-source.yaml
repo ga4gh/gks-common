@@ -18,7 +18,7 @@ $defs:
           system, or may refer to an 'id' for the shared concept in another system (e.g. a CURIE).
       label:
         type: string
-        description: A primary label for the entity.
+        description: A primary name for the entity.
       description:
         type: string
         description: A free-text description of the entity.
@@ -27,11 +27,17 @@ $defs:
         ordered: false
         items:
           $ref: "#/$defs/ConceptMapping"
+        description: >-
+          A list of mappings to concepts in terminologies or code systems. Each mapping should
+          include a coding and a relation.
       extensions:
         type: array
         ordered: true
         items:
           $ref: "#/$defs/Extension"
+        description: >-
+          A list of extensions to the entity. Extensions are not expected to be natively understood,
+          but may be used for pre-negotiated exchange of message attributes between systems.
 
   Coding:
     type: object
@@ -71,6 +77,8 @@ $defs:
     properties:
       coding:
         $ref: '#/$defs/Coding'
+        description: >-
+          A structured representation of a code for a defined concept in a terminology or code system.
       relation:
         description: >-
           A mapping relation between concepts as defined by the Simple Knowledge Organization System (SKOS).
@@ -148,7 +156,7 @@ $defs:
       type:
         type: string
       aliases:
-        description: Aliases are alternate labels for a Domain Entity.
+        description: Aliases are alternate names for a Domain Entity.
         ordered: false
         type: array
         items:
@@ -167,10 +175,18 @@ $defs:
       syntax:
         type: string
         enum: ["hgvs.c", "hgvs.p", "hgvs.g", "hgvs.m", "hgvs.n", "hgvs.r", "iscn", "gnomad", "spdi"]
+        description: >-
+          The syntax used to describe the variation. The value should be one of the supported syntaxes.
       value:
         type: string
+        description: >-
+          The expression of the variation in the specified syntax. The value should be a valid
+          expression in the specified syntax.
       syntax_version:
         type: string
+        description: >-
+          The version of the syntax used to describe the variation. This is particularly important for
+          HGVS expressions, as the syntax has evolved over time.
     required:
       - syntax
       - value

@@ -13,7 +13,7 @@
       },
       "name": {
          "type": "string",
-         "description": "A name for the Extension"
+         "description": "A name for the Extension. Should be indicative of its meaning and/or the type of  information it value represents."
       },
       "value": {
          "type": [
@@ -24,11 +24,16 @@
             "array",
             "null"
          ],
-         "description": "Any primitive or structured object"
+         "description": "The value of the Extension - can be any primitive or structured object"
+      },
+      "extensionDescription": {
+         "type": "string",
+         "description": "A description of the meaning or utility of the Extension, to explain  the type of information it is meant to hold. "
       }
    },
    "required": [
-      "name"
+      "name",
+      "value"
    ],
    "additionalProperties": false
 }

@@ -4,23 +4,23 @@
    "title": "Coding",
    "type": "object",
    "maturity": "draft",
-   "description": "a concept codified by a terminology system.",
+   "description": "A structured representation of a code for a defined concept in a terminology or code system.",
    "properties": {
       "label": {
          "type": "string",
-         "description": "A primary label for the coding."
+         "description": "The human-readable name for the coded concept, as defined by the code system."
       },
       "system": {
          "type": "string",
-         "description": "Identity of the terminology system."
+         "description": "The terminology/code system that defined the code. May be reported as a free-text name (e.g. \u2018Sequence Ontology\u2019), but it is preferrable to provide a uri/url for the system.  When the 'code' is reported as a CURIE, the 'system' should be reported as the uri that  the CURIE's prefix expands to (e.g. 'http://purl.obofoundry.org/so.owl/' for the  Sequence Ontology)."
       },
       "version": {
          "type": "string",
-         "description": "Version of the terminology system."
+         "description": "Version of the terminology or code system that provided the code."
       },
       "code": {
          "$ref": "/ga4gh/schema/gks-common/1.x/json/Code",
-         "description": "Symbol in syntax defined by the terminology system."
+         "description": "A symbol uniquely identifying the concept, as in a syntax defined by the code system.   CURIE format is preferred where possible (e.g. \u2018SO:0000704\u2019 is the CURIE form of the  Sequence Ontology code for 'gene')."
       }
    },
    "required": [

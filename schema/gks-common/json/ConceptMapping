@@ -1,0 +1,30 @@
+{
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/json/ConceptMapping",
+   "title": "ConceptMapping",
+   "type": "object",
+   "maturity": "draft",
+   "description": "A mapping to a concept in a terminology or code system.",
+   "properties": {
+      "coding": {
+         "$ref": "/ga4gh/schema/gks-common/1.x/json/Coding",
+         "description": "A structured representation of a code for a defined concept in a terminology or code system."
+      },
+      "relation": {
+         "description": "A mapping relation between concepts as defined by the Simple Knowledge Organization System (SKOS).",
+         "type": "string",
+         "enum": [
+            "closeMatch",
+            "exactMatch",
+            "broadMatch",
+            "narrowMatch",
+            "relatedMatch"
+         ]
+      }
+   },
+   "required": [
+      "coding",
+      "relation"
+   ],
+   "additionalProperties": false
+}

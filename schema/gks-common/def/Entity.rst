@@ -21,12 +21,16 @@ Entity is the root class of 'common' classes model - those that have identifiers
        *  - label
           - string
           - 0..1
-          - A primary label for the entity.
+          - A primary name for the entity.
        *  - description
           - string
           - 0..1
           - A free-text description of the entity.
+       *  - mappings
+          - :ref:`ConceptMapping`
+          - 0..m
+          - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.
        *  - extensions
           - :ref:`Extension`
           - 0..m
-          - 
+          - A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.

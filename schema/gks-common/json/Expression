@@ -18,13 +18,16 @@
             "iscn",
             "gnomad",
             "spdi"
-         ]
+         ],
+         "description": "The syntax used to describe the variation. The value should be one of the supported syntaxes."
       },
       "value": {
-         "type": "string"
+         "type": "string",
+         "description": "The expression of the variation in the specified syntax. The value should be a valid expression in the specified syntax."
       },
       "syntax_version": {
-         "type": "string"
+         "type": "string",
+         "description": "The version of the syntax used to describe the variation. This is particularly important for HGVS expressions, as the syntax has evolved over time."
       }
    },
    "required": [

@@ -36,20 +36,29 @@ $defs:
   Coding:
     type: object
     maturity: draft
-    description: a concept codified by a terminology system.
+    description: >-
+      A structured representation of a code for a defined concept in a terminology or code system.
     properties:
       label:
         type: string
-        description: A primary label for the coding.
+        description: The human-readable name for the coded concept, as defined by the code system. 
       system:
         type: string
-        description: Identity of the terminology system.
+        description: >-
+          The terminology/code system that defined the code. May be reported as a free-text name
+          (e.g. ‘Sequence Ontology’), but it is preferrable to provide a uri/url for the system. 
+          When the 'code' is reported as a CURIE, the 'system' should be reported as the uri that 
+          the CURIE's prefix expands to (e.g. 'http://purl.obofoundry.org/so.owl/' for the 
+          Sequence Ontology).
       version:
         type: string
-        description: Version of the terminology system.
+        description: Version of the terminology or code system that provided the code.
       code:
         $ref: '#/$defs/Code'
-        description: Symbol in syntax defined by the terminology system.
+        description: >-
+          A symbol uniquely identifying the concept, as in a syntax defined by the code system.  
+          CURIE format is preferred where possible (e.g. ‘SO:0000704’ is the CURIE form of the 
+          Sequence Ontology code for 'gene').
     required:
       - system
       - code
@@ -93,11 +102,20 @@ $defs:
         description: MUST be "Extension".
       name:
         type: string
-        description: A name for the Extension
+        description: >-
+          A name for the Extension. Should be indicative of its meaning and/or the type of 
+          information it value represents.
       value:
         type: [ "number", "string", "boolean", "object", "array", "null" ]
-        description: Any primitive or structured object
-    required: [ "name" ]
+        description: The value of the Extension - can be any primitive or structured object
+      extensionDescription:
+        type: string
+        description: >-
+          A description of the meaning or utility of the Extension, to explain 
+          the type of information it is meant to hold. 
+    required: 
+      - name
+      - value
 
   Code:
     maturity: draft

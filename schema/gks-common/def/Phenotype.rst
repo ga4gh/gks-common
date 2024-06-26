@@ -23,7 +23,7 @@ Some Phenotype attributes are inherited from :ref:`common:DomainEntity`.
        *  - label
           - string
           - 0..1
-          - A primary label for the entity.
+          - A primary name for the entity.
        *  - description
           - string
           - 0..1
@@ -39,7 +39,7 @@ Some Phenotype attributes are inherited from :ref:`common:DomainEntity`.
        *  - aliases
           - string
           - 0..m
-          - Aliases are alternate labels for a Domain Entity.
+          - Aliases are alternate names for a Domain Entity.
        *  - type
           - string
           - 1..1

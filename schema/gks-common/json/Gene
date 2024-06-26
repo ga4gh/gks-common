@@ -12,7 +12,7 @@
       },
       "label": {
          "type": "string",
-         "description": "A primary label for the entity."
+         "description": "A primary name for the entity."
       },
       "description": {
          "type": "string",
@@ -41,7 +41,7 @@
          "description": "MUST be \"Gene\""
       },
       "aliases": {
-         "description": "Aliases are alternate labels for a Domain Entity.",
+         "description": "Aliases are alternate names for a Domain Entity.",
          "ordered": false,
          "type": "array",
          "items": {

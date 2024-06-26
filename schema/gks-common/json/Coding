@@ -12,7 +12,7 @@
       },
       "system": {
          "type": "string",
-         "description": "The terminology/code system that defined the code. May be reported as a free-text name (e.g. \u2018Sequence Ontology\u2019), but it is preferrable to provide a uri/url for the system.  When the 'code' is reported as a CURIE, the 'system' should be reported as the uri that  the CURIE's prefix expands to (e.g. 'http://purl.obofoundry.org/so.owl/' for the  Sequence Ontology)."
+         "description": "The terminology/code system that defined the code. May be reported as a free-text name (e.g. 'Sequence Ontology'), but it is preferable to provide a uri/url for the system. When the 'code' is reported as a CURIE, the 'system' should be reported as the uri that the CURIE's prefix expands to (e.g. 'http://purl.obofoundry.org/so.owl/' for the Sequence Ontology)."
       },
       "version": {
          "type": "string",
@@ -20,7 +20,7 @@
       },
       "code": {
          "$ref": "/ga4gh/schema/gks-common/1.x/json/Code",
-         "description": "A symbol uniquely identifying the concept, as in a syntax defined by the code system.   CURIE format is preferred where possible (e.g. \u2018SO:0000704\u2019 is the CURIE form of the  Sequence Ontology code for 'gene')."
+         "description": "A symbol uniquely identifying the concept, as in a syntax defined by the code system. CURIE format is preferred where possible (e.g. 'SO:0000704' is the CURIE form of the Sequence Ontology code for 'gene')."
       }
    },
    "required": [

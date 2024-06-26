@@ -1,6 +1,6 @@
 **Computational Definition**
 
-An Entity that is specific to a particular biomedical domain such as disease, therapeutics, or genes. Domain Entities are considerd as 'concept-level' entities, as opposed to particular instances. e.g.  'Lung Cancer', not 'patient123's lung cancer'. Or 'Erlotinib', not the particular doses given to a  patient on a specific occasion.
+An Entity that is specific to a particular biomedical domain such as disease, therapeutics, or genes. Domain Entities are considered as 'concept-level' entities, as opposed to particular instances. e.g. 'Lung Cancer', not 'patient123's lung cancer'. Or 'Erlotinib', not the particular doses given to a patient on a specific occasion.
 
     **Information Model**
     

@@ -6,11 +6,6 @@
    "maturity": "draft",
    "description": "The Extension class provides entities with a means to include additional attributes that are outside of the specified standard but needed by a given content provider or system implementer. These extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.",
    "properties": {
-      "type": {
-         "type": "string",
-         "const": "Extension",
-         "description": "MUST be \"Extension\"."
-      },
       "name": {
          "type": "string",
          "description": "A name for the Extension. Should be indicative of its meaning and/or the type of information it value represents."
@@ -26,7 +21,7 @@
          ],
          "description": "The value of the Extension - can be any primitive or structured object"
       },
-      "extensionDescription": {
+      "description": {
          "type": "string",
          "description": "A description of the meaning or utility of the Extension, to explain the type of information it is meant to hold."
       }

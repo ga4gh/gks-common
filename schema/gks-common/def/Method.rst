@@ -1,10 +1,10 @@
 **Computational Definition**
 
-An observable characteristic or trait of an organism.
+A set of instructions that specify how to achieve some objective (e.g. experimental protocols, curation guidelines, rule sets, etc.)
 
     **Information Model**
     
-Some Phenotype attributes are inherited from :ref:`common:DomainEntity`.
+Some Method attributes are inherited from :ref:`Entity`.
 
     .. list-table::
        :class: clean-wrap
@@ -33,14 +33,22 @@ Some Phenotype attributes are inherited from :ref:`common:DomainEntity`.
           - 0..m
           - Alternative name(s) for the Entity.
        *  - extensions
-          - `Extension <common.json#/$defs/Extension>`_
+          - :ref:`Extension`
           - 0..m
           - A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.
-       *  - mappings
-          - `ConceptMapping <common.json#/$defs/ConceptMapping>`_
-          - 0..m
-          - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.
        *  - type
           - string
-          - 1..1
-          - MUST be "Phenotype".
+          - 0..1
+          - MUST be "Method".
+       *  - isReportedIn
+          - :ref:`IRI` | :ref:`Document`
+          - 0..1
+          - 
+       *  - subtype
+          - :ref:`Coding`
+          - 0..1
+          - A more specific type of entity the method represents (e.g. Variant Interpretation Guideline, Experimental Protocol)
+       *  - license
+          - string
+          - 0..1
+          - A particular license that dictates legal permissions for how a published method (e.g. an experimental protocol, workflow specification, curation guideline) can be used.

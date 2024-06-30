@@ -28,10 +28,10 @@ Some DomainEntity attributes are inherited from :ref:`Entity`.
           - string
           - 0..1
           - A free-text description of the entity.
-       *  - mappings
-          - :ref:`ConceptMapping`
+       *  - alternativeLabels
+          - string
           - 0..m
-          - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.
+          - Alternative name(s) for the Entity.
        *  - extensions
           - :ref:`Extension`
           - 0..m
@@ -40,7 +40,7 @@ Some DomainEntity attributes are inherited from :ref:`Entity`.
           - string
           - 1..1
           - 
-       *  - aliases
-          - string
+       *  - mappings
+          - :ref:`ConceptMapping`
           - 0..m
-          - Aliases are alternate names for a Domain Entity.
+          - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.

@@ -6,7 +6,7 @@ strict: true
 $defs:
   Entity:
     description: >-
-      Entity is the root class of 'common' classes model - those that have identifiers and other general
+      Entity is the root class of the 'gks-common' classes model - those that have identifiers and other general
       metadata like labels, xrefs, urls, descriptions, etc. All common classes descend from and inherit
       its attributes.
     heritableProperties:
@@ -22,14 +22,12 @@ $defs:
       description:
         type: string
         description: A free-text description of the entity.
-      mappings:
+      alternativeLabels:
         type: array
         ordered: false
         items:
-          $ref: "#/$defs/ConceptMapping"
-        description: >-
-          A list of mappings to concepts in terminologies or code systems. Each mapping should
-          include a coding and a relation.
+          type: string
+        description: Alternative name(s) for the Entity.
       extensions:
         type: array
         ordered: true
@@ -38,6 +36,225 @@ $defs:
         description: >-
           A list of extensions to the entity. Extensions are not expected to be natively understood,
           but may be used for pre-negotiated exchange of message attributes between systems.
+
+  DomainEntity:
+    inherits: Entity
+    description: >-
+      An Entity that is specific to a particular biomedical domain such as disease, therapeutics, or genes.
+      Domain Entities are considered as 'concept-level' entities, as opposed to particular instances. e.g.
+      'Lung Cancer', not 'patient123's lung cancer'. Or 'Erlotinib', not the particular doses given to a
+      patient on a specific occasion.
+    heritableProperties:
+      type:
+        type: string
+      mappings:
+        type: array
+        ordered: false
+        items:
+          $ref: "#/$defs/ConceptMapping"
+        description: >-
+          A list of mappings to concepts in terminologies or code systems. Each mapping should
+          include a coding and a relation.
+    heritableRequired:
+      - type
+
+  InformationEntity:
+    inherits: Entity
+    description: >-
+      InformationEntities are abstract (non-physical) entities that are about something (i.e. they carry
+      information about things in the real world).
+    heritableProperties:
+      type:
+        type: string
+      specifiedBy:
+        oneOf:
+        - $ref: "#/$defs/Method"
+        - $ref: "#/$defs/IRI"
+        description: >-
+          A :ref:`Method` that describes all or part of the process through which the information was
+          generated.
+      contributions:
+        type: array
+        ordered: true
+        items:
+          $ref: "#/$defs/Contribution"
+        description: >-
+          A list of :ref:`Contribution` objects that describe the activities performed by agents upon this entity.
+      isReportedIn:
+        type: array
+        ordered: false
+        items:
+          oneOf:
+          - $ref: "#/$defs/Document"
+          - $ref: "#/$defs/IRI"
+        description: A document in which the information content is expressed.
+      dateAuthored:
+        type: string
+        format: datetime
+        description: Indicates when the information content expressed in the Information Entity was generated.
+      derivedFrom:
+        type: array
+        ordered: false
+        items:
+          $ref: "#/$defs/InformationEntity"
+        description: Another Information Entity from which this Information Entity is derived, in whole or in part.
+      recordMetadata:
+        type: "#/$defs/RecordMetadata"
+        description: Metadata that applies to a specific concrete record of information as encoded in a particular system.
+    heritableRequired:
+      - id
+      - type
+
+  Contribution:
+    type: object
+    inherits: Entity
+    maturity: draft
+    description: >-
+      An action taken by an agent in contributing to the creation, modification, assessment, or
+      deprecation of a particular entity (e.g. a Statement, EvidenceLine, DataItem, Publication, etc.)
+    properties:
+      type:
+        type: string
+        const: Contribution
+        default: Contribution
+        description: MUST be "Contribution".
+      contributor:
+        $ref: "#/$defs/Agent"
+        description: >-
+          The agent that made the contribution.
+      date:
+        type: string
+        format: date
+        description: >-
+          The date on which the contribution was made. The date SHOULD be formatted as a date string
+          in ISO format "YYYY-MM-DD".
+      contributionMadeTo:
+        $ref: "#/$defs/InformationEntity"
+        description: The artifact toward which the contribution was made.
+      activity:
+        $ref: "#/$defs/Coding"
+        description: >-
+          SHOULD describe a concept descending from the Contributor Role Ontology.
+
+  Agent:
+    type: object
+    inherits: Entity
+    maturity: draft
+    description: >-
+      An autonomous actor (person, organization, or computational agent) that bears some form
+      of responsibility for an activity taking place, for the existence of an entity, or for
+      another agent's activity.
+    properties:
+      type:
+        type: string
+        const: Agent
+        default: Agent
+        description: MUST be "Agent".
+      name:
+        type: string
+        description: The descriptive name of the agent.
+      subtype:
+        type: string
+        description: A more specific type of agent the agent represents.
+        enum:
+          - person
+          - organization
+          - computer
+
+  Document:
+    type: object
+    inherits: InformationEntity
+    maturity: draft
+    description: a representation of a physical or digital document
+    properties:
+      type:
+        type: string
+        const: Document
+        default: Document
+        description: Must be "Document"
+      subtype:
+        $ref: "#/$defs/Coding"
+        description: >-
+          A more specific type for the document (e.g. a publication, patent, pathology report)
+      title:
+        type: string
+        description: The title of the Document
+      url:
+        type: string
+        description: A URL at which the document may be retrieved.
+        format: uri
+        pattern: "^(https?|s?ftp)://"
+      doi:
+        type: string
+        pattern: "^10.(\\d+)(\\.\\d+)*/[\\w\\-\\.]+"
+        description: >-
+          A `Digital Object Identifier <https://www.doi.org/the-identifier/what-is-a-doi/>_`
+          for the document.
+      pmid:
+        type: integer
+        description: A `PubMed unique identifier <https://en.wikipedia.org/wiki/PubMed#PubMed_identifier>`_.
+
+  Method:
+    type: object
+    inherits: Entity
+    maturity: draft
+    description: >-
+      A set of instructions that specify how to achieve some objective (e.g. experimental protocols,
+      curation guidelines, rule sets, etc.)
+    properties:
+      type:
+        type: string
+        const: Method
+        default: Method
+        description: MUST be "Method".
+      isReportedIn:
+        oneOf:
+        - $ref: "#/$defs/IRI"
+        - $ref: "#/$defs/Document"
+      subtype:
+        $ref: "#/$defs/Coding"
+        description: >-
+          A more specific type of entity the method represents (e.g. Variant Interpretation Guideline,
+          Experimental Protocol)
+      license:
+        type: string
+        description: >-
+          A particular license that dictates legal permissions for how a published method (e.g. an
+          experimental protocol, workflow specification, curation guideline) can be used.
+
+# below are all Utility type classes that do not inherit from Entity and are not typed explicitly
+
+  RecordMetadata:
+    type: object
+    maturity: draft
+    description: >-
+      A reusable structure that encapsulates provenance metadata about a serialized data record or
+      object in a particular dataset (as opposed to provenance about the real world entity this
+      record or object represents).
+    properties:
+      recordIdentifier:
+        type: string
+        description: >-
+          The business identifier of the record described in the RecordMetadata object (required
+          when the record described is not the one in the present system)
+      recordVersion:
+        type: string
+        description: The version number of the record-level artifact the object describes.
+      derivedFrom:
+        type: string
+        description: Another data record from which the record described here was derived.
+      dateRecordCreated:
+        type: string
+        format: datetime
+        description: The date the record was initially created.
+      contributions:
+        type: array
+        ordered: false
+        items:
+          $ref: '#/$defs/Contribution'
+        description: >-
+          Describes specific contributions made by an human or software agent to the creation,
+          modification, or administrative management of a data record or object.
 
   Coding:
     type: object
@@ -104,10 +321,6 @@ $defs:
       may be used for pre-negotiated exchange of message attributes
       between systems.
     properties:
-      type:
-        type: string
-        const: Extension
-        description: MUST be "Extension".
       name:
         type: string
         description: >-
@@ -116,7 +329,7 @@ $defs:
       value:
         type: [ "number", "string", "boolean", "object", "array", "null" ]
         description: The value of the Extension - can be any primitive or structured object
-      extensionDescription:
+      description:
         type: string
         description: >-
           A description of the meaning or utility of the Extension, to explain
@@ -145,25 +358,6 @@ $defs:
     type: string
     format: iri-reference
 
-  DomainEntity:
-    inherits: Entity
-    description: >-
-      An Entity that is specific to a particular biomedical domain such as disease, therapeutics, or genes.
-      Domain Entities are considered as 'concept-level' entities, as opposed to particular instances. e.g.
-      'Lung Cancer', not 'patient123's lung cancer'. Or 'Erlotinib', not the particular doses given to a
-      patient on a specific occasion.
-    heritableProperties:
-      type:
-        type: string
-      aliases:
-        description: Aliases are alternate names for a Domain Entity.
-        ordered: false
-        type: array
-        items:
-          type: string
-    heritableRequired:
-      - type
-
   Expression:
     type: object
     maturity: draft
@@ -190,3 +384,5 @@ $defs:
     required:
       - syntax
       - value
+
+

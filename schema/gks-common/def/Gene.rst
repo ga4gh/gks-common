@@ -28,10 +28,10 @@ Some Gene attributes are inherited from :ref:`common:DomainEntity`.
           - string
           - 0..1
           - A free-text description of the entity.
-       *  - mappings
-          - `ConceptMapping <common.json#/$defs/ConceptMapping>`_
+       *  - alternativeLabels
+          - string
           - 0..m
-          - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.
+          - Alternative name(s) for the Entity.
        *  - extensions
           - `Extension <common.json#/$defs/Extension>`_
           - 0..m
@@ -40,7 +40,7 @@ Some Gene attributes are inherited from :ref:`common:DomainEntity`.
           - string
           - 1..1
           - MUST be "Gene"
-       *  - aliases
-          - string
+       *  - mappings
+          - `ConceptMapping <common.json#/$defs/ConceptMapping>`_
           - 0..m
-          - Aliases are alternate names for a Domain Entity.
+          - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.

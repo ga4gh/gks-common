@@ -1,10 +1,10 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-common/json/CombinationTherapy",
-   "title": "CombinationTherapy",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/json/Method",
+   "title": "Method",
    "type": "object",
    "maturity": "draft",
-   "description": "A therapeutic procedure that involves multiple different therapeutic procedures performed in combination.",
+   "description": "A set of instructions that specify how to achieve some objective (e.g. experimental protocols, curation guidelines, rule sets, etc.)",
    "properties": {
       "id": {
          "type": "string",
@@ -34,43 +34,31 @@
          },
          "description": "A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems."
       },
-      "mappings": {
-         "type": "array",
-         "ordered": false,
-         "items": {
-            "$ref": "/ga4gh/schema/gks-common/1.x/json/ConceptMapping"
-         },
-         "description": "A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation."
-      },
       "type": {
          "type": "string",
-         "const": "CombinationTherapy",
-         "default": "CombinationTherapy",
-         "description": "MUST be \"CombinationTherapy\"."
+         "const": "Method",
+         "default": "Method",
+         "description": "MUST be \"Method\"."
       },
-      "components": {
-         "type": "array",
-         "ordered": false,
-         "description": "The individual therapeutic procedure components that constitute the combination therapy.",
-         "items": {
-            "anyOf": [
-               {
-                  "$ref": "/ga4gh/schema/gks-common/json/TherapeuticSubstituteGroup"
-               },
-               {
-                  "$ref": "/ga4gh/schema/gks-common/json/TherapeuticAction"
-               },
-               {
-                  "$ref": "/ga4gh/schema/gks-common/json/TherapeuticAgent"
-               }
-            ]
-         },
-         "minItems": 2
+      "isReportedIn": {
+         "oneOf": [
+            {
+               "$ref": "/ga4gh/schema/gks-common/1.x/json/Document"
+            },
+            {
+               "$ref": "/ga4gh/schema/gks-common/1.x/json/IRI"
+            }
+         ]
+      },
+      "subtype": {
+         "$ref": "/ga4gh/schema/gks-common/1.x/json/Coding",
+         "description": "A more specific type of entity the method represents (e.g. Variant Interpretation Guideline, Experimental Protocol)"
+      },
+      "license": {
+         "type": "string",
+         "description": "A particular license that dictates legal permissions for how a published method (e.g. an experimental protocol, workflow specification, curation guideline) can be used."
       }
    },
-   "required": [
-      "components",
-      "type"
-   ],
+   "required": [],
    "additionalProperties": false
 }

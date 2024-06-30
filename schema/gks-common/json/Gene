@@ -18,13 +18,13 @@
          "type": "string",
          "description": "A free-text description of the entity."
       },
-      "mappings": {
+      "alternativeLabels": {
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "/ga4gh/schema/gks-common/1.x/json/ConceptMapping"
+            "type": "string"
          },
-         "description": "A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation."
+         "description": "Alternative name(s) for the Entity."
       },
       "extensions": {
          "type": "array",
@@ -40,13 +40,13 @@
          "default": "Gene",
          "description": "MUST be \"Gene\""
       },
-      "aliases": {
-         "description": "Aliases are alternate names for a Domain Entity.",
-         "ordered": false,
+      "mappings": {
          "type": "array",
+         "ordered": false,
          "items": {
-            "type": "string"
-         }
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/ConceptMapping"
+         },
+         "description": "A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation."
       }
    },
    "required": [

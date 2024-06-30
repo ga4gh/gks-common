@@ -1,10 +1,10 @@
 **Computational Definition**
 
-An observable characteristic or trait of an organism.
+An action taken by an agent in contributing to the creation, modification, assessment, or deprecation of a particular entity (e.g. a Statement, EvidenceLine, DataItem, Publication, etc.)
 
     **Information Model**
     
-Some Phenotype attributes are inherited from :ref:`common:DomainEntity`.
+Some Contribution attributes are inherited from :ref:`Entity`.
 
     .. list-table::
        :class: clean-wrap
@@ -33,14 +33,26 @@ Some Phenotype attributes are inherited from :ref:`common:DomainEntity`.
           - 0..m
           - Alternative name(s) for the Entity.
        *  - extensions
-          - `Extension <common.json#/$defs/Extension>`_
+          - :ref:`Extension`
           - 0..m
           - A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.
-       *  - mappings
-          - `ConceptMapping <common.json#/$defs/ConceptMapping>`_
-          - 0..m
-          - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.
        *  - type
           - string
-          - 1..1
-          - MUST be "Phenotype".
+          - 0..1
+          - MUST be "Contribution".
+       *  - contributor
+          - :ref:`Agent`
+          - 0..1
+          - The agent that made the contribution.
+       *  - date
+          - string
+          - 0..1
+          - The date on which the contribution was made. The date SHOULD be formatted as a date string in ISO format "YYYY-MM-DD".
+       *  - contributionMadeTo
+          - :ref:`InformationEntity`
+          - 0..1
+          - The artifact toward which the contribution was made.
+       *  - activity
+          - :ref:`Coding`
+          - 0..1
+          - SHOULD describe a concept descending from the Contributor Role Ontology.

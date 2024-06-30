@@ -14,10 +14,6 @@ The Extension class provides entities with a means to include additional attribu
           - Type
           - Limits
           - Description
-       *  - type
-          - string
-          - 0..1
-          - MUST be "Extension".
        *  - name
           - string
           - 1..1
@@ -26,7 +22,7 @@ The Extension class provides entities with a means to include additional attribu
           - ['number', 'string', 'boolean', 'object', 'array', 'null']
           - 1..1
           - The value of the Extension - can be any primitive or structured object
-       *  - extensionDescription
+       *  - description
           - string
           - 0..1
           - A description of the meaning or utility of the Extension, to explain the type of information it is meant to hold.

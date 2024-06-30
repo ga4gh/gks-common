@@ -1,6 +1,6 @@
 **Computational Definition**
 
-Entity is the root class of 'common' classes model - those that have identifiers and other general metadata like labels, xrefs, urls, descriptions, etc. All common classes descend from and inherit its attributes.
+Entity is the root class of the 'gks-common' classes model - those that have identifiers and other general metadata like labels, xrefs, urls, descriptions, etc. All common classes descend from and inherit its attributes.
 
     **Information Model**
     
@@ -26,10 +26,10 @@ Entity is the root class of 'common' classes model - those that have identifiers
           - string
           - 0..1
           - A free-text description of the entity.
-       *  - mappings
-          - :ref:`ConceptMapping`
+       *  - alternativeLabels
+          - string
           - 0..m
-          - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.
+          - Alternative name(s) for the Entity.
        *  - extensions
           - :ref:`Extension`
           - 0..m

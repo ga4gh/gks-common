@@ -1,10 +1,10 @@
 **Computational Definition**
 
-An observable characteristic or trait of an organism.
+An autonomous actor (person, organization, or computational agent) that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.
 
     **Information Model**
     
-Some Phenotype attributes are inherited from :ref:`common:DomainEntity`.
+Some Agent attributes are inherited from :ref:`Entity`.
 
     .. list-table::
        :class: clean-wrap
@@ -33,14 +33,18 @@ Some Phenotype attributes are inherited from :ref:`common:DomainEntity`.
           - 0..m
           - Alternative name(s) for the Entity.
        *  - extensions
-          - `Extension <common.json#/$defs/Extension>`_
+          - :ref:`Extension`
           - 0..m
           - A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.
-       *  - mappings
-          - `ConceptMapping <common.json#/$defs/ConceptMapping>`_
-          - 0..m
-          - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.
        *  - type
           - string
-          - 1..1
-          - MUST be "Phenotype".
+          - 0..1
+          - MUST be "Agent".
+       *  - name
+          - string
+          - 0..1
+          - The descriptive name of the agent.
+       *  - subtype
+          - string
+          - 0..1
+          - A more specific type of agent the agent represents.

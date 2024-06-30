@@ -1,11 +1,9 @@
 **Computational Definition**
 
-A group of therapeutic procedures that may be treated as substitutes for one another.
+Entity is the root class of the 'gks-common' core information model classes - those that have identifiers and other general metadata like labels, xrefs, urls, descriptions, etc. All common classes descend from and inherit its attributes.
 
     **Information Model**
     
-Some TherapeuticSubstituteGroup attributes are inherited from :ref:`common:DomainEntity`.
-
     .. list-table::
        :class: clean-wrap
        :header-rows: 1
@@ -33,18 +31,6 @@ Some TherapeuticSubstituteGroup attributes are inherited from :ref:`common:Domai
           - 0..m
           - Alternative name(s) for the Entity.
        *  - extensions
-          - `Extension <common.json#/$defs/Extension>`_
+          - :ref:`Extension`
           - 0..m
           - A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.
-       *  - mappings
-          - `ConceptMapping <common.json#/$defs/ConceptMapping>`_
-          - 0..m
-          - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.
-       *  - type
-          - string
-          - 1..1
-          - MUST be "TherapeuticSubstituteGroup".
-       *  - substitutes
-          - :ref:`TherapeuticAction` | :ref:`TherapeuticAgent`
-          - 2..m
-          - The individual therapeutic procedures that may be treated as substitutes.

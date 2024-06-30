@@ -1,14 +1,89 @@
 $schema: "https://json-schema.org/draft/2020-12/schema"
-$id: "https://w3id.org/ga4gh/schema/gks-common/therapeutics-source.yaml"
-title: GKS Common Library Therapeutics Definitions
+$id: "https://w3id.org/ga4gh/schema/gks-common/domain-entities-source.yaml"
+title: GKS Common Domain Entities Definitions
 strict: true
 
 imports:
-  common: common-source.yaml
+  gks.core: ../core-im/core-im-source.yaml
 
 $defs:
+# Condition related domain entities  
+  Condition:
+    inherits: gks.core:DomainEntity
+    description: >-
+      A disease or other medical disorder.
+    oneOf:
+      - $ref: "#/$defs/TraitSet"
+      - $ref: "#/$defs/Disease"
+      - $ref: "#/$defs/Phenotype"
+
+  TraitSet:
+    type: object
+    maturity: draft
+    description: >-
+      A set of phenotype and/or disease concepts that together constitute a condition.
+    inherits: Condition
+    properties:
+      type:
+        extends: type
+        const: TraitSet
+        default: TraitSet
+        description: MUST be "TraitSet".
+      traits:
+        type: array
+        ordered: false
+        items:
+          anyOf:
+            - $ref: "#/$defs/Disease"
+            - $ref: "#/$defs/Phenotype"
+        minItems: 2
+    required:
+      - traits
+
+  Disease:
+    type: object
+    maturity: draft
+    inherits: Condition
+    description: >-
+      A particular abnormal condition that negatively affects the structure or function
+      of all or part of an organism and is not immediately due to any external injury.
+    properties:
+      type:
+        extends: type
+        const: Disease
+        default: Disease
+        description: MUST be "Disease".
+
+  Phenotype:
+    type: object
+    maturity: draft
+    inherits: Condition
+    description: >-
+      An observable characteristic or trait of an organism.
+    properties:
+      type:
+        extends: type
+        const: Phenotype
+        default: Phenotype
+        description: MUST be "Phenotype".
+
+# Gene related domain entities
+  Gene:
+    inherits: gks.core:DomainEntity
+    maturity: draft
+    description: >-
+      A basic physical and functional unit of heredity.
+    type: object
+    properties:
+      type:
+        type: string
+        const: "Gene"
+        default: "Gene"
+        description: MUST be "Gene"
+
+# Therapeutic Procedures related domain entities
   TherapeuticProcedure:
-    inherits: common:DomainEntity
+    inherits: gks.core:DomainEntity
     description: >-
       An action or administration of therapeutic agents to produce an effect
       that is intended to alter or stop a pathologic process.
@@ -97,3 +172,4 @@ $defs:
         minItems: 2
     required:
       - substitutes
+  

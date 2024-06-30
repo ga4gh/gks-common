@@ -1,10 +1,10 @@
 **Computational Definition**
 
-A therapeutic procedure that involves multiple different therapeutic procedures performed in combination.
+An observable characteristic or trait of an organism.
 
     **Information Model**
     
-Some CombinationTherapy attributes are inherited from :ref:`common:DomainEntity`.
+Some Phenotype attributes are inherited from :ref:`gks.core:DomainEntity`.
 
     .. list-table::
        :class: clean-wrap
@@ -33,18 +33,14 @@ Some CombinationTherapy attributes are inherited from :ref:`common:DomainEntity`
           - 0..m
           - Alternative name(s) for the Entity.
        *  - extensions
-          - `Extension <common.json#/$defs/Extension>`_
+          - `Extension <../core-im/core.json#/$defs/Extension>`_
           - 0..m
           - A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.
        *  - mappings
-          - `ConceptMapping <common.json#/$defs/ConceptMapping>`_
+          - `ConceptMapping <../core-im/core.json#/$defs/ConceptMapping>`_
           - 0..m
           - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.
        *  - type
           - string
           - 1..1
-          - MUST be "CombinationTherapy".
-       *  - components
-          - :ref:`TherapeuticSubstituteGroup` | :ref:`TherapeuticAction` | :ref:`TherapeuticAgent`
-          - 2..m
-          - The individual therapeutic procedure components that constitute the combination therapy.
+          - MUST be "Phenotype".

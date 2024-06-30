@@ -1,10 +1,10 @@
-CombinationTherapy
 Gene
+TherapeuticSubstituteGroup
+CombinationTherapy
+TherapeuticAction
+Disease
+Condition
+TraitSet
 TherapeuticAgent
 Phenotype
 TherapeuticProcedure
-Condition
-TherapeuticAction
-TherapeuticSubstituteGroup
-TraitSet
-Disease

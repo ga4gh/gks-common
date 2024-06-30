@@ -1,17 +1,17 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-common/json/Condition",
+   "$id": "https://w3id.org/ga4gh/schema/gks-domain-entities/1.x/json/Condition",
    "title": "Condition",
    "description": "A disease or other medical disorder.",
    "oneOf": [
       {
-         "$ref": "/ga4gh/schema/gks-common/json/Disease"
+         "$ref": "/ga4gh/schema/gks-domain-entities/1.x/json/Disease"
       },
       {
-         "$ref": "/ga4gh/schema/gks-common/json/Phenotype"
+         "$ref": "/ga4gh/schema/gks-domain-entities/1.x/json/Phenotype"
       },
       {
-         "$ref": "/ga4gh/schema/gks-common/json/TraitSet"
+         "$ref": "/ga4gh/schema/gks-domain-entities/1.x/json/TraitSet"
       }
    ]
 }

@@ -1,0 +1,76 @@
+{
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/json/CombinationTherapy",
+   "title": "CombinationTherapy",
+   "type": "object",
+   "maturity": "draft",
+   "description": "A therapeutic procedure that involves multiple different therapeutic procedures performed in combination.",
+   "properties": {
+      "id": {
+         "type": "string",
+         "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID. This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system, or may refer to an 'id' for the shared concept in another system (e.g. a CURIE)."
+      },
+      "label": {
+         "type": "string",
+         "description": "A primary name for the entity."
+      },
+      "description": {
+         "type": "string",
+         "description": "A free-text description of the entity."
+      },
+      "alternativeLabels": {
+         "type": "array",
+         "ordered": false,
+         "items": {
+            "type": "string"
+         },
+         "description": "Alternative name(s) for the Entity."
+      },
+      "extensions": {
+         "type": "array",
+         "ordered": true,
+         "items": {
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Extension"
+         },
+         "description": "A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems."
+      },
+      "mappings": {
+         "type": "array",
+         "ordered": false,
+         "items": {
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/ConceptMapping"
+         },
+         "description": "A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation."
+      },
+      "type": {
+         "type": "string",
+         "const": "CombinationTherapy",
+         "default": "CombinationTherapy",
+         "description": "MUST be \"CombinationTherapy\"."
+      },
+      "components": {
+         "type": "array",
+         "ordered": false,
+         "description": "The individual therapeutic procedure components that constitute the combination therapy.",
+         "items": {
+            "anyOf": [
+               {
+                  "$ref": "/ga4gh/schema/gks-common/json/TherapeuticSubstituteGroup"
+               },
+               {
+                  "$ref": "/ga4gh/schema/gks-common/json/TherapeuticAction"
+               },
+               {
+                  "$ref": "/ga4gh/schema/gks-common/json/TherapeuticAgent"
+               }
+            ]
+         },
+         "minItems": 2
+      }
+   },
+   "required": [
+      "components",
+      "type"
+   ],
+   "additionalProperties": false
+}

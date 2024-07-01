@@ -61,11 +61,14 @@ $defs:
   InformationEntity:
     inherits: Entity
     description: >-
-      InformationEntities are abstract (non-physical) entities that are about something (i.e. they carry
+      Information Entities are abstract (non-physical) entities that are about something (i.e. they carry
       information about things in the real world).
     heritableProperties:
       type:
         type: string
+        const: InformationEntity
+        default: InformationEntity
+        description: MUST be "InformationEntity".
       specifiedBy:
         oneOf:
         - $ref: "#/$defs/Method"
@@ -99,7 +102,7 @@ $defs:
           $ref: "#/$defs/InformationEntity"
         description: Another Information Entity from which this Information Entity is derived, in whole or in part.
       recordMetadata:
-        type: "#/$defs/RecordMetadata"
+        $ref: "#/$defs/RecordMetadata"
         description: Metadata that applies to a specific concrete record of information as encoded in a particular system.
     heritableRequired:
       - id

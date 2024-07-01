@@ -1,6 +1,6 @@
 **Computational Definition**
 
-InformationEntities are abstract (non-physical) entities that are about something (i.e. they carry information about things in the real world).
+Information Entities are abstract (non-physical) entities that are about something (i.e. they carry information about things in the real world).
 
     **Information Model**
     
@@ -39,7 +39,7 @@ Some InformationEntity attributes are inherited from :ref:`Entity`.
        *  - type
           - string
           - 1..1
-          - 
+          - MUST be "InformationEntity".
        *  - specifiedBy
           - :ref:`Method` | :ref:`IRI`
           - 0..1
@@ -61,6 +61,6 @@ Some InformationEntity attributes are inherited from :ref:`Entity`.
           - 0..m
           - Another Information Entity from which this Information Entity is derived, in whole or in part.
        *  - recordMetadata
-          - #/$defs/RecordMetadata
+          - :ref:`RecordMetadata`
           - 0..1
           - Metadata that applies to a specific concrete record of information as encoded in a particular system.

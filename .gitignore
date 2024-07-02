@@ -5,3 +5,4 @@ docs/build
 venv
 pyproject.toml
 .vscode/
+schema/*/build/

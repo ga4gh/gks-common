@@ -1,15 +1,20 @@
 #!/bin/bash
 
 REPO_ROOT=$(git rev-parse --show-toplevel)
-cd "$REPO_ROOT/schema/gks-common" || exit 1
+SCHEMA_DIR="$REPO_ROOT/schema"
+DIRS=$(find "$SCHEMA_DIR" -mindepth 1 -maxdepth 1 -type d | sort)
 
-make_output=$(make all)
+for DIR in $DIRS; do
+  cd "$DIR" || exit 1
 
-if [[ "$make_output" == "make: Nothing to be done for \`all\'." ]]; then
-  echo "No changes to source files."
-  exit 0
-else
-  echo "Source files updated, adding changes to commit."
-  git add $(git ls-files --modified json defs)
-  exit 0
-fi
+  make_output=$(make all)
+
+  if [[ "$make_output" == "make: Nothing to be done for \`all\'." ]]; then
+    echo "No changes to source files in $DIR."
+  else
+    echo "Source files updated in $DIR, adding changes to commit."
+    git add $(git ls-files --modified json def)
+  fi
+done
+
+exit 0

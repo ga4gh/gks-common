@@ -12,4 +12,4 @@ repos:
         name: Update json and def files
         entry: pre-commit-hooks/update-json-def-files.sh
         language: system
-        files: ^schema/gks-common/.*-source.yaml$
+        files: ^schema/.*/.*-source.yaml$

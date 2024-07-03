@@ -40,6 +40,25 @@
          "default": "Method",
          "description": "MUST be \"Method\"."
       },
+      "specifiedBy": {
+         "oneOf": [
+            {
+               "$ref": "/ga4gh/schema/gks-core-im/1.x/json/IRI"
+            },
+            {
+               "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Method"
+            }
+         ],
+         "description": "A Method that describes all or part of the process through which the information was generated."
+      },
+      "contributions": {
+         "type": "array",
+         "ordered": true,
+         "items": {
+            "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Contribution"
+         },
+         "description": "A list of Contribution objects that describe the activities performed by agents upon this entity."
+      },
       "isReportedIn": {
          "oneOf": [
             {
@@ -50,6 +69,30 @@
             }
          ]
       },
+      "dateAuthored": {
+         "type": "string",
+         "format": "datetime",
+         "description": "Indicates when the information content expressed in the Information Entity was generated."
+      },
+      "derivedFrom": {
+         "type": "array",
+         "ordered": false,
+         "items": {
+            "oneOf": [
+               {
+                  "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Document"
+               },
+               {
+                  "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Method"
+               }
+            ]
+         },
+         "description": "Another Information Entity from which this Information Entity is derived, in whole or in part."
+      },
+      "recordMetadata": {
+         "$ref": "/ga4gh/schema/gks-core-im/1.x/json/RecordMetadata",
+         "description": "Metadata that applies to a specific concrete record of information as encoded in a particular system."
+      },
       "subtype": {
          "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Coding",
          "description": "A more specific type of entity the method represents (e.g. Variant Interpretation Guideline, Experimental Protocol)"
@@ -59,6 +102,9 @@
          "description": "A particular license that dictates legal permissions for how a published method (e.g. an experimental protocol, workflow specification, curation guideline) can be used."
       }
    },
-   "required": [],
+   "required": [
+      "id",
+      "type"
+   ],
    "additionalProperties": false
 }

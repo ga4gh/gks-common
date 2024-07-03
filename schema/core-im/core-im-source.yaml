@@ -199,7 +199,7 @@ $defs:
 
   Method:
     type: object
-    inherits: Entity
+    inherits: InformationEntity
     maturity: draft
     description: >-
       A set of instructions that specify how to achieve some objective (e.g. experimental protocols,

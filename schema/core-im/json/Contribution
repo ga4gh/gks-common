@@ -54,6 +54,9 @@
          "oneOf": [
             {
                "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Document"
+            },
+            {
+               "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Method"
             }
          ]
       },

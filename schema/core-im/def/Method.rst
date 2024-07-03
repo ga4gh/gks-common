@@ -4,7 +4,7 @@ A set of instructions that specify how to achieve some objective (e.g. experimen
 
     **Information Model**
     
-Some Method attributes are inherited from :ref:`Entity`.
+Some Method attributes are inherited from :ref:`InformationEntity`.
 
     .. list-table::
        :class: clean-wrap
@@ -18,7 +18,7 @@ Some Method attributes are inherited from :ref:`Entity`.
           - Description
        *  - id
           - string
-          - 0..1
+          - 1..1
           - The 'logical' identifier of the entity in the system of record, e.g. a UUID. This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system, or may refer to an 'id' for the shared concept in another system (e.g. a CURIE).
        *  - label
           - string
@@ -38,12 +38,32 @@ Some Method attributes are inherited from :ref:`Entity`.
           - A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.
        *  - type
           - string
-          - 0..1
+          - 1..1
           - MUST be "Method".
+       *  - specifiedBy
+          - :ref:`Method` | :ref:`IRI`
+          - 0..1
+          - A :ref:`Method` that describes all or part of the process through which the information was generated.
+       *  - contributions
+          - :ref:`Contribution`
+          - 0..m
+          - A list of :ref:`Contribution` objects that describe the activities performed by agents upon this entity.
        *  - isReportedIn
           - :ref:`IRI` | :ref:`Document`
           - 0..1
           - 
+       *  - dateAuthored
+          - string
+          - 0..1
+          - Indicates when the information content expressed in the Information Entity was generated.
+       *  - derivedFrom
+          - :ref:`InformationEntity`
+          - 0..m
+          - Another Information Entity from which this Information Entity is derived, in whole or in part.
+       *  - recordMetadata
+          - :ref:`RecordMetadata`
+          - 0..1
+          - Metadata that applies to a specific concrete record of information as encoded in a particular system.
        *  - subtype
           - :ref:`Coding`
           - 0..1

@@ -108,9 +108,41 @@ $defs:
       - id
       - type
 
+  Activity:
+    inherits: gks.core:Entity
+    maturity: draft
+    description: >-
+      An action or set of actions performed by an agent, that occurs over a period of time. Activities may use,
+      generate, modify, move, or destroy one or more entities.
+    heritableProperties:
+      subtype:
+        type:
+          $refCurie: gks.core:Coding
+        description: A more specific type of activity that an Activity object may represent.
+      date:
+        type: string
+        format: date
+        description: >-
+          The date that the Activity was completed. The date SHOULD be formatted as a date string
+          in ISO format "YYYY-MM-DD".
+      performedBy:
+        type: array
+        ordered: false
+        items:
+          $refCurie: gks.core:Agent
+        description: >-
+          An Agent who contributed to executing the Activity.
+      specifiedBy:
+        type: array
+        ordered: false
+        items:
+          $refCurie: gks.core:Method
+        description: >-
+          A method that was followed in performing an Activity, that describes how it was executed.
+
   Contribution:
     type: object
-    inherits: Entity
+    inherits: Activity
     maturity: draft
     description: >-
       An action taken by an agent in contributing to the creation, modification, assessment, or
@@ -122,19 +154,11 @@ $defs:
         default: Contribution
         description: MUST be "Contribution".
       contributor:
+        extends: performedBy
         $ref: "#/$defs/Agent"
         description: >-
           The agent that made the contribution.
-      date:
-        type: string
-        format: date
-        description: >-
-          The date on which the contribution was made. The date SHOULD be formatted as a date string
-          in ISO format "YYYY-MM-DD".
-      contributionMadeTo:
-        $ref: "#/$defs/InformationEntity"
-        description: The artifact toward which the contribution was made.
-      activity:
+      activityType:
         $ref: "#/$defs/Coding"
         description: >-
           SHOULD describe a concept descending from the Contributor Role Ontology.

@@ -60,7 +60,7 @@ $defs:
 
   Contribution:
     type: object
-    inherits: Entity
+    inherits: Activity
     maturity: draft
     description: >-
       An action taken by an agent in contributing to the creation, modification, assessment, or
@@ -72,19 +72,11 @@ $defs:
         default: Contribution
         description: MUST be "Contribution".
       contributor:
+        extends: performedBy
         $ref: "#/$defs/Agent"
         description: >-
           The agent that made the contribution.
-      date:
-        type: string
-        format: date
-        description: >-
-          The date on which the contribution was made. The date SHOULD be formatted as a date string
-          in ISO format "YYYY-MM-DD".
-      contributionMadeTo:
-        $ref: "#/$defs/InformationEntity"
-        description: The artifact toward which the contribution was made.
-      activity:
+      activityType:
         $ref: "#/$defs/Coding"
         description: >-
           SHOULD describe a concept descending from the Contributor Role Ontology.
@@ -114,7 +106,7 @@ $defs:
           - organization
           - software
 
-# below are all Utility type classes that do not inherit from Entity and are not typed explicitly
+# below are all 'Utility' classes that do not inherit from Entity and are not typed explicitly
 
   RecordMetadata:
     type: object
@@ -123,18 +115,28 @@ $defs:
       A reusable structure that encapsulates provenance metadata about a serialized data record or
       object in a particular dataset (as opposed to provenance about the real world entity this
       record or object represents).
+    comment: >-
+      Record-level metadata applies to a specific concrete encoding/serialization of information 
+      (e.g as a record in a specific data/knowlegebase, or an online digital resource). 
+      A RecordMetadata object can capture when, how, and by whom a specific record serialization was
+      generated or modified; what upstream resources it was derived or retrieved from; and record-level 
+      administrative information such as versioning and lifecycle status. RecordMetadata objects should 
+      not be used to describe provenance of the abstract information content or knowledge captured in a 
+      data record or object - other properties in the model are defined to support this use case. 
     properties:
       recordIdentifier:
         type: string
         description: >-
-          The business identifier of the record described in the RecordMetadata object (required
-          when the record described is not the one in the present system)
+          The identifier of the data record or object described in this RecordMetadata object.
       recordVersion:
         type: string
         description: The version number of the record-level artifact the object describes.
       derivedFrom:
         type: string
-        description: Another data record from which the record described here was derived.
+        description: >-
+          Another data record from which the record described here was derived, through a data 
+          ingest and/or transformation process. Value should be a string representing the identifier
+          of the source record.
       dateRecordCreated:
         type: string
         format: datetime

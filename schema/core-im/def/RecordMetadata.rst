@@ -17,7 +17,7 @@ A reusable structure that encapsulates provenance metadata about a serialized da
        *  - recordIdentifier
           - string
           - 0..1
-          - The business identifier of the record described in the RecordMetadata object (required when the record described is not the one in the present system)
+          - The identifier of the data record or object described in this RecordMetadata object.
        *  - recordVersion
           - string
           - 0..1
@@ -25,7 +25,7 @@ A reusable structure that encapsulates provenance metadata about a serialized da
        *  - derivedFrom
           - string
           - 0..1
-          - Another data record from which the record described here was derived.
+          - Another data record from which the record described here was derived, through a data  ingest and/or transformation process. Value should be a string representing the identifier of the source record.
        *  - dateRecordCreated
           - string
           - 0..1

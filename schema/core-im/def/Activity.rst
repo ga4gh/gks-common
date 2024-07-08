@@ -1,10 +1,10 @@
 **Computational Definition**
 
-An action taken by an agent in contributing to the creation, modification, assessment, or deprecation of a particular entity (e.g. a Statement, EvidenceLine, DataItem, Publication, etc.)
+An action or set of actions performed by an agent, that occurs over a period of time. Activities may use, generate, modify, move, or destroy one or more entities.
 
     **Information Model**
     
-Some Contribution attributes are inherited from :ref:`Activity`.
+Some Activity attributes are inherited from :ref:`Entity`.
 
     .. list-table::
        :class: clean-wrap
@@ -44,19 +44,11 @@ Some Contribution attributes are inherited from :ref:`Activity`.
           - string
           - 0..1
           - The date that the Activity was completed. The date SHOULD be formatted as a date string in ISO format "YYYY-MM-DD".
+       *  - performedBy
+          - :ref:`Agent`
+          - 0..m
+          - An Agent who contributed to executing the Activity.
        *  - specifiedBy
           - :ref:`Method`
           - 0..m
           - A method that was followed in performing an Activity, that describes how it was executed.
-       *  - type
-          - string
-          - 0..1
-          - MUST be "Contribution".
-       *  - contributor
-          - :ref:`Agent`
-          - 0..m
-          - The agent that made the contribution.
-       *  - activityType
-          - :ref:`Coding`
-          - 0..1
-          - SHOULD describe a concept descending from the Contributor Role Ontology.

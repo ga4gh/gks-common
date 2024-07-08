@@ -109,7 +109,7 @@ $defs:
       - type
 
   Activity:
-    inherits: gks.core:Entity
+    inherits: Entity
     maturity: draft
     description: >-
       An action or set of actions performed by an agent, that occurs over a period of time. Activities may use,
@@ -117,7 +117,7 @@ $defs:
     heritableProperties:
       subtype:
         type:
-          $refCurie: gks.core:Coding
+          $ref: "#/$defs/Coding"
         description: A more specific type of activity that an Activity object may represent.
       date:
         type: string
@@ -129,14 +129,14 @@ $defs:
         type: array
         ordered: false
         items:
-          $refCurie: gks.core:Agent
+          $ref: "#/$defs/Agent"
         description: >-
           An Agent who contributed to executing the Activity.
       specifiedBy:
         type: array
         ordered: false
         items:
-          $refCurie: gks.core:Method
+          $ref: "#/$defs/Method"
         description: >-
           A method that was followed in performing an Activity, that describes how it was executed.
 

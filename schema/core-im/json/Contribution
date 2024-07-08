@@ -34,6 +34,25 @@
          },
          "description": "A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems."
       },
+      "subtype": {
+         "type": {
+            "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Coding"
+         },
+         "description": "A more specific type of activity that an Activity object may represent."
+      },
+      "date": {
+         "type": "string",
+         "format": "date",
+         "description": "The date that the Activity was completed. The date SHOULD be formatted as a date string in ISO format \"YYYY-MM-DD\"."
+      },
+      "specifiedBy": {
+         "type": "array",
+         "ordered": false,
+         "items": {
+            "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Method"
+         },
+         "description": "A method that was followed in performing an Activity, that describes how it was executed."
+      },
       "type": {
          "type": "string",
          "const": "Contribution",
@@ -41,26 +60,15 @@
          "description": "MUST be \"Contribution\"."
       },
       "contributor": {
-         "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Agent",
-         "description": "The agent that made the contribution."
+         "type": "array",
+         "ordered": false,
+         "items": {
+            "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Agent"
+         },
+         "description": "The agent that made the contribution.",
+         "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Agent"
       },
-      "date": {
-         "type": "string",
-         "format": "date",
-         "description": "The date on which the contribution was made. The date SHOULD be formatted as a date string in ISO format \"YYYY-MM-DD\"."
-      },
-      "contributionMadeTo": {
-         "description": "The artifact toward which the contribution was made.",
-         "oneOf": [
-            {
-               "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Document"
-            },
-            {
-               "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Method"
-            }
-         ]
-      },
-      "activity": {
+      "activityType": {
          "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Coding",
          "description": "SHOULD describe a concept descending from the Contributor Role Ontology."
       }

@@ -1,6 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-core-im/1.x/json/RecordMetadata",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/json/RecordMetadata",
    "title": "RecordMetadata",
    "type": "object",
    "maturity": "draft",
@@ -28,7 +28,7 @@
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Contribution"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Contribution"
          },
          "description": "Describes specific contributions made by an human or software agent to the creation, modification, or administrative management of a data record or object."
       }

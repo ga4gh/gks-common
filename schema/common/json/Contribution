@@ -1,6 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-core-im/1.x/json/Contribution",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/json/Contribution",
    "title": "Contribution",
    "type": "object",
    "maturity": "draft",
@@ -30,13 +30,13 @@
          "type": "array",
          "ordered": true,
          "items": {
-            "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Extension"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Extension"
          },
          "description": "A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems."
       },
       "subtype": {
          "type": {
-            "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Coding"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Coding"
          },
          "description": "A more specific type of activity that an Activity object may represent."
       },
@@ -49,7 +49,7 @@
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Method"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Method"
          },
          "description": "A method that was followed in performing an Activity, that describes how it was executed."
       },
@@ -63,13 +63,13 @@
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Agent"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Agent"
          },
          "description": "The agent that made the contribution.",
-         "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Agent"
+         "$ref": "/ga4gh/schema/gks-common/1.x/json/Agent"
       },
       "activityType": {
-         "$ref": "/ga4gh/schema/gks-core-im/1.x/json/Coding",
+         "$ref": "/ga4gh/schema/gks-common/1.x/json/Coding",
          "description": "SHOULD describe a concept descending from the Contributor Role Ontology."
       }
    },

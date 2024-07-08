@@ -1,6 +1,6 @@
 $schema: "https://json-schema.org/draft/2020-12/schema"
-$id: "https://w3id.org/ga4gh/schema/gks-core-im/1.x/core-im-source.yaml"
-title: GKS Common Core Information Model Class Definitions
+$id: "https://w3id.org/ga4gh/schema/gks-common/1.x/common-source.yaml"
+title: GKS Common Abstract Entity & Utility Class Definitions
 strict: true
 
 $defs:

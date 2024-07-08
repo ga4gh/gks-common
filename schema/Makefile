@@ -1,11 +1,11 @@
-all: gks-core gks-domain-entities
+all: gks-common gks-domain-entities
 	
 gks-domain-entities: 
 	(cd domain-entities; make all)
 
-gks-core:
-	(cd core-im; make all)
+gks-common:
+	(cd common; make all)
 
 clean:
-	(cd core-im; make clean)
+	(cd common; make clean)
 	(cd domain-entities; make clean)

@@ -1,0 +1,9 @@
+id: agent001
+type: Agent
+label: agent001
+description: description of agent001
+alternativeLabels: 
+- alias001
+- alias002
+name: System 001
+subtype: computer

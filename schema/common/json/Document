@@ -1,6 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-commons/1.x/json/Document",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/json/Document",
    "title": "Document",
    "type": "object",
    "maturity": "draft",
@@ -30,7 +30,7 @@
          "type": "array",
          "ordered": true,
          "items": {
-            "$ref": "/ga4gh/schema/gks-commons/1.x/json/Extension"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Extension"
          },
          "description": "A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems."
       },
@@ -43,10 +43,10 @@
       "specifiedBy": {
          "oneOf": [
             {
-               "$ref": "/ga4gh/schema/gks-commons/1.x/json/IRI"
+               "$ref": "/ga4gh/schema/gks-common/1.x/json/IRI"
             },
             {
-               "$ref": "/ga4gh/schema/gks-commons/1.x/json/Method"
+               "$ref": "/ga4gh/schema/gks-common/1.x/json/Method"
             }
          ],
          "description": "A Method that describes all or part of the process through which the information was generated."
@@ -55,7 +55,7 @@
          "type": "array",
          "ordered": true,
          "items": {
-            "$ref": "/ga4gh/schema/gks-commons/1.x/json/Contribution"
+            "$ref": "/ga4gh/schema/gks-common/1.x/json/Contribution"
          },
          "description": "A list of Contribution objects that describe the activities performed by agents upon this entity."
       },
@@ -65,10 +65,10 @@
          "items": {
             "oneOf": [
                {
-                  "$ref": "/ga4gh/schema/gks-commons/1.x/json/Document"
+                  "$ref": "/ga4gh/schema/gks-common/1.x/json/Document"
                },
                {
-                  "$ref": "/ga4gh/schema/gks-commons/1.x/json/IRI"
+                  "$ref": "/ga4gh/schema/gks-common/1.x/json/IRI"
                }
             ]
          },
@@ -85,21 +85,21 @@
          "items": {
             "oneOf": [
                {
-                  "$ref": "/ga4gh/schema/gks-commons/1.x/json/Document"
+                  "$ref": "/ga4gh/schema/gks-common/1.x/json/Document"
                },
                {
-                  "$ref": "/ga4gh/schema/gks-commons/1.x/json/Method"
+                  "$ref": "/ga4gh/schema/gks-common/1.x/json/Method"
                }
             ]
          },
          "description": "Another Information Entity from which this Information Entity is derived, in whole or in part."
       },
       "recordMetadata": {
-         "$ref": "/ga4gh/schema/gks-commons/1.x/json/RecordMetadata",
+         "$ref": "/ga4gh/schema/gks-common/1.x/json/RecordMetadata",
          "description": "Metadata that applies to a specific concrete record of information as encoded in a particular system."
       },
       "subtype": {
-         "$ref": "/ga4gh/schema/gks-commons/1.x/json/Coding",
+         "$ref": "/ga4gh/schema/gks-common/1.x/json/Coding",
          "description": "A more specific type for the document (e.g. a publication, patent, pathology report)"
       },
       "title": {

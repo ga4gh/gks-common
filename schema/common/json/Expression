@@ -1,6 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-commons/1.x/json/Expression",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/json/Expression",
    "title": "Expression",
    "type": "object",
    "maturity": "draft",

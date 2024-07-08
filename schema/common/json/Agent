@@ -54,6 +54,8 @@
          ]
       }
    },
-   "required": [],
+   "required": [
+      "type"
+   ],
    "additionalProperties": false
 }

@@ -50,7 +50,7 @@ Some Contribution attributes are inherited from :ref:`Activity`.
           - A method that was followed in performing an Activity, that describes how it was executed.
        *  - type
           - string
-          - 0..1
+          - 1..1
           - MUST be "Contribution".
        *  - contributor
           - :ref:`Agent`

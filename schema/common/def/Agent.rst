@@ -38,7 +38,7 @@ Some Agent attributes are inherited from :ref:`Entity`.
           - A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.
        *  - type
           - string
-          - 0..1
+          - 1..1
           - MUST be "Agent".
        *  - name
           - string

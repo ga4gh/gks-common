@@ -20,6 +20,10 @@ Some DomainEntity attributes are inherited from :ref:`Entity`.
           - string
           - 0..1
           - The 'logical' identifier of the entity in the system of record, e.g. a UUID. This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system, or may refer to an 'id' for the shared concept in another system (e.g. a CURIE).
+       *  - type
+          - string
+          - 1..1
+          - 
        *  - label
           - string
           - 0..1
@@ -36,10 +40,6 @@ Some DomainEntity attributes are inherited from :ref:`Entity`.
           - :ref:`Extension`
           - 0..m
           - A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.
-       *  - type
-          - string
-          - 1..1
-          - 
        *  - mappings
           - :ref:`ConceptMapping`
           - 0..m

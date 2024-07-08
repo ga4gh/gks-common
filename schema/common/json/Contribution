@@ -73,6 +73,8 @@
          "description": "SHOULD describe a concept descending from the Contributor Role Ontology."
       }
    },
-   "required": [],
+   "required": [
+      "type"
+   ],
    "additionalProperties": false
 }

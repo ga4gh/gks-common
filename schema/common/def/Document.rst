@@ -36,10 +36,6 @@ Some Document attributes are inherited from :ref:`InformationEntity`.
           - :ref:`Extension`
           - 0..m
           - A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.
-       *  - type
-          - string
-          - 1..1
-          - Must be "Document"
        *  - specifiedBy
           - :ref:`Method` | :ref:`IRI`
           - 0..1
@@ -64,6 +60,10 @@ Some Document attributes are inherited from :ref:`InformationEntity`.
           - :ref:`RecordMetadata`
           - 0..1
           - Metadata that applies to a specific concrete record of information as encoded in a particular system.
+       *  - type
+          - string
+          - 1..1
+          - Must be "Document"
        *  - subtype
           - :ref:`Coding`
           - 0..1

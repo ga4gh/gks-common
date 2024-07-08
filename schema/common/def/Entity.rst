@@ -18,6 +18,10 @@ Entity is the root class of the 'gks-common' core information model classes - th
           - string
           - 0..1
           - The 'logical' identifier of the entity in the system of record, e.g. a UUID. This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system, or may refer to an 'id' for the shared concept in another system (e.g. a CURIE).
+       *  - type
+          - string
+          - 1..1
+          - 
        *  - label
           - string
           - 0..1

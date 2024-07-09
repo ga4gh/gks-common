@@ -54,7 +54,7 @@ Some Contribution attributes are inherited from :ref:`Activity`.
           - MUST be "Contribution".
        *  - contributor
           - :ref:`Agent`
-          - 0..m
+          - 1..1
           - The agent that made the contribution.
        *  - activityType
           - :ref:`Coding`

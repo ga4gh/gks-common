@@ -149,7 +149,8 @@ $defs:
         description: MUST be "Contribution".
       contributor:
         extends: performedBy
-        $ref: "#/$defs/Agent"
+        minItems: 1
+        maxItems: 1
         description: >-
           The agent that made the contribution.
       activityType:

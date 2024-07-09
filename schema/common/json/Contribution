@@ -66,7 +66,8 @@
             "$ref": "/ga4gh/schema/gks-common/1.x/json/Agent"
          },
          "description": "The agent that made the contribution.",
-         "$ref": "/ga4gh/schema/gks-common/1.x/json/Agent"
+         "minItems": 1,
+         "maxItems": 1
       },
       "activityType": {
          "$ref": "/ga4gh/schema/gks-common/1.x/json/Coding",

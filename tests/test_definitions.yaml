@@ -1,8 +1,4 @@
 tests:
-- test_file: common/agent.yaml
-  description: simple agent example
-  schema: common
-  definition: Agent
 - test_file: common/coding.yaml
   description: simple coding example
   schema: common

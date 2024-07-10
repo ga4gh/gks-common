@@ -58,31 +58,6 @@ $defs:
           A list of mappings to concepts in terminologies or code systems. Each mapping should
           include a coding and a relation.
 
-  Agent:
-    type: object
-    inherits: Entity
-    maturity: draft
-    description: >-
-      An autonomous actor (person, organization, or computational agent) that bears some form
-      of responsibility for an activity taking place, for the existence of an entity, or for
-      another agent's activity.
-    properties:
-      type:
-        extends: type
-        const: Agent
-        default: Agent
-        description: MUST be "Agent".
-      name:
-        type: string
-        description: The descriptive name of the agent.
-      subtype:
-        type: string
-        description: A more specific type of agent the agent represents.
-        enum:
-          - person
-          - organization
-          - computer
-
 # below are all 'Utility' classes that do not inherit from Entity and are not typed explicitly
 
   Coding:

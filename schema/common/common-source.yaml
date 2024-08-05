@@ -32,7 +32,7 @@ $defs:
         description: Alternative name(s) for the Entity.
       extensions:
         type: array
-        ordered: true
+        ordered: false
         items:
           $ref: "#/$defs/Extension"
         description: >-
@@ -133,6 +133,7 @@ $defs:
       value:
         type: [ "number", "string", "boolean", "object", "array", "null" ]
         description: The value of the Extension - can be any primitive or structured object
+        additionalProperties: true
       description:
         type: string
         description: >-

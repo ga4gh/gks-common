@@ -19,7 +19,8 @@
             "array",
             "null"
          ],
-         "description": "The value of the Extension - can be any primitive or structured object"
+         "description": "The value of the Extension - can be any primitive or structured object",
+         "additionalProperties": true
       },
       "description": {
          "type": "string",

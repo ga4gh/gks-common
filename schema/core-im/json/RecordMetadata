@@ -33,6 +33,5 @@
          "description": "Describes specific contributions made by an human or software agent to the creation, modification, or administrative management of a data record or object."
       }
    },
-   "required": [],
-   "additionalProperties": false
+   "required": []
 }

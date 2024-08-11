@@ -1,7 +1,6 @@
 $schema: "https://json-schema.org/draft/2020-12/schema"
 $id: "https://w3id.org/ga4gh/schema/gks-core-im/1.x/core-im/core-im-source.yaml"
 title: GKS Commons Core Information Class Definitions
-strict: true
 
 imports:
   gks.data-types: ../data-types/data-types-source.yaml
@@ -453,34 +452,6 @@ $defs:
       - subject
       - direction
 
-  # Note that the `DataItem` class below is a proposed addition to the StudyResult class that is not yet
-  # implemented in the core IM.
-  #
-  # DataItem:
-  #   inherits: InformationEntity
-  #   maturity: draft
-  #   type: object
-  #   description: >-
-  #     An InformationEntity representing an individual piece of data, generated/acquired through methods
-  #     which reliably produce truthful information about something.
-  #   properties:
-  #     type:
-  #       extends: type
-  #       const: DataItem
-  #       default: DataItem
-  #       description: Must be "DataItem"
-  #     subtype:
-  #       $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
-  #       description: >-
-  #         A specific type of data the DataItem object represents (e.g. a specimen count, a
-  #         patient weight, an allele frequency, a p-value, a confidence score)
-  #     value:
-  #        type: string
-  #     unit:
-  #       $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
-  #   required:
-  #     - value
-
   DataSet:
     inherits: InformationEntity
     maturity: draft
@@ -530,21 +501,6 @@ $defs:
         description: >-
           The specific subject or experimental unit in a Study that data in the StudyResult object is about.
           e.g. a particular variant in a population allele frequency dataset like ExAC or gnomAD.
-
-      #  Note that the `dataItem` property below is a *placeholder* that should not be inherited or used
-      #  as is in derived StudyResult profiles. It is meant to be specialized into more specific properties.
-      #
-      # dataItem:
-      #   - $ref: "#/$defs/DataItem"
-      #   description: >-
-      #     One or more data items that are included in the StudyResult because it pertains to the 'focus' of the result.
-      #     This data can directly describe this 'focus' (e.g. the population frequency of an allele focus), or
-      #     represent metadata about how data about the 'focus' were generated (e.g the sequencing method used to
-      #     determine this allele frequency).
-      #   comment: >-
-      #     Note that in profiles of the StudyResult class, 'DataItem' is typically specialized into one or more
-      #     datatype-specific properties that are defined to capture a specific kind of data. e.g. 'focusAlleleCount'
-      #     and 'focusAlleleFrequency' in a CohortAlleleFrequencyStudyResult profile.
       sourceDataSet:
         extends: derivedFrom
         items:

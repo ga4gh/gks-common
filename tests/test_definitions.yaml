@@ -1,7 +1,7 @@
 tests:
-- test_file: common/coding.yaml
+- test_file: data-types/coding.yaml
   description: simple coding example
-  schema: common
+  schema: data-types
   definition: Coding
 - test_file: domain-entities/gene.yaml
   description: simple gene example

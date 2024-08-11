@@ -4,12 +4,14 @@ title: GKS Common Domain Entities Definitions
 strict: true
 
 imports:
-  gks.common: ../common/common-source.yaml
+  gks.core-im: ../core-im/core-im-source.yaml
+  gks.data-types: ../data-types/data-types-source.yaml
 
 $defs:
+
 # Condition related domain entities  
   Condition:
-    inherits: gks.common:DomainEntity
+    inherits: gks.core-im:DomainEntity
     description: >-
       A disease or other medical disorder.
     oneOf:
@@ -69,7 +71,7 @@ $defs:
 
 # Gene related domain entities
   Gene:
-    inherits: gks.common:DomainEntity
+    inherits: gks.core-im:DomainEntity
     maturity: draft
     description: >-
       A basic physical and functional unit of heredity.
@@ -83,7 +85,7 @@ $defs:
 
 # Therapeutic Procedures related domain entities
   TherapeuticProcedure:
-    inherits: gks.common:DomainEntity
+    inherits: gks.core-im:DomainEntity
     description: >-
       An action or administration of therapeutic agents to produce an effect
       that is intended to alter or stop a pathologic process.

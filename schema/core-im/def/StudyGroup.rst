@@ -1,10 +1,10 @@
 **Computational Definition**
 
-A therapeutic procedure that involves multiple different therapeutic procedures performed in combination.
+A collection of individuals or specimens from the same taxonomic class, selected for analysis in a scientific study based on their exhibiting one or more common characteristics  (e.g. species, ethnicity, race, country of origin, clinical history, age, gender, geographic location, income, etc.) May be referred to as a 'cohort' or 'population' in specific research settings.
 
     **Information Model**
     
-Some CombinationTherapy attributes are inherited from :ref:`gks.core-im:DomainEntity`.
+Some StudyGroup attributes are inherited from :ref:`Entity`.
 
     .. list-table::
        :class: clean-wrap
@@ -36,15 +36,19 @@ Some CombinationTherapy attributes are inherited from :ref:`gks.core-im:DomainEn
           - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
           - 0..m
           - A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.
-       *  - mappings
-          - `ConceptMapping </ga4gh/schema/gks-common/1.x/data-types/json/ConceptMapping>`_
-          - 0..m
-          - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.
        *  - type
           - string
           - 1..1
-          - MUST be "CombinationTherapy".
-       *  - components
-          - :ref:`TherapeuticSubstituteGroup` | :ref:`TherapeuticAction` | :ref:`TherapeuticAgent`
-          - 2..m
-          - The individual therapeutic procedure components that constitute the combination therapy.
+          - Must be "StudyGroup"
+       *  - memberCount
+          - integer
+          - 0..1
+          - the total number of individual members in the study group
+       *  - isSubsetOf
+          - :ref:`StudyGroup`
+          - 0..m
+          - A larger study group of which this study group represents a subset.
+       *  - characteristics
+          - :ref:`Characteristic`
+          - 0..m
+          - A feature or characteristic shared by all members of the study group, and representing a criteria for membership in the group.

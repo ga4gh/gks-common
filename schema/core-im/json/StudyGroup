@@ -1,10 +1,10 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/domain-entities/json/CombinationTherapy",
-   "title": "CombinationTherapy",
-   "type": "object",
+   "$id": "https://w3id.org/ga4gh/schema/gks-core-im/1.x/core-im/json/StudyGroup",
+   "title": "StudyGroup",
    "maturity": "draft",
-   "description": "A therapeutic procedure that involves multiple different therapeutic procedures performed in combination.",
+   "type": "object",
+   "description": "A collection of individuals or specimens from the same taxonomic class, selected for analysis in a scientific study based on their exhibiting one or more common characteristics  (e.g. species, ethnicity, race, country of origin, clinical history, age, gender, geographic location, income, etc.) May be referred to as a 'cohort' or 'population' in specific research settings.",
    "properties": {
       "id": {
          "type": "string",
@@ -34,42 +34,34 @@
          },
          "description": "A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems."
       },
-      "mappings": {
-         "type": "array",
-         "ordered": false,
-         "items": {
-            "$ref": "/ga4gh/schema/gks-common/1.x/data-types/json/ConceptMapping"
-         },
-         "description": "A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation."
-      },
       "type": {
          "type": "string",
-         "const": "CombinationTherapy",
-         "default": "CombinationTherapy",
-         "description": "MUST be \"CombinationTherapy\"."
+         "const": "StudyGroup",
+         "default": "StudyGroup",
+         "description": "Must be \"StudyGroup\""
       },
-      "components": {
+      "memberCount": {
+         "type": "integer",
+         "description": "the total number of individual members in the study group"
+      },
+      "isSubsetOf": {
          "type": "array",
-         "ordered": false,
-         "description": "The individual therapeutic procedure components that constitute the combination therapy.",
          "items": {
-            "anyOf": [
-               {
-                  "$ref": "/ga4gh/schema/gks-common/1.x/domain-entities/json/TherapeuticSubstituteGroup"
-               },
-               {
-                  "$ref": "/ga4gh/schema/gks-common/1.x/domain-entities/json/TherapeuticAction"
-               },
-               {
-                  "$ref": "/ga4gh/schema/gks-common/1.x/domain-entities/json/TherapeuticAgent"
-               }
-            ]
+            "$ref": "/ga4gh/schema/gks-core-im/1.x/core-im/json/StudyGroup"
          },
-         "minItems": 2
+         "ordered": false,
+         "description": "A larger study group of which this study group represents a subset."
+      },
+      "characteristics": {
+         "type": "array",
+         "items": {
+            "$ref": "/ga4gh/schema/gks-core-im/1.x/core-im/json/Characteristic"
+         },
+         "ordered": false,
+         "description": "A feature or characteristic shared by all members of the study group, and representing a criteria for membership in the group."
       }
    },
    "required": [
-      "components",
       "type"
    ],
    "additionalProperties": false

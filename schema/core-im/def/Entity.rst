@@ -1,11 +1,9 @@
 **Computational Definition**
 
-An Entity that is specific to a particular biomedical domain such as disease, therapeutics, or genes. Domain Entities are considered as 'concept-level' entities, as opposed to particular instances. e.g. 'Lung Cancer', not 'patient123's lung cancer'. Or 'Erlotinib', not the particular doses given to a patient on a specific occasion.
+Entity is the root class of the 'gks-common' core information model classes - those that have identifiers and other general metadata like labels, xrefs, urls, descriptions, etc. All common classes descend from and inherit its attributes.
 
     **Information Model**
     
-Some DomainEntity attributes are inherited from :ref:`Entity`.
-
     .. list-table::
        :class: clean-wrap
        :header-rows: 1
@@ -37,10 +35,6 @@ Some DomainEntity attributes are inherited from :ref:`Entity`.
           - 0..m
           - Alternative name(s) for the Entity.
        *  - extensions
-          - :ref:`Extension`
+          - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
           - 0..m
           - A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.
-       *  - mappings
-          - :ref:`ConceptMapping`
-          - 0..m
-          - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.

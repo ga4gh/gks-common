@@ -4,7 +4,7 @@ An observable characteristic or trait of an organism.
 
     **Information Model**
     
-Some Phenotype attributes are inherited from :ref:`gks.common:DomainEntity`.
+Some Phenotype attributes are inherited from :ref:`gks.core-im:DomainEntity`.
 
     .. list-table::
        :class: clean-wrap
@@ -33,11 +33,11 @@ Some Phenotype attributes are inherited from :ref:`gks.common:DomainEntity`.
           - 0..m
           - Alternative name(s) for the Entity.
        *  - extensions
-          - `Extension <../common/common.json#/$defs/Extension>`_
+          - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
           - 0..m
           - A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.
        *  - mappings
-          - `ConceptMapping <../common/common.json#/$defs/ConceptMapping>`_
+          - `ConceptMapping </ga4gh/schema/gks-common/1.x/data-types/json/ConceptMapping>`_
           - 0..m
           - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.
        *  - type

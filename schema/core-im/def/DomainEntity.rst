@@ -1,10 +1,10 @@
 **Computational Definition**
 
-A therapeutic procedure that involves multiple different therapeutic procedures performed in combination.
+An Entity that is specific to a particular biomedical domain such as disease, therapeutics, or genes. Domain Entities are considered as 'concept-level' entities, as opposed to particular instances. e.g. 'Lung Cancer', not 'patient123's lung cancer'. Or 'Erlotinib', not the particular doses given to a patient on a specific occasion.
 
     **Information Model**
     
-Some CombinationTherapy attributes are inherited from :ref:`gks.core-im:DomainEntity`.
+Some DomainEntity attributes are inherited from :ref:`Entity`.
 
     .. list-table::
        :class: clean-wrap
@@ -20,6 +20,10 @@ Some CombinationTherapy attributes are inherited from :ref:`gks.core-im:DomainEn
           - string
           - 0..1
           - The 'logical' identifier of the entity in the system of record, e.g. a UUID. This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system, or may refer to an 'id' for the shared concept in another system (e.g. a CURIE).
+       *  - type
+          - string
+          - 1..1
+          - 
        *  - label
           - string
           - 0..1
@@ -40,11 +44,3 @@ Some CombinationTherapy attributes are inherited from :ref:`gks.core-im:DomainEn
           - `ConceptMapping </ga4gh/schema/gks-common/1.x/data-types/json/ConceptMapping>`_
           - 0..m
           - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.
-       *  - type
-          - string
-          - 1..1
-          - MUST be "CombinationTherapy".
-       *  - components
-          - :ref:`TherapeuticSubstituteGroup` | :ref:`TherapeuticAction` | :ref:`TherapeuticAgent`
-          - 2..m
-          - The individual therapeutic procedure components that constitute the combination therapy.

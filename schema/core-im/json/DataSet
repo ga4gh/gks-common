@@ -131,6 +131,5 @@
    "required": [
       "id",
       "type"
-   ],
-   "additionalProperties": false
+   ]
 }

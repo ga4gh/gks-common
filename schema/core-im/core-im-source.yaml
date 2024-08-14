@@ -80,7 +80,7 @@ $defs:
           generated.
       contributions:
         type: array
-        ordered: false
+        ordered: true
         items:
           $ref: "#/$defs/Contribution"
         description: >-

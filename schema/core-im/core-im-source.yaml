@@ -80,7 +80,7 @@ $defs:
           generated.
       contributions:
         type: array
-        ordered: true
+        ordered: false
         items:
           $ref: "#/$defs/Contribution"
         description: >-
@@ -332,15 +332,19 @@ $defs:
         type: string
         enum: [ "supports", "neutral", "disputes" ]
         description: >-
-          The direction of support that the Evidence Line is determined to provide toward its target Proposition
-          (can be supporting, disputing, or neutral)
+          The direction the Evidence Line favors its target Proposition (can be supporting, disputing, or neutral)
       strengthOfEvidenceProvided:
         oneOf:
           - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
           - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
         description: >-
-          The strength of support that an Evidence Line is determined to provide for or against its target
-          Proposition. Strength is evaluated in the direction indicated by the directionOfEvidenceProvided value.
+          A qualitative strength of all evidence items assessed within the context of the target Proposition
+          in the direction indicated by the directionOfEvidenceProvided value.
+      scoreOfEvidenceProvided:
+        type: number
+        description: >-
+          A quantitative score (or weight) of all evidence items assessed within the context of the target Proposition
+          in the direction indicated by the directionOfEvidenceProvided value.
 
   Statement:
     inherits: InformationEntity
@@ -359,22 +363,6 @@ $defs:
         oneOf:
         - type: object
         description: The object of the Statement.
-      #  Note that the `qualifier` property below is a *placeholder* that should not be inherited or used
-      #  as is in derived Statement profiles. It is meant to be specialized into more specific properties
-      #  that are defined to capture a specific kind of qualifying information relevant to a particular
-      #  Statement profile. e.g. for a VariantPathogenicityStatement, it is specialized into
-      #  'modeOfInheritanceQualifier' and 'geneContextQualifier' properties.
-      #  Commenting out this property for now to avoid its unwanted inheritance in Statement profiles.
-      #  Ww will re-instate this property once we determine if/how the metaschema processor can evolve to support
-      #  the use case described in the 'comment' below, and discussed in va-spec issue #134.
-      #
-      #     qualifier:
-      #       type: object
-      #       placeholder: true      # example of what a flag on core-im properties meant to be placeholders might look like
-      #       description: >-
-      #         An additional piece of information that extends or refines the meaning of the core
-      #         subject-predicate-object 'triple' - by providing additional details, precision, or
-      #         constraining the statement to apply in a particular context.
       direction:
         type: string
         enum:
@@ -422,14 +410,6 @@ $defs:
           Statement's subject. Permissible values for this attribute are typically
           selected to be succinct and familiar in the target community of practice. e.g. 
           'likely pathogenic' in the domain of variant pathogenicity classification'.
-      hasEvidenceOfType:
-        type: array
-        ordered: false
-        items:
-          $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
-        description: >-
-          A term describing a type of evidence used to assess the validity of Statement's proposition
-          (e.g. 'sequence similarity evidence', 'in vitro assay evidence').
       hasEvidenceLines:
         type: array
         ordered: false
@@ -438,16 +418,6 @@ $defs:
         description: >-
           A discrete, independent argument relevant to the validity of the Proposition assessed or put forth in the Statement. This argument is based on the interpretation of one or more pieces of information as evidence.
           argument is based on the interpretation of one or more pieces of information as evidence.
-      hasEvidence:
-        type: array
-        ordered: false
-        items:
-          $ref: "#/$defs/InformationEntity"
-        description: >-
-          A piece of information that represents or contributes to an argument for or against the
-          validity of the Proposition put forth in a Statement. This is a shortcut relation that links
-          a Statement directly to a piece of evidence supporting it, bypassing the Evidence Line class
-          when used data creators do not utilize an Evidence Line object.
     heritableRequired:
       - subject
       - direction
@@ -630,14 +600,6 @@ $defs:
   #       type:
   #         $ref: "#/$defs/Entity"
   #       description: An Entity that is related to the subject of a Proposition via its predicate.
-  #     qualifier:
-  #       oneOf:
-  #         - $ref: "#/$defs/Entity"
-  #         - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
-  #         - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
-  #       description: >-
-  #         An entity or concept applied to extend or refine the meaning of a Proposition's core subject-predicate-object
-  #         'triple' - by providing additional detail, or constraining the claim to apply in a particular context.
   #     negated:
   #       type: boolean
   #       description: >-

@@ -71,8 +71,12 @@ Some EvidenceLine attributes are inherited from :ref:`InformationEntity`.
    *  - directionOfEvidenceProvided
       - string
       - 0..1
-      - The direction of support that the Evidence Line is determined to provide toward its target Proposition (can be supporting, disputing, or neutral)
+      - The direction the Evidence Line favors its target Proposition (can be supporting, disputing, or neutral)
    *  - strengthOfEvidenceProvided
       - `Coding </ga4gh/schema/gks-common/1.x/data-types/json/Coding>`_ | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
       - 0..1
-      - The strength of support that an Evidence Line is determined to provide for or against its target Proposition. Strength is evaluated in the direction indicated by the directionOfEvidenceProvided value.
+      - A qualitative strength of all evidence items assessed within the context of the target Proposition in the direction indicated by the directionOfEvidenceProvided value.
+   *  - scoreOfEvidenceProvided
+      - number
+      - 0..1
+      - A quantitative score (or weight) of all evidence items assessed within the context of the target Proposition in the direction indicated by the directionOfEvidenceProvided value.

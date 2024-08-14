@@ -96,15 +96,7 @@ Some Statement attributes are inherited from :ref:`InformationEntity`.
       - `Coding </ga4gh/schema/gks-common/1.x/data-types/json/Coding>`_ | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
       - 0..1
       - A single term or phrase summarizing the outcome of direction and strength assessments of a Statement's proposition, in terms of a classification of the Statement's subject. Permissible values for this attribute are typically selected to be succinct and familiar in the target community of practice. e.g.  'likely pathogenic' in the domain of variant pathogenicity classification'.
-   *  - hasEvidenceOfType
-      - `Coding </ga4gh/schema/gks-common/1.x/data-types/json/Coding>`_
-      - 0..m
-      - A term describing a type of evidence used to assess the validity of Statement's proposition (e.g. 'sequence similarity evidence', 'in vitro assay evidence').
    *  - hasEvidenceLines
       - :ref:`EvidenceLine`
       - 0..m
       - A discrete, independent argument relevant to the validity of the Proposition assessed or put forth in the Statement. This argument is based on the interpretation of one or more pieces of information as evidence. argument is based on the interpretation of one or more pieces of information as evidence.
-   *  - hasEvidence
-      - :ref:`InformationEntity`
-      - 0..m
-      - A piece of information that represents or contributes to an argument for or against the validity of the Proposition put forth in a Statement. This is a shortcut relation that links a Statement directly to a piece of evidence supporting it, bypassing the Evidence Line class when used data creators do not utilize an Evidence Line object.

@@ -142,7 +142,13 @@ $defs:
     type: object
     inherits: InformationEntity
     maturity: draft
-    description: a representation of a physical or digital document
+    description: >-
+      A collection of information, usually in a text-based or graphic human-readable form, intended
+      to be read and understood together as a whole.
+    comments: >-
+      As an abstract InformationEntity, a Document instance is defined by the informational content
+      it conveys, not a particular physical concretization of this information. A single Document
+      instance can simultaneously be concretized in different languages, formats, and physical mediums.
     properties:
       type:
         extends: type
@@ -152,13 +158,18 @@ $defs:
       subtype:
         $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
         description: >-
-          A more specific type for the document (e.g. a publication, patent, pathology report)
+          A specific type of document that a Document instance represents (e.g.  'publication',
+          'patent', 'pathology report')
+        comments: >-
+          This attribute can be used to report a specific type for the Document, in cases where a model
+          does not define Document subclasses for this purpose.  Implementers can define their own set
+          of document type codes/terms, to match the needs of their application. 
       title:
         type: string
-        description: The title of the Document
+        description: The official title given to the document by its authors.
       url:
         type: string
-        description: A URL at which the document may be retrieved.
+        description: The URL/web address from which the content of the Document can be retrieved.
         format: uri
         pattern: "^(https?|s?ftp)://"
       doi:

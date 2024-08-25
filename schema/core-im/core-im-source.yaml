@@ -263,26 +263,35 @@ $defs:
     inherits: Entity
     maturity: draft
     description: >-
-      An action or set of actions performed by an agent, that occurs over a period of time. Activities may use,
-      generate, modify, move, or destroy one or more entities.
+      An action or set of actions performed by an agent, that occurs over a period of time. 
+      Activities may use, generate, modify, move, or destroy one or more entities.
     heritableProperties:
       subtype:
         type:
           $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
-        description: A more specific type of activity that an Activity object may represent.
+        description: >-
+          A specific type of data set the Activity instance represents (e.g. 'research activity', 
+          clinical activity', curation activity')
+        comments: >-
+          This attribute can be used to report a specific type for the Activity, in cases where 
+          a model does not define Activity subclasses for this purpose. Implementers can define 
+          their own set of data set type codes/terms, to match the needs of the domain or application.           
       date:
         type: string
         format: date
         description: >-
-          The date that the Activity was completed. The date SHOULD be formatted as a date string
-          in ISO format "YYYY-MM-DD".
+          The date that the Activity was completed. 
+        comments: >-
+          By convention, populate this attribute with the date the activity was completed (e.g. 
+          in cases where the activity spans multiple days). The date SHOULD be formatted as a date 
+          string in ISO format "YYYY-MM-DD".
       performedBy:
         type: array
         ordered: false
         items:
           $ref: "#/$defs/Agent"
         description: >-
-          An Agent who contributed to executing the Activity.
+          An Agent who participated in executing the Activity.
       specifiedBy:
         type: array
         ordered: false

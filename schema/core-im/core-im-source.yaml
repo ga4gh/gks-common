@@ -445,8 +445,8 @@ $defs:
         $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
         description: >-
           A specific type of data set the DataSet instance represents (e.g. a
-          'clinical data set', a 'sequencing data set', a 'gene expression data
-          set', a 'genome annotation data set')
+          'clinical data set', a 'sequencing data set', a 'gene expression data set',
+          a 'genome annotation data set')
         comments: >-
           This attribute can be used to report a specific type for the DataSet,
           in cases where a model does not define DataSet subclasses for this purpose.

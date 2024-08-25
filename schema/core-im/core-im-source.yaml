@@ -187,10 +187,12 @@ $defs:
         description: MUST be "Agent".
       name:
         type: string
-        description: The descriptive name of the agent.
+        description: The given name of the Agent.
       subtype:
         type: string
-        description: A more specific type of agent the agent represents.
+        description: >-
+          A specific type of agent the Agent object represents. Must be one of {person, 
+          organization, software}
         enum:
           - person
           - organization

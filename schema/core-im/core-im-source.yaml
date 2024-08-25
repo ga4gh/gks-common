@@ -270,8 +270,7 @@ $defs:
         type:
           $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
         description: >-
-          A specific type of data set the Activity instance represents (e.g. 'research activity', 
-          clinical activity', curation activity')
+          A specific type of activity the Activity instance represents.
         comments: >-
           This attribute can be used to report a specific type for the Activity, in cases where 
           a model does not define Activity subclasses for this purpose. Implementers can define 

@@ -128,7 +128,7 @@ $defs:
       subtype:
         $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
         description: >-
-          A specific type of method that a Method instnace represents (e.g. 'Variant Interpretation
+          A specific type of method that a Method instance represents (e.g. 'Variant Interpretation
           Guideline', or 'Experimental Protocol')
         comments: >-
           This attribute can be used to report a specific type for the Method, in cases where a model

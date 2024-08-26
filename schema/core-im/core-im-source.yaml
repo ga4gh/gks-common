@@ -529,11 +529,16 @@ $defs:
     inherits: InformationEntity
     maturity: draft
     description: >-
-      A collection of data items from a single study that are about a particular subject or experimental
-      unit in the study, along with optional provenance information describing how these data items were
-      generated. StudyResult objects provide a flexible and useful way to summarize a subset of data items
-      from a larger study that are cited as evidence in curation workflows that generate higher order
-      knowledge about a particular variant or other entity.
+      A collection of data items from a single study that pertain to a particular subject or
+      experimental unit in the study, along with optional provenance information describing
+      how these data items were generated.
+    comments: >-
+      StudyResults provide a useful way to capture a subset of items from a study dataset that
+      are used as evidence in generating higher order knowledge assertions about the entity that
+      is the focus of the study result. For example, a subset of allele frequency data items
+      about a particular variant of interest in the complete gnomAD dataset can be reported in a
+      StudyResult object, along with relevant provenance information, so they can be referenced
+      as evidence for a higher-order assertion about the variant's pathogenicity.
     heritableProperties:
       focus:
         oneOf:
@@ -541,29 +546,49 @@ $defs:
           - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
           - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
         description: >-
-          The specific subject or experimental unit in a Study that data in the StudyResult object is about.
+          The specific subject or experimental unit in a Study that data in the StudyResult object is about -
           e.g. a particular variant in a population allele frequency dataset like ExAC or gnomAD.
+      comments: >-        
+        The 'focus' of a StudyResult is the what anchors selection of all data items and provenance
+        information that it contains. This focus may be a single participant or subject of a study
+        (e.g. one patient in a clinical study, or one allele in a population frequency analysis).
+        It may be a study group defined as an experimental unit in the study (e.g. a specific 
+        treatment arm of a clinical study). Or it may be a variable defined as a unit of analysis
+        in the study (e.g. 'exposure to nicotine' in an analysis correlating this variable with
+        clinical outcomes). 
       sourceDataSet:
         extends: derivedFrom
         items:
           $ref: "#/$defs/DataSet"
         maximum: 1
         description: >-
-          A larger Data Set from which the content of the Result was derived.
+          A larger DataSet from which the content of the StudyResult was derived.
+        comments: >-
+          In most cases, a StudyResult will be generated using data from one source dataset - but it is
+          possible multiple datasets related to a single study contain data about a particular focus that
+          get collected into a single StudyResult instance.
       componentResult:
         type: array
         ordered: false
         items:
           $ref: "#/$defs/StudyResult"
         description: >-
-          A Study Result comprised of data items about the same focus as its parent Result, but based on a
-          analysis of a different subset of the data pertaining to that focus (e.g. data from analysis of a
-          subset of the full Study Group).
+          Another StudyResult comprised of data items about the same focus as its parent Result, but based on a more narrowly
+          scoped analysis of the foundational data (e.g. an analysis based on data about a subset of the parent Results
+          full study population) .
+        comments: >-
+          This attribute allows data creators to break down a StudyResult into finer-grained StudyResult instances with a
+          narrower scope. For example, a StudyResult about the frequency of an allele in a global population of individuals
+          can be broken down into separate 'component' Results about distinct subpopulations of individuals in the source data
+          (e.g. frequency of the allele in asian vs african subpopulations, or male vs female subgroups).
       studyGroup:
         $ref: "#/$defs/StudyGroup"
         description: >-
-          A structured description of specific population of subjects interrogated in the Research Study to
-          produce the subset of data captured in the StudyResult.
+          A description of a specific group or population of subjects interrogated in the ResearchStudy that produced the
+          data captured in the StudyResult.
+        comments: >-
+          For example, in a StudyResult holding allele frequency data, this attribute points to a StudyGroup object that
+          describes characteristics of the population that the frequency data was generated from (e.g. 'East Asian', 'Female').  
       ancillaryResults:
         maturity: draft
         $comment: This field is different from most GKS objects by allowing any content to be added, and so is independently versioned.

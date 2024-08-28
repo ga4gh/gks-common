@@ -4,11 +4,13 @@
    "title": "Document",
    "type": "object",
    "maturity": "draft",
-   "description": "a representation of a physical or digital document",
+   "description": "A collection of information, usually in a text-based or graphic human-readable form, intended to be read and understood together as a whole.",
+   "$comment": "As an abstract InformationEntity, a Document instance is defined by the informational content it conveys, not a particular physical concretization of this information. A single Document instance can simultaneously be concretized in different languages, formats, and physical mediums.",
    "properties": {
       "id": {
          "type": "string",
-         "description": "The 'logical' identifier of the entity in the system of record, e.g. a UUID. This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system, or may refer to an 'id' for the shared concept in another system (e.g. a CURIE)."
+         "description": "The 'logical' identifier of the Entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system, but may or may not be globally unique outside the system. It is used within a system to reference an object from another.",
+         "$comment": "Note that it is common for implementers to create their own internal logical ids -  typically a serially or randomly generated value like a UUID that is assigned to the  data object as it is created in a system. But an implementer may choose to re-use an  existing, globally unique id from an external system or authority for this purpose  (e.g. an HGNC id for a Gene object) - as long as it is unique within the implementing  system, and can be used to reference the identified object in this context."
       },
       "label": {
          "type": "string",
@@ -16,7 +18,7 @@
       },
       "description": {
          "type": "string",
-         "description": "A free-text description of the entity."
+         "description": "A free-text description of the Entity."
       },
       "alternativeLabels": {
          "type": "array",
@@ -32,7 +34,8 @@
          "items": {
             "$ref": "/ga4gh/schema/gks-common/1.x/data-types/json/Extension"
          },
-         "description": "A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems."
+         "description": "A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model. ",
+         "$comment": "Extension objects have a key-value data structure that allows definition of custom fields in the data itself. Extensions are not expected to be natively understood,  but may be used for pre-negotiated exchange of message attributes between systems."
       },
       "specifiedBy": {
          "oneOf": [
@@ -43,7 +46,8 @@
                "$ref": "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
             }
          ],
-         "description": "A Method that describes all or part of the process through which the information was generated."
+         "description": "A specification that describes all or part of the process that led to creation of the  Information Entity (e.g. a specific experimental protocol or data analysis specification  that describe how data were generated, or an evidence interpretation guideline that  describes steps taken to interpret data in making a variant pathogenicity classification).",
+         "$comment": "Note that this attribute captures specific *instances* of specifications/methods (e.g. the specific electron microscopy method described in https://doi.org/10.1002/cpz1.1045) - as opposed to reporting  a *type* of method applied (e.g. 'Transmission Electron Microscopy').          "
       },
       "contributions": {
          "type": "array",
@@ -51,9 +55,10 @@
          "items": {
             "$ref": "/ga4gh/schema/gks-core-im/1.x/core-im/json/Contribution"
          },
-         "description": "A list of Contribution objects that describe the activities performed by agents upon this entity."
+         "description": "Specific actions taken by an Agent toward the creation, modification, validation, or  deprecation of an Information Entity.",
+         "$comment": "This attribute holds one or more Contribution objects, which provide structured descriptions of a contribution made to the Information Entity by a particular agent.   "
       },
-      "isReportedIn": {
+      "reportedIn": {
          "type": "array",
          "ordered": false,
          "items": {
@@ -66,12 +71,13 @@
                }
             ]
          },
-         "description": "A document in which the information content is expressed."
+         "description": "A document in which the the Information Entity is reported."
       },
       "dateAuthored": {
          "type": "string",
          "format": "datetime",
-         "description": "Indicates when the information content expressed in the Information Entity was generated."
+         "description": "Indicates when the information content expressed in the Information Entity was generated.",
+         "$comment": "The term 'authored' is used in the model to refer to the generation of abstract 'information content', as  opposed to creation of a concrete encoding of this information in a specific language, format, or  physical artifact. e.g. for a Statement, this attribute captures when the information content expressed  in the Statement was first generated by an agent, and metadata about when a particular concrete encoding of this information was created (e.g. a written sentence in an article, or json object in a data stream)  would live in a RecordMetadata object attached to the Information Entity)."
       },
       "derivedFrom": {
          "type": "array",
@@ -102,7 +108,8 @@
       },
       "recordMetadata": {
          "$ref": "/ga4gh/schema/gks-core-im/1.x/core-im/json/RecordMetadata",
-         "description": "Metadata that applies to a specific concrete record of information as encoded in a particular system."
+         "description": "Provenance metadata about a specific concrete encoding/serialization of information (e.g. as a record in a  specific data/knowledgebase, or an online digital resource) - as opposed to provenance about the abstract information content a record carries.",
+         "$comment": "This attribute holds a structured RecordMetadata object, which can be used to capture when, how, and  by whom a record serialization was generated or modified; what upstream resources it was derived or retrieved  from; and record-level administrative information such as versioning and lifecycle status."
       },
       "type": {
          "type": "string",
@@ -112,15 +119,16 @@
       },
       "subtype": {
          "$ref": "/ga4gh/schema/gks-common/1.x/data-types/json/Coding",
-         "description": "A more specific type for the document (e.g. a publication, patent, pathology report)"
+         "description": "A specific type of document that a Document instance represents (e.g.  'publication', 'patent', 'pathology report')",
+         "$comment": "This attribute can be used to report a specific type for the Document, in cases where a model does not define Document subclasses for this purpose.  Implementers can define their own set of document type codes/terms, to match the needs of their application. "
       },
       "title": {
          "type": "string",
-         "description": "The title of the Document"
+         "description": "The official title given to the document by its authors."
       },
       "url": {
          "type": "string",
-         "description": "A URL at which the document may be retrieved.",
+         "description": "The URL/web address from which the content of the Document can be retrieved.",
          "format": "uri",
          "pattern": "^(https?|s?ftp)://"
       },

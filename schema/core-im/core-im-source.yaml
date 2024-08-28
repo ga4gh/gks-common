@@ -425,25 +425,25 @@ $defs:
       to simply put forth a possible fact (i.e. a 'proposition') as true, or to provide a more nuanced assessment
       of the level of confidence or evidence supporting a particular proposition. 
     comments: >-
-      In the SEPIO model, primary assertions of knowledge about some subject entity is captured in self-contained
-      Statement objects. Organization of assertions into discrete Statement objects allows clear and precise tracking
-      of the evidence and provenance that supports each. Statement semantics are explicitly captured using 'subject',
-      'predicate', and 'object' attributes, and optional 'qualifier' slot(s). This 'SPOQ' pattern is used to structure
-      the meaning of the Statement's "proposition".
+      In the SEPIO model, primary assertions of knowledge about some subject entity is captured in self-contained Statement
+      objects. Organization of assertions into discrete Statement objects allows clear and precise tracking of the evidence
+      and provenance that supports each. Statement semantics are explicitly captured using 'subject', 'predicate', and
+      'object' attributes, and optional 'qualifier' slot(s). This 'SPOQ' pattern is used to structure the meaning of the
+      Statement's "proposition" - the 'possible fact' it assesses or reports to be true.
     comments: >-      
-      SEPIO supports two "modes of use" for Statements, as determined by whether 'direction' and 'strength' properties
-      are populated. 
+      SEPIO supports two "modes of use" for Statements, which differ in what they say about their SPOQ proposition, and
+      can be distinguished by whether 'direction' and 'strength' attributes are populated. 
       
-      "Assertion Mode" - 'direction' and 'strength' are not populated, and the Statement simply reports an SPOQ proposition
-      to be true  (e.g. that "BRCA2 c.8023A>G is pathogenic for Breast Cancer").  This mode is used by projects reporting
-      conclusive assertions about a domain of discourse. 
+      "Assertion Mode" - the Statement simply reports an SPOQ proposition to be true  (e.g. that "BRCA2 c.8023A>G is pathogenic
+      for Breast Cancer").  The 'direction' and 'strength' attributes are not populated, in this mode, which is used by projects
+      reporting conclusive assertions about a domain of discourse.
       
-      "Proposition Assessment Mode" - 'direction' and 'strength' are populated, and Statements describe the overall state of
-      evidence and/or confidence surrounding the SPOQ proposition- which may or may not be true (e.g. a Statement may report
-      that "there is very strong evidence supporting the proposition that 'BRCA2 c.8023A>G is pathogenic for Breast Cancer'",
-      or that "we have high confidence that the proposition  'BRCA2 c.8023A>G is pathogenic for Breast Cancer' is false").
-      This mode is used in curation projects tracking the evolving state of support for propositions of interest, as curators
-      continue to collect and assess evidence and work toward a final conclusive assertion.   
+      "Proposition Assessment Mode" - Statements describe the overall state of evidence and/or confidence surrounding the SPOQ
+      proposition - which may or may not be true. The 'direction' and 'strength' attributes are are populated to support this mode,
+      which allows for Statements  like"there is very strong evidence supporting the proposition that 'BRCA2 c.8023A>G is pathogenic
+      for Breast Cancer'", or "we have high confidence that the proposition  'BRCA2 c.8023A>G is pathogenic for Breast Cancer' is
+      false").  This mode is used in curation projects tracking the evolving state of support for propositions of interest, as
+      curators continue to collect and assess evidence and work toward a conclusive assertion.   
     heritableProperties:
       subject:
         oneOf:
@@ -459,11 +459,11 @@ $defs:
         type: string
         description: The relationship declared to hold between the subject and the object of the Statement.
         comments: >-
-          When applied to represent a particular type of Statement (via 'Profiling'), implementers can define a
-          value set of predicates for the relationships relevant in the domain - ideally using terms from community
-          ontologies or terminologies. For example, in a  'Variant Pathogenicity Statement' Profile, the predicate value
-          set might include terms from the GENO ontology defining  'pathogenic for condition', 'benign for condition',
-          and 'uncertain significance for condition' relationships (GENO:0000840, GNEO:0000843, GNEO:0000845).        
+          When applied to represent a particular type of Statement (via 'Profiling'), implementers can define a value
+          set of predicates for the relationships relevant in the domain - ideally using terms from community ontologies
+          or terminologies. For example, in a  'Variant Pathogenicity Statement' Profile, the predicate value set might
+          include terms from the GENO ontology defining  'pathogenic for condition', 'benign for condition', and
+          'uncertain significance for condition' relationships (GENO:0000840, GENO:0000843, GENO:0000845).       
       object:
         oneOf:
         - type: object

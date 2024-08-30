@@ -1,6 +1,6 @@
 **Computational Definition**
 
-A set of instructions that specify how to achieve some objective (e.g. experimental protocols, curation guidelines, rule sets, etc.)
+A set of instructions that specify how to achieve some objective. These may vary in the level of detail they provide, and in scientific research, these include things like experimental  protocols, study designs, data analysis parameters,  curation guidelines, cohort selection criteria, and rule sets.
 
 **Information Model**
 
@@ -19,7 +19,7 @@ Some Method attributes are inherited from :ref:`InformationEntity`.
    *  - id
       - string
       - 1..1
-      - The 'logical' identifier of the entity in the system of record, e.g. a UUID. This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system, or may refer to an 'id' for the shared concept in another system (e.g. a CURIE).
+      - The 'logical' identifier of the Entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system, but may or may not be globally unique outside the system. It is used within a system to reference an object from another.
    *  - label
       - string
       - 0..1
@@ -27,7 +27,7 @@ Some Method attributes are inherited from :ref:`InformationEntity`.
    *  - description
       - string
       - 0..1
-      - A free-text description of the entity.
+      - A free-text description of the Entity.
    *  - alternativeLabels
       - string
       - 0..m
@@ -35,19 +35,19 @@ Some Method attributes are inherited from :ref:`InformationEntity`.
    *  - extensions
       - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
       - 0..m
-      - A list of extensions to the entity. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.
+      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model. 
    *  - specifiedBy
       - :ref:`Method` | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
       - 0..1
-      - A :ref:`Method` that describes all or part of the process through which the information was generated.
+      - A specification that describes all or part of the process that led to creation of the  Information Entity (e.g. a specific experimental protocol or data analysis specification  that describe how data were generated, or an evidence interpretation guideline that  describes steps taken to interpret data in making a variant pathogenicity classification).
    *  - contributions
       - :ref:`Contribution`
       - 0..m
-      - A list of :ref:`Contribution` objects that describe the activities performed by agents upon this entity.
-   *  - isReportedIn
-      - `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_ | :ref:`Document`
-      - 0..1
-      - 
+      - Specific actions taken by an Agent toward the creation, modification, validation, or  deprecation of an Information Entity.
+   *  - reportedIn
+      - :ref:`Document` | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
+      - 0..m
+      - A document in which the the Information Entity is reported.
    *  - dateAuthored
       - string
       - 0..1
@@ -59,7 +59,7 @@ Some Method attributes are inherited from :ref:`InformationEntity`.
    *  - recordMetadata
       - :ref:`RecordMetadata`
       - 0..1
-      - Metadata that applies to a specific concrete record of information as encoded in a particular system.
+      - Provenance metadata about a specific concrete encoding/serialization of information (e.g. as a record in a  specific data/knowledgebase, or an online digital resource) - as opposed to provenance about the abstract information content a record carries.
    *  - type
       - string
       - 1..1
@@ -67,8 +67,8 @@ Some Method attributes are inherited from :ref:`InformationEntity`.
    *  - subtype
       - `Coding </ga4gh/schema/gks-common/1.x/data-types/json/Coding>`_
       - 0..1
-      - A more specific type of entity the method represents (e.g. Variant Interpretation Guideline, Experimental Protocol)
+      - A specific type of method that a Method instance represents (e.g. 'Variant Interpretation Guideline', or 'Experimental Protocol')
    *  - license
       - string
       - 0..1
-      - A particular license that dictates legal permissions for how a published method (e.g. an experimental protocol, workflow specification, curation guideline) can be used.
+      - A specific license that dictates legal permissions for how a method can be used (by whom, where, for what purposes, with what additional requirements, etc.)

@@ -378,9 +378,28 @@ $defs:
     maturity: draft
     type: object
     description: >-
-      A discrete, independent argument relevant to the validity of the Proposition assessed or put forth as
-      true in a Statement. This argument is based on an interpretation of one or more pieces of information
-      as evidence (i.e. Evidence Items).
+      An independent, evidence-based argument that may support or refute the validity of a specific proposition.
+      The strength and direction of this argument is based on an interpretation of one or more pieces of
+      information as evidence for or against the target proposition.
+    comments: >-
+      Evidence Lines are used to capture various pieces of information (i.e. 'evidence items') that are
+      assessed together as an argument for or against some 'target proposition' - to report the direction
+      (supports or disputes) and strength (e.g. strong, moderate, weak) that the argument is determined to
+      make. For example, the various allele counts and population frequency calculations for the 
+      BRCA2 c.8023A>G variant in the ExAC database are evidence items that may be collectively assessed to
+      build an EvidenceLine making argument of 'moderate' strength that 'supports' a target proposition that
+      the variant is pathogenic for Breast Cancer. 
+      
+      Evidence Lines are flexible with respect to the granularity of arguments they support, and the
+      scope of evidence items they can collectively assess. Narrow scoping will bucket available evidence
+      into many, fine-grained Evidence Lines that make the most atomic independently meaningful arguments
+      possible. The ACMG Variant Pathogenicity Interpretation Guidelines are an example of a fairly fine-grained
+      evidence interpretation framework. Broader scoping approaches may organize the same evidence into fewer
+      Evidence Lines that build and assess less atomic arguments based on a wider and more diverse set of evidence
+      items.  For example, CIViC curators assess the strength and direction of evidence items at the level of 
+      *all information reported in a publication for a specific study* - which can encompass many different results
+      and evidence types that under more fine-grained interpretation approaches might be split apart and assessed as
+      separate arguments. 
     properties:
       type:
         extends: type
@@ -405,24 +424,39 @@ $defs:
         description: >-
           An individual piece of information that was evaluated as evidence in building the argument represented
           by an Evidence Line.
+        comments: >-
+          A given Evidence Line may be supported by one or many individual evidence items. What matters is that all
+          evidence items in a given Evidence Line get collectively assessed and assigned direction and strength as
+          a single argument for or against a target proposition. 
+          
+          Different types and scales of information entity can serve as evidence (experimental measurements or
+          observations, data tables or figures, images, prior assertions, etc.) Only when assessed as evidence do
+          we consider the information to be an 'Evidence Item'.  For example, a piece of population frequency data
+          about BRCA2 c.8023A>G  becomes an Evidence Item when it is assessed for the support it may offer for a
+          target proposition (e.g. the prospect of the variant’s pathogenicity). 
       directionOfEvidenceProvided:
         type: string
         enum: [ "supports", "neutral", "disputes" ]
         description: >-
-          The direction the Evidence Line favors its target Proposition (can be supporting, disputing, or neutral)
+          The direction of support that the Evidence Line is determined to provide toward its target Proposition
+          (supports, disputes, neutral)
       strengthOfEvidenceProvided:
         oneOf:
           - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
           - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
         description: >-
-          A qualitative strength of all evidence items assessed within the context of the target Proposition
-          in the direction indicated by the directionOfEvidenceProvided value.
+          The strength of support that an Evidence Line is determined to provide for or against its target Proposition, 
+          evaluated relative to the direction indicated by the directionOfEvidenceProvided value. 
+        comments: >-
+          Values of this attribute can be defined by for a given profile based on domain/application needs, but should
+          be framed in qualitative terms (e.g. 'strong', 'moderate', 'weak'). The 'scoreOfEvidenceProvided' attribute
+          can be used to report quantitative assessments of evidence provided.          
       scoreOfEvidenceProvided:
         type: number
         description: >-
-          A quantitative score (or weight) of all evidence items assessed within the context of the target Proposition
-          in the direction indicated by the directionOfEvidenceProvided value.
-
+          A quantitative score indicating the strength of support that an Evidence Line is determined to provide for or
+          against its target Proposition, evaluated relative to the direction indicated by the directionOfEvidenceProvided
+          value.
   Statement:
     inherits: InformationEntity
     description: >-

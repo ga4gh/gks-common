@@ -56,6 +56,7 @@ $defs:
           fields in the data itself. Extensions are not expected to be natively understood, 
           but may be used for pre-negotiated exchange of message attributes between systems.
     heritableRequired:
+      - id
       - type
 
   DomainEntity:
@@ -219,11 +220,14 @@ $defs:
       title:
         type: string
         description: The official title given to the document by its authors.
-      url:
-        type: string
-        description: The URL/web address from which the content of the Document can be retrieved.
-        format: uri
-        pattern: "^(https?|s?ftp)://"
+      urls:
+        type: array
+        ordered: false
+        items:
+          type: string
+          format: uri
+          pattern: "^(https?|s?ftp)://"
+        description: One or more URLs from which the content of the Document can be retrieved.
       doi:
         type: string
         pattern: "^10.(\\d+)(\\.\\d+)*/[\\w\\-\\.]+"
@@ -518,13 +522,13 @@ $defs:
         comments: >-
           Statements put forth a Proposition that expresses some possible fact about the world, and may provide an
           assessment of this proposition's validity (i.e. how likely it is to be true or false based on evaluated
-          evidence). The semantics of the Proposition are captured in the 'subject,' 'predicate', 'object', and
-          optional 'qualifier' attributes. The assessment of the Proposition's validity are captured in 'direction',
-          'strength', and 'score' attributes. The 'direction' attribute is used to indicate whether the Statement's
-          Proposition is supported by the agent's assessment  (when evidence favors its validity), is refuted by the
-          agent's assessment (when evidence argues against its validity), or remains neutral (when conflicting or
-          insufficient evidence exists to assert one direction or the other). (Enumerated values = 'supports',
-          'disputes', 'neutral').
+          evidence). The semantics of the Proposition are captured in the 'subject', 'predicate', 'object', and
+          optional 'qualifier' attributes. An assessment of the Proposition's validity can be captured using 
+          'direction', 'strength', and 'score' attributes. The 'direction' attribute is used to indicate whether the
+          Statement's Proposition is *supported* by the agent's assessment (when evidence favors its validity), is 
+          *disputed* by the agent's assessment (when evidence argues against its validity), or remains *neutral*
+          (when conflicting or insufficient evidence exists to assert one direction or the other). 
+          (Enumerated values = 'supports', 'disputes', 'neutral').
         type: string
         enum:
           - supports
@@ -540,14 +544,14 @@ $defs:
           Statements put forth a Proposition that expresses some possible fact about the world, and may provide
           an assessment of this proposition's validity (i.e. how likely it is to be true or false based on evaluated
           evidence). The semantics of the Proposition are captured in the 'subject,' 'predicate', 'object', and
-          optional 'qualifier' attributes. The assessment of the Proposition's validity are captured in 'direction',
+          optional 'qualifier' attributes. An assessment of the Proposition's validity can be captured using 'direction',
           'strength', and 'score' attributes. The 'strength' attribute is used to report the strength of this
-          assessment in the direction indicated. Tee assessment can frame strength as a level of confidence that
-          the Proposition is true or false, or as a  level of evidence that supports or disputes it. Data creators
-          can define the permissible values for the 'strength' attribute to indicate which of these facets is being
-          assessed (e.g. 'high confidence' vs 'low confidence', or 'strong evidence' vs 'weak evidence') - or they
-          can chose values that don't commit to one or the other if they don't want to make the distinction (e.g.
-          'high' vs 'medium' vs 'low').
+          assessment in the direction indicated. Strength can be framed as a *level of confidence* that the Proposition  
+          is true or false, or as a *level of evidence* that supports or disputes it. Data creators can define the
+          permissible values for the 'strength' attribute to indicate which of these facets is being assessed 
+          (e.g. 'high confidence' vs 'low confidence', or 'strong evidence' vs 'weak evidence') - or they can choose
+          values that don't commit to one or the other if they don't want to make the distinction (e.g. 'high' vs
+          'medium' vs 'low').
         oneOf:
           - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
           - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"          
@@ -561,7 +565,7 @@ $defs:
         comments: >-
           Statements put forth a Proposition that expresses some possible fact about the world, and may provide an
           assessment of this proposition's validity (i.e. how likely it is to be true or false based on evaluated
-          evidence). The semantics of the Proposition are captured in the 'subject,' 'predicate', 'object', and optional
+          evidence). The semantics of the Proposition are captured in the 'subject', 'predicate', 'object', and optional
           'qualifier' attributes. The assessment of the Proposition's validity are captured in 'direction', 'strength',
           and 'score' attributes.  The 'score' attribute serves the same purpose as 'strength', but allows for a
           quantitative assessment based on a numerical score.
@@ -622,7 +626,8 @@ $defs:
           proposition. Evidence Lines can be omitted if such information is not available or needed. 
     heritableRequired:
       - subject
-      - direction
+      - predicate
+      - object
 
   DataSet:
     inherits: InformationEntity
@@ -847,7 +852,7 @@ $defs:
   #       const: Proposition
   #       default: Proposition
   #       description: Must be "Proposition"
-  #     statementText:
+  #     propositionText:
   #       type: string
   #       description: >-
   #        A natural-language expression of the Proposition's meaning. e.g. "BRCA2 c.8023A>G is pathogenic for

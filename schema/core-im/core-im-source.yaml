@@ -408,16 +408,16 @@ $defs:
         const: EvidenceLine
         default: EvidenceLine
         description: Must be "EvidenceLine"
-      # Note that the `proposition` property below is a proposed addition to the EvidenceLine class that is not
-      # yet implemented in the core IM.
+      # Note that the `targetProposition` property below is a proposed addition to the EvidenceLine class that is not
+      # yet implemented in the core IM - but included as below to help clarify the meaning and utility of this class.
       #
       # targetProposition:
       #   $ref: "#/$defs/Proposition"
       #   description: >-
       #     The possible fact against which evidence items contained in an Evidence Line were collectively evaluated,
-      #     in determining the overall strength and direction of support they provide. e.g. in an ACMG Guideline-based
+      #     in determining the overall strength and direction of support they provide. For example, in an ACMG Guideline-based
       #     assessment of variant pathogenicity, the support provided by distinct lines of evidence are assessed against
-      #     a target proposition that a variant is pathogenic for a specific disease.
+      #     a target proposition that the variant is pathogenic for a specific disease.
       evidenceItems:
         type: array
         ordered: false
@@ -514,6 +514,31 @@ $defs:
           The object of a Statement can be any Entity or concept that is related to the subject, e.g. for Genetic
           Variation subjects this is often a disease, drug, gene, molecular consequence, functional impact on
           gene or protein.
+          
+      #  Note that the `qualifier` property below is a *placeholder* that should not be inherited or used
+      #  directly in derived Statement profiles. This attribute is meant to be specialized into more specific properties
+      #  that are defined to capture a specific kind of qualifying information relevant to a particular
+      #  Statement profile. e.g. in the VariantPathogenicityStatement profile, it is specialized into
+      #  'modeOfInheritanceQualifier' and 'geneContextQualifier' attributes.
+      #  We are commenting out this property for now to avoid its unwanted inheritance in Statement profiles
+      #  that import the core-im. We will re-instate this property once we determine how the modeling framework 
+      #  and tools can support formal specificaiton of the conceptual specialization that is happening here. 
+      #
+      #     qualifier:
+      #       type: object
+      #       description: >-
+      #         An additional piece of information that extends or refines the meaning of the a Statement's core
+      #         subject-predicate-object 'triple' - by providing additional details, precision, or constraining
+      #         the statement to apply in a particular context.
+      #       $comment: >-
+      #         The qualifier attribute allows representation of more complex, n-ary statements that may not be
+      #         accommodated by a simple subject-predicate-object (SPO) triple. For example, if an SPO triple asserts that
+      #         'Variant X' - predicts sensitivity to - 'Treatment Y', a qualifier can be used to indicate that this applies
+      #         in the context of a particular 'Disease Z'. Qualifiers can also add information that quantifies aspects of a
+      #         Statement - e.g. for a Statement triple asserting that a 'Variant X'- causes - 'Phenotype Y', a qualifier can
+      #         be used to add frequency/penetrance information that quantifies the percentage of carriers in which the phenotype
+      #         is observed to manifest. Statement profiles may define more than one qualifier, as needed to capture different
+      #         types of qualifying information.  
       direction:
         description: >-
           A term indicating whether the Statement supports, disputes, or remains neutral w.r.t. the validity of the
@@ -577,16 +602,18 @@ $defs:
           supporting the pathogenicity of BRCA2 c.8023A>G for Breast Cancer". This optional attribute 
           can be used instead of, or as a complement to, a structured representation of Statement 
           semantics that uses the subject-predicate-object-qualifier pattern.
+          
       # Note that the `proposition` property below is a proposed addition to the Statement class that is not yet
-      # implemented in the core IM.
+      # implemented in the core IM, bu tincluded as below to illustrate a possible alternative modeling pattern. 
       #
       # proposition:
       #   $ref: "#/$defs/Proposition"
       #   description:  >-
-      #     A possible fact that the Statement assesses or puts forth as true. This attribute provides
-      #     the option of encapsulating the structured semantics of the possible fact asserted or
-      #     evaluated by a Statement in a separate 'Proposition' object - instead of using the subject,
-      #     predicate, object, qualifier properties directly in the Statement object.
+      #     A possible fact that the Statement assesses or puts forth as true. 
+      #   $comment: >-
+      #     This attribute supports an alternate modeling pattern, which encapsulates the structured semantics of 
+      #     the possible fact asserted or evaluated by a Statement in a separate 'Proposition' object - instead of 
+      #     using the 'subject', 'predicate', 'object', and 'qualifier' properties defined in the Statement object itself.
       subjectClassification:
         oneOf:
           - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
@@ -715,6 +742,28 @@ $defs:
         treatment arm of a clinical study). Or it may be a variable defined as a unit of analysis
         in the study (e.g. 'exposure to nicotine' in an analysis correlating this variable with
         clinical outcomes). 
+
+      #  Note that the `dataItem` property below is a *placeholder* that should not be inherited or used
+      #  as is in derived StudyResult profiles. It is meant to be specialized into more specific properties
+      #  that are defined to capture a specific kind data item relevant to a particular StudyResult profile.
+      #  For example, in the the CohortAlleleFrequencyStudyResult profile, it is specialized into 'focusAlleleCount',
+      # 'focusAlleleFrequency', and 'locuslAlleleCount' attributes.
+      #  We are commenting out this property for now to avoid its unwanted inheritance in StudyResult profiles
+      #  that import the core-im. We will re-instate this property once we determine how the modeling framework 
+      #  and tools can support formal specificaiton of the conceptual specialization that is happening here.       
+      #
+      # dataItem:
+      #   type: object
+      #   description: >-
+      #     One or more data items that are included in the StudyResult because it pertains to the 'focus' of the result.
+      #     This can be data that directly describes this 'focus' (e.g. the population frequency of an allele focus), or
+      #     be metadata about how data about the 'focus' were generated (e.g the quality measures for the sequencing run 
+      #     used to determine this allele frequency).
+      #   comment: >-
+      #     Note that in profiles of the StudyResult class, 'dataItem' is typically specialized into one or more
+      #     datatype-specific attributes that are defined to capture a specific kind of data. e.g. 'focusAlleleCount'
+      #     and 'focusAlleleFrequency' in a CohortAlleleFrequencyStudyResult profile.
+      
       sourceDataSet:
         extends: derivedFrom
         items:
@@ -831,8 +880,8 @@ $defs:
       - value
 
 
-  # Note that the `Proposition` class below is a proposed addition to both the Statement and EvidenceLine
-  # classes that is not yet implemented in the core IM.
+  # Note that the `Proposition` class below is a proposed addition to the model that woudl be used by both the Statement
+  # and EvidenceLine classes, but is not yet implemented in the core IM. See the commented out attributes on these classes for more info. 
   #
   # Proposition:
   #   inherits: Entity

@@ -1,6 +1,6 @@
 **Computational Definition**
 
-A collection of individuals or specimens from the same taxonomic class, selected for analysis in a scientific study based on their exhibiting one or more common characteristics  (e.g. species, ethnicity, race, country of origin, clinical history, age, gender, geographic location, income, etc.) May be referred to as a 'cohort' or 'population' in specific research settings.
+A collection of individuals or specimens from the same taxonomic class, selected for analysis in a scientific study based on their exhibiting one or more common characteristics  (e.g. species, race, age, gender, disease state, income) May be referred to as a 'cohort' or 'population' in specific research settings.
 
 **Information Model**
 
@@ -35,7 +35,7 @@ Some StudyGroup attributes are inherited from :ref:`Entity`.
    *  - extensions
       - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
       - 0..m
-      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model. 
+      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.
    *  - type
       - string
       - 1..1
@@ -43,12 +43,12 @@ Some StudyGroup attributes are inherited from :ref:`Entity`.
    *  - memberCount
       - integer
       - 0..1
-      - the total number of individual members in the study group
+      - The total number of individual members in the StudyGroup.
    *  - isSubsetOf
       - :ref:`StudyGroup`
       - 0..m
-      - A larger study group of which this study group represents a subset.
+      - A larger StudyGroup of which this StudyGroup represents a subset.
    *  - characteristics
       - :ref:`Characteristic`
       - 0..m
-      - A feature or characteristic shared by all members of the study group, and representing a criteria for membership in the group.
+      - A feature or role shared by all members of the StudyGroup, representing a criterion for membership in the group.

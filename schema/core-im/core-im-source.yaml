@@ -20,17 +20,17 @@ $defs:
           unique within a given system, but may or may not be globally unique outside the system. It
           is used within a system to reference an object from another.
         $comment: >-
-          Note that it is common for implementers to create their own internal logical ids - 
-          typically a serially or randomly generated value like a UUID that is assigned to the 
-          data object as it is created in a system. But an implementer may choose to re-use an 
-          existing, globally unique id from an external system or authority for this purpose 
-          (e.g. an HGNC id for a Gene object) - as long as it is unique within the implementing 
+          Note that it is common for implementers to create their own internal logical ids -
+          typically a serially or randomly generated value like a UUID that is assigned to the
+          data object as it is created in a system. But an implementer may choose to re-use an
+          existing, globally unique id from an external system or authority for this purpose
+          (e.g. an HGNC id for a Gene object) - as long as it is unique within the implementing
           system, and can be used to reference the identified object in this context.
       type:
         type: string
         description: >-
-          The name of the class that is instantiated by a data object representing the Entity.  
-        $comment: MUST be the label of a concrete class from the data model. 
+          The name of the class that is instantiated by a data object representing the Entity.
+        $comment: MUST be the label of a concrete class from the data model.
       label:
         type: string
         description: A primary name for the entity.
@@ -50,13 +50,12 @@ $defs:
           $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Extension"
         description: >-
           A list of extensions to the Entity, that allow for capture of information not directly
-          supported by elements defined in the model. 
+          supported by elements defined in the model.
         $comment: >-
           Extension objects have a key-value data structure that allows definition of custom
-          fields in the data itself. Extensions are not expected to be natively understood, 
+          fields in the data itself. Extensions are not expected to be natively understood,
           but may be used for pre-negotiated exchange of message attributes between systems.
     heritableRequired:
-      - id
       - type
 
   DomainEntity:
@@ -82,11 +81,11 @@ $defs:
       An abstract (non-physical) entity that is about something. It represents the abstract 'information content'
       conveyed by physical or digital information artifacts like books, web pages, data tables, or photographs.
     $comment: >-
-      Information Entities represent the abstract 'information content' that can be concretized in 
-      physical or digital artifacts such as books, photographs, files, web pages, the neural connections 
-      of a human brain, etc. They are independent of any specific language, representational format, or 
-      physical/digital medium, and can be simultaneously concretized in many distinct physical artifacts 
-      (e.g. all physical copies of the first edition of "War and Peace" carry the same information content, 
+      Information Entities represent the abstract 'information content' that can be concretized in
+      physical or digital artifacts such as books, photographs, files, web pages, the neural connections
+      of a human brain, etc. They are independent of any specific language, representational format, or
+      physical/digital medium, and can be simultaneously concretized in many distinct physical artifacts
+      (e.g. all physical copies of the first edition of "War and Peace" carry the same information content,
       and thus concretize the same Information Entity).
     heritableProperties:
       type:
@@ -99,25 +98,25 @@ $defs:
         - $ref: "#/$defs/Method"
         - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
         description: >-
-          A specification that describes all or part of the process that led to creation of the 
-          Information Entity (e.g. a specific experimental protocol or data analysis specification 
-          that describe how data were generated, or an evidence interpretation guideline that 
+          A specification that describes all or part of the process that led to creation of the
+          Information Entity (e.g. a specific experimental protocol or data analysis specification
+          that describe how data were generated, or an evidence interpretation guideline that
           describes steps taken to interpret data in making a variant pathogenicity classification).
         $comment: >-
           Note that this attribute captures specific *instances* of specifications/methods (e.g. the specific
-          electron microscopy method described in https://doi.org/10.1002/cpz1.1045) - as opposed to reporting 
-          a *type* of method applied (e.g. 'Transmission Electron Microscopy').          
+          electron microscopy method described in https://doi.org/10.1002/cpz1.1045) - as opposed to reporting
+          a *type* of method applied (e.g. 'Transmission Electron Microscopy').
       contributions:
         type: array
         ordered: false
         items:
           $ref: "#/$defs/Contribution"
         description: >-
-          Specific actions taken by an Agent toward the creation, modification, validation, or 
+          Specific actions taken by an Agent toward the creation, modification, validation, or
           deprecation of an Information Entity.
         $comment: >-
           This attribute holds one or more Contribution objects, which provide structured descriptions
-          of a contribution made to the Information Entity by a particular agent.   
+          of a contribution made to the Information Entity by a particular agent.
       reportedIn:
         type: array
         ordered: false
@@ -131,11 +130,11 @@ $defs:
         format: datetime
         description: Indicates when the information content expressed in the Information Entity was generated.
         $comment: >-
-          The term 'authored' is used in the model to refer to the generation of abstract 'information content', as 
-          opposed to creation of a concrete encoding of this information in a specific language, format, or 
-          physical artifact. e.g. for a Statement, this attribute captures when the information content expressed 
+          The term 'authored' is used in the model to refer to the generation of abstract 'information content', as
+          opposed to creation of a concrete encoding of this information in a specific language, format, or
+          physical artifact. e.g. for a Statement, this attribute captures when the information content expressed
           in the Statement was first generated by an agent, and metadata about when a particular concrete encoding
-          of this information was created (e.g. a written sentence in an article, or json object in a data stream) 
+          of this information was created (e.g. a written sentence in an article, or json object in a data stream)
           would live in a RecordMetadata object attached to the Information Entity).
       derivedFrom:
         type: array
@@ -146,14 +145,13 @@ $defs:
       recordMetadata:
         $ref: "#/$defs/RecordMetadata"
         description: >-
-          Provenance metadata about a specific concrete encoding/serialization of information (e.g. as a record in a 
+          Provenance metadata about a specific concrete encoding/serialization of information (e.g. as a record in a
           specific data/knowledgebase, or an online digital resource) - as opposed to provenance about the abstract
           information content a record carries.
         $comment: >-
-          This attribute holds a structured RecordMetadata object, which can be used to capture when, how, and 
-          by whom a record serialization was generated or modified; what upstream resources it was derived or retrieved 
+          This attribute holds a structured RecordMetadata object, which can be used to capture when, how, and
+          by whom a record serialization was generated or modified; what upstream resources it was derived or retrieved
           from; and record-level administrative information such as versioning and lifecycle status.
-
 
   Method:
     type: object
@@ -161,7 +159,7 @@ $defs:
     maturity: draft
     description: >-
       A set of instructions that specify how to achieve some objective. These may vary in the level
-      of detail they provide, and in scientific research, these include things like experimental 
+      of detail they provide, and in scientific research, these include things like experimental
       protocols, study designs, data analysis parameters,  curation guidelines, cohort selection
       criteria, and rule sets.
     properties:
@@ -185,7 +183,7 @@ $defs:
           A specific license that dictates legal permissions for how a method can be used (by whom,
           where, for what purposes, with what additional requirements, etc.)
         $comment: >-
-          Where possible, provide a URL pointing to the license or a description of it (e.g. 
+          Where possible, provide a URL pointing to the license or a description of it (e.g.
           "https://creativecommons.org/licenses/by/4.0/"). Otherwise, provide a free-text name or
           description of the license (e.g. "CC-BY").
 
@@ -214,7 +212,7 @@ $defs:
         $comment: >-
           This attribute can be used to report a specific type for the Document, in cases where a model
           does not define Document subclasses for this purpose.  Implementers can define their own set
-          of document type codes/terms, to match the needs of their application. 
+          of document type codes/terms, to match the needs of their application.
       title:
         type: string
         description: The official title given to the document by its authors.
@@ -256,7 +254,7 @@ $defs:
       subtype:
         type: string
         description: >-
-          A specific type of agent the Agent object represents. Must be one of {person, 
+          A specific type of agent the Agent object represents. Must be one of {person,
           organization, software}
         enum:
           - person
@@ -267,7 +265,7 @@ $defs:
     inherits: Entity
     maturity: draft
     description: >-
-      An action or set of actions performed by an agent, that occurs over a period of time. 
+      An action or set of actions performed by an agent, that occurs over a period of time.
       Activities may use, generate, modify, move, or destroy one or more entities.
     heritableProperties:
       subtype:
@@ -276,17 +274,17 @@ $defs:
         description: >-
           A specific type of activity the Activity instance represents.
         $comment: >-
-          This attribute can be used to report a specific type for the Activity, in cases where 
-          a model does not define Activity subclasses for this purpose. Implementers can define 
-          their own set of data set type codes/terms, to match the needs of the domain or application.           
+          This attribute can be used to report a specific type for the Activity, in cases where
+          a model does not define Activity subclasses for this purpose. Implementers can define
+          their own set of data set type codes/terms, to match the needs of the domain or application.
       date:
         type: string
         format: date
         description: >-
-          The date that the Activity was completed. 
+          The date that the Activity was completed.
         $comment: >-
-          By convention, populate this attribute with the date the activity was completed (e.g. 
-          in cases where the activity spans multiple days). The date SHOULD be formatted as a date 
+          By convention, populate this attribute with the date the activity was completed (e.g.
+          in cases where the activity spans multiple days). The date SHOULD be formatted as a date
           string in ISO format "YYYY-MM-DD".
       performedBy:
         type: array
@@ -325,7 +323,7 @@ $defs:
         $comment: >-
           Note that this must be a single agent (which can be a Person, or an Organization).
           If multiple Agents contributed to an entity, a separate Contribution instances MUST be
-          created for each. 
+          created for each.
       activityType:
         $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
         description: >-
@@ -333,6 +331,7 @@ $defs:
           (e.g. for a publication, agents may contribute as a primary author, editor, figure designer,
           data generator, etc. . Values of this property may be framed as activities or as contribution
           roles (e.g. using terms from the Contribution Role Ontology (CRO).)
+
   RecordMetadata:
     type: object
     maturity: draft
@@ -387,21 +386,21 @@ $defs:
       Evidence Lines are used to capture various pieces of information (i.e. 'evidence items') that are
       assessed together as an argument for or against some 'target proposition' - to report the direction
       (supports or disputes) and strength (e.g. strong, moderate, weak) that the argument is determined to
-      make. For example, the various allele counts and population frequency calculations for the 
+      make. For example, the various allele counts and population frequency calculations for the
       BRCA2 c.8023A>G variant in the ExAC database are evidence items that may be collectively assessed to
       build an EvidenceLine making argument of 'moderate' strength that 'supports' a target proposition that
-      the variant is pathogenic for Breast Cancer. 
-      
+      the variant is pathogenic for Breast Cancer.
+
       Evidence Lines are flexible with respect to the granularity of arguments they support, and the
       scope of evidence items they can collectively assess. Narrow scoping will bucket available evidence
       into many, fine-grained Evidence Lines that make the most atomic independently meaningful arguments
       possible. The ACMG Variant Pathogenicity Interpretation Guidelines are an example of a fairly fine-grained
       evidence interpretation framework. Broader scoping approaches may organize the same evidence into fewer
       Evidence Lines that build and assess less atomic arguments based on a wider and more diverse set of evidence
-      items.  For example, CIViC curators assess the strength and direction of evidence items at the level of 
+      items.  For example, CIViC curators assess the strength and direction of evidence items at the level of
       *all information reported in a publication for a specific study* - which can encompass many different results
       and evidence types that under more fine-grained interpretation approaches might be split apart and assessed as
-      separate arguments. 
+      separate arguments.
     properties:
       type:
         extends: type
@@ -429,13 +428,13 @@ $defs:
         $comment: >-
           A given Evidence Line may be supported by one or many individual evidence items. What matters is that all
           evidence items in a given Evidence Line get collectively assessed and assigned direction and strength as
-          a single argument for or against a target proposition. 
-          
+          a single argument for or against a target proposition.
+
           Different types and scales of information entity can serve as evidence (experimental measurements or
           observations, data tables or figures, images, prior assertions, etc.) Only when assessed as evidence do
           we consider the information to be an 'Evidence Item'.  For example, a piece of population frequency data
           about BRCA2 c.8023A>G  becomes an Evidence Item when it is assessed for the support it may offer for a
-          target proposition (e.g. the prospect of the variant’s pathogenicity). 
+          target proposition (e.g. the prospect of the variant’s pathogenicity).
       directionOfEvidenceProvided:
         type: string
         enum: [ "supports", "neutral", "disputes" ]
@@ -447,39 +446,39 @@ $defs:
           - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
           - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
         description: >-
-          The strength of support that an Evidence Line is determined to provide for or against its target Proposition, 
-          evaluated relative to the direction indicated by the directionOfEvidenceProvided value. 
+          The strength of support that an Evidence Line is determined to provide for or against its target Proposition,
+          evaluated relative to the direction indicated by the directionOfEvidenceProvided value.
         $comment: >-
           Values of this attribute can be defined by for a given profile based on domain/application needs, but should
           be framed in qualitative terms (e.g. 'strong', 'moderate', 'weak'). The 'scoreOfEvidenceProvided' attribute
-          can be used to report quantitative assessments of evidence provided.          
+          can be used to report quantitative assessments of evidence provided.
       scoreOfEvidenceProvided:
         type: number
         description: >-
           A quantitative score indicating the strength of support that an Evidence Line is determined to provide for or
           against its target Proposition, evaluated relative to the direction indicated by the directionOfEvidenceProvided
           value.
-          
+
   Statement:
     inherits: InformationEntity
     description: >-
-      A claim of purported truth as made by a particular agent, on a particular occasion. Statements may be used 
+      A claim of purported truth as made by a particular agent, on a particular occasion. Statements may be used
       to simply put forth a possible fact (i.e. a 'proposition') as true, or to provide a more nuanced assessment
-      of the level of confidence or evidence supporting a particular proposition. 
+      of the level of confidence or evidence supporting a particular proposition.
     $comment: >-
       Primary assertions of knowledge about some subject entity are captured in self-contained Statement
       objects. Organization of assertions into discrete Statement objects allows clear and precise tracking of the evidence
       and provenance that supports each. Statement semantics are explicitly captured using 'subject', 'predicate', and
       'object' attributes, and optional 'qualifier' slot(s). This 'SPOQ' pattern is used to structure the meaning of the
       Statement's "proposition" - the 'possible fact' it assesses or reports to be true.
-    $comment: >-      
+    $comment: >-
       The model supports two "modes of use" for Statements, which differ in what they say about their SPOQ proposition, and
       can be distinguished by whether 'direction' and 'strength' or 'score' attributes are populated.
-      
+
       In "Assertion Mode" a Statement simply reports an SPOQ proposition to be true (e.g. that "BRCA2 c.8023A>G is pathogenic
       for Breast Cancer"), and 'direction', 'strength', and 'score' attributes are not populated.  This mode is used by projects
       reporting conclusive assertions about a domain of discourse, but not providing confidence or evidence level assessments.
-      
+
       In "Proposition Assessment Mode" a Statement describes the overall state of evidence and/or confidence surrounding the SPOQ
       proposition - which may or may not be true. The 'direction' and 'strength' or 'score' attributes are populated, which allows for
       Statements to report that "there is very strong evidence supporting the proposition that 'BRCA2 c.8023A>G is pathogenic
@@ -505,7 +504,7 @@ $defs:
           set of predicates for the relationships relevant in the domain - ideally using terms from community ontologies
           or terminologies. For example, in a  'Variant Pathogenicity Statement' Profile, the predicate value set might
           include terms from the GENO ontology defining  'pathogenic for condition', 'benign for condition', and
-          'uncertain significance for condition' relationships (GENO:0000840, GENO:0000843, GENO:0000845).       
+          'uncertain significance for condition' relationships (GENO:0000840, GENO:0000843, GENO:0000845).
       object:
         oneOf:
         - type: object
@@ -514,15 +513,15 @@ $defs:
           The object of a Statement can be any Entity or concept that is related to the subject, e.g. for Genetic
           Variation subjects the object is often a disease, drug, gene, molecular consequence, functional impact on
           gene or protein.
-          
+
       #  Note that the `qualifier` property below is a *placeholder* that should not be inherited or used
       #  directly in derived Statement profiles. This attribute is meant to be specialized into more specific properties
       #  that are defined to capture a specific kind of qualifying information relevant to a particular
       #  Statement profile. e.g. in the VariantPathogenicityStatement profile, it is specialized into
       #  'modeOfInheritanceQualifier' and 'geneContextQualifier' attributes.
       #  We are commenting out this property for now to avoid its unwanted inheritance in Statement profiles
-      #  that import the core-im. We will re-instate this property once we determine how the modeling framework 
-      #  and tools can support formal specificaiton of the conceptual specialization that is happening here. 
+      #  that import the core-im. We will re-instate this property once we determine how the modeling framework
+      #  and tools can support formal specification of the conceptual specialization that is happening here.
       #
       #     qualifier:
       #       type: object
@@ -538,11 +537,11 @@ $defs:
       #         Statement - e.g. for a Statement triple asserting that a 'Variant X'- causes - 'Phenotype Y', a qualifier can
       #         be used to add frequency/penetrance information that quantifies the percentage of carriers in which the phenotype
       #         is observed to manifest. Statement profiles may define more than one qualifier, as needed to capture different
-      #         types of qualifying information.  
+      #         types of qualifying information.
       direction:
         description: >-
           A term indicating whether the Statement supports, disputes, or remains neutral w.r.t. the validity of the
-          Proposition it evaluates. 
+          Proposition it evaluates.
         $comment: >-
           Statements put forth a Proposition that expresses some possible fact about the world, and may provide an
           assessment of this proposition's validity (i.e. how likely it is to be true or false based on evaluated
@@ -578,7 +577,7 @@ $defs:
           'medium' vs 'low').
         oneOf:
           - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
-          - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"          
+          - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
       score:
         type: number
         description: >-
@@ -599,20 +598,20 @@ $defs:
         $comment: >-
           This attribute captures what a Statement says as human readable free text. e.g. that
           "BRCA2 c.8023A>G is pathogenic for Breast Cancer", or that "there is moderate evidence
-          supporting the pathogenicity of BRCA2 c.8023A>G for Breast Cancer". This optional attribute 
-          can be used instead of, or as a complement to, a structured representation of Statement 
+          supporting the pathogenicity of BRCA2 c.8023A>G for Breast Cancer". This optional attribute
+          can be used instead of, or as a complement to, a structured representation of Statement
           semantics that uses the subject-predicate-object-qualifier pattern.
 
       # Note that the `proposition` property below is a proposed addition to the Statement class that is not yet
-      # implemented in the core IM, but included as below to illustrate a possible alternative modeling pattern. 
+      # implemented in the core IM, but included as below to illustrate a possible alternative modeling pattern.
       #
       # proposition:
       #   $ref: "#/$defs/Proposition"
       #   description:  >-
-      #     A possible fact that the Statement assesses or puts forth as true. 
+      #     A possible fact that the Statement assesses or puts forth as true.
       #   $comment: >-
-      #     This attribute supports an alternate modeling pattern, which encapsulates the structured semantics of 
-      #     the possible fact asserted or evaluated by a Statement in a separate 'Proposition' object - instead of 
+      #     This attribute supports an alternate modeling pattern, which encapsulates the structured semantics of
+      #     the possible fact asserted or evaluated by a Statement in a separate 'Proposition' object - instead of
       #     using the 'subject', 'predicate', 'object', and 'qualifier' properties defined in the Statement object itself.
       subjectClassification:
         oneOf:
@@ -620,7 +619,7 @@ $defs:
           - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
         description: >-
           A single term or phrase summarizing the outcome of direction and strength
-          assessments of a Statement's proposition, in terms of a classification of 
+          assessments of a Statement's proposition, in terms of a classification of
           its subject.
         $comment: >-
           Permissible values for this attribute are  typically selected to be succinct and familiar in
@@ -649,7 +648,7 @@ $defs:
           for breast cancer.
           Evidence Lines are useful in cases where a data provider wants to describe in detail how information
           was assessed as evidence to generate and score different arguments for or against a Statement's
-          proposition. Evidence Lines can be omitted if such information is not available or needed. 
+          proposition. Evidence Lines can be omitted if such information is not available or needed.
     heritableRequired:
       - subject
       - predicate
@@ -734,14 +733,14 @@ $defs:
         description: >-
           The specific subject or experimental unit in a Study that data in the StudyResult object is about -
           e.g. a particular variant in a population allele frequency dataset like ExAC or gnomAD.
-      $comment: >-        
-        The 'focus' of a StudyResult is the what anchors selection of all data items and provenance
-        information that it contains. This focus may be a single participant or subject of a study
-        (e.g. one patient in a clinical study, or one allele in a population frequency analysis).
-        It may be a study group defined as an experimental unit in the study (e.g. a specific 
-        treatment arm of a clinical study). Or it may be a variable defined as a unit of analysis
-        in the study (e.g. 'exposure to nicotine' in an analysis correlating this variable with
-        clinical outcomes). 
+        $comment: >-
+          The 'focus' of a StudyResult is the what anchors selection of all data items and provenance
+          information that it contains. This focus may be a single participant or subject of a study
+          (e.g. one patient in a clinical study, or one allele in a population frequency analysis).
+          It may be a study group defined as an experimental unit in the study (e.g. a specific
+          treatment arm of a clinical study). Or it may be a variable defined as a unit of analysis
+          in the study (e.g. 'exposure to nicotine' in an analysis correlating this variable with
+          clinical outcomes).
 
       #  Note that the `dataItem` property below is a *placeholder* that should not be inherited or used
       #  as is in derived StudyResult profiles. It is meant to be specialized into more specific properties
@@ -749,21 +748,21 @@ $defs:
       #  For example, in the the CohortAlleleFrequencyStudyResult profile, it is specialized into 'focusAlleleCount',
       # 'focusAlleleFrequency', and 'locuslAlleleCount' attributes.
       #  We are commenting out this property for now to avoid its unwanted inheritance in StudyResult profiles
-      #  that import the core-im. We will re-instate this property once we determine how the modeling framework 
-      #  and tools can support formal specificaiton of the conceptual specialization that is happening here.       
+      #  that import the core-im. We will re-instate this property once we determine how the modeling framework
+      #  and tools can support formal specificaiton of the conceptual specialization that is happening here.
       #
       # dataItem:
       #   type: object
       #   description: >-
       #     One or more data items that are included in the StudyResult because it pertains to the 'focus' of the result.
       #     This can be data that directly describes this 'focus' (e.g. the population frequency of an allele focus), or
-      #     be metadata about how data about the 'focus' were generated (e.g the quality measures for the sequencing run 
+      #     be metadata about how data about the 'focus' were generated (e.g the quality measures for the sequencing run
       #     used to determine this allele frequency).
       #   comment: >-
       #     Note that in profiles of the StudyResult class, 'dataItem' is typically specialized into one or more
       #     datatype-specific attributes that are defined to capture a specific kind of data. e.g. 'focusAlleleCount'
       #     and 'focusAlleleFrequency' in a CohortAlleleFrequencyStudyResult profile.
-      
+
       sourceDataSet:
         extends: derivedFrom
         items:
@@ -796,7 +795,7 @@ $defs:
           data captured in the StudyResult.
         $comment: >-
           For example, in a StudyResult holding allele frequency data, this attribute points to a StudyGroup object that
-          describes characteristics of the population that the frequency data was generated from (e.g. 'East Asian', 'Female').  
+          describes characteristics of the population that the frequency data was generated from (e.g. 'East Asian', 'Female').
       ancillaryResults:
         maturity: draft
         $comment: This field is different from most GKS objects by allowing any content to be added, and so is independently versioned.
@@ -864,7 +863,7 @@ $defs:
       value:
         type: string
         description: >-
-          The specific value(s) that the indicated traitor role  holds in all population members
+          The specific value(s) that the indicated traitor role holds in all population members
           (e.g. 'east asian', 'female', 'adolescent', 'cancer').
       valueOperator:
         type: boolean
@@ -874,14 +873,14 @@ $defs:
         $comment: >-
           An 'AND' operator indicates that an individual exhibits all of the characteristic values listed.
           An 'OR' operator indicates the individual exhibits one or more of the characteristic values listed.
-          A 'NOT' indicates that the individual does not exhibit the characteristic value or values listed. 
+          A 'NOT' indicates that the individual does not exhibit the characteristic value or values listed.
     required:
       - name
       - value
 
 
-  # Note that the `Proposition` class below is a proposed addition to the model that woudld be used by both the Statement
-  # and EvidenceLine classes, but is not yet implemented in the core IM. See the commented out attributes on these classes for more info. 
+  # Note that the `Proposition` class below is a proposed addition to the model that would be used by both the Statement
+  # and EvidenceLine classes, but is not yet implemented in the core IM. See the commented out attributes on these classes for more info.
   #
   # Proposition:
   #   inherits: Entity

@@ -1,6 +1,6 @@
 **Computational Definition**
 
-An action or set of actions performed by an agent, that occurs over a period of time.  Activities may use, generate, modify, move, or destroy one or more entities.
+An action or set of actions performed by an agent, that occurs over a period of time. Activities may use, generate, modify, move, or destroy one or more entities.
 
 **Information Model**
 
@@ -23,7 +23,7 @@ Some Activity attributes are inherited from :ref:`Entity`.
    *  - type
       - string
       - 1..1
-      - The name of the class that is instantiated by a data object representing the Entity.  
+      - The name of the class that is instantiated by a data object representing the Entity.
    *  - label
       - string
       - 0..1
@@ -39,15 +39,15 @@ Some Activity attributes are inherited from :ref:`Entity`.
    *  - extensions
       - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
       - 0..m
-      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model. 
+      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.
    *  - subtype
       - {'$ref': '/ga4gh/schema/gks-common/1.x/data-types/json/Coding'}
       - 0..1
-      - A specific type of data set the Activity instance represents (e.g. 'research activity',  clinical activity', curation activity')
+      - A specific type of activity the Activity instance represents.
    *  - date
       - string
       - 0..1
-      - The date that the Activity was completed. 
+      - The date that the Activity was completed.
    *  - performedBy
       - :ref:`Agent`
       - 0..m

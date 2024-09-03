@@ -1,6 +1,6 @@
 **Computational Definition**
 
-An action taken by an agent in contributing to the creation, modification, assessment, or deprecation of a particular entity (e.g. a Statement, EvidenceLine, DataItem, Publication, etc.)
+An action taken by an agent in contributing to the creation, modification, assessment, or deprecation of a particular entity (e.g. a Statement, EvidenceLine, DataSet, Publication, etc.)
 
 **Information Model**
 
@@ -35,15 +35,15 @@ Some Contribution attributes are inherited from :ref:`Activity`.
    *  - extensions
       - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
       - 0..m
-      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model. 
+      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.
    *  - subtype
       - {'$ref': '/ga4gh/schema/gks-common/1.x/data-types/json/Coding'}
       - 0..1
-      - A specific type of data set the Activity instance represents (e.g. 'research activity',  clinical activity', curation activity')
+      - A specific type of activity the Activity instance represents.
    *  - date
       - string
       - 0..1
-      - The date that the Activity was completed. 
+      - The date that the Activity was completed.
    *  - specifiedBy
       - :ref:`Method`
       - 0..m
@@ -59,4 +59,4 @@ Some Contribution attributes are inherited from :ref:`Activity`.
    *  - activityType
       - `Coding </ga4gh/schema/gks-common/1.x/data-types/json/Coding>`_
       - 0..1
-      - The type of activity performed or role realized in making the contribution. MAY use terms from the Contributor Role Ontology (https://www.ebi.ac.uk/ols4/ontologies/cro), e.g. 'author role', 'evaluator role', 'data collection role'.
+      - The specific type of activity performed or role played by an agent in making the contribution (e.g. for a publication, agents may contribute as a primary author, editor, figure designer, data generator, etc. . Values of this property may be framed as activities or as contribution roles (e.g. using terms from the Contribution Role Ontology (CRO).)

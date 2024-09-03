@@ -9,7 +9,7 @@ imports:
 
 $defs:
 
-# Condition related domain entities  
+# Condition related domain entities
   Condition:
     inherits: gks.core-im:DomainEntity
     description: >-

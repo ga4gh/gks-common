@@ -474,10 +474,10 @@ $defs:
       Statement's "proposition" - the 'possible fact' it assesses or reports to be true.
     $comment: >-      
       The model supports two "modes of use" for Statements, which differ in what they say about their SPOQ proposition, and
-      can be distinguished by whether 'direction' and 'strength' or 'score' attributes are populated. 
+      can be distinguished by whether 'direction' and 'strength' or 'score' attributes are populated.
       
       In "Assertion Mode" a Statement simply reports an SPOQ proposition to be true (e.g. that "BRCA2 c.8023A>G is pathogenic
-      for Breast Cancer"), and 'direction', 'strength', and 'score' attributes are not populated.  Thos mode is used by projects
+      for Breast Cancer"), and 'direction', 'strength', and 'score' attributes are not populated.  This mode is used by projects
       reporting conclusive assertions about a domain of discourse, but not providing confidence or evidence level assessments.
       
       In "Proposition Assessment Mode" a Statement describes the overall state of evidence and/or confidence surrounding the SPOQ
@@ -485,7 +485,7 @@ $defs:
       Statements to report that "there is very strong evidence supporting the proposition that 'BRCA2 c.8023A>G is pathogenic
       for Breast Cancer'", or "we have high confidence that the proposition 'BRCA2 c.8023A>G is pathogenic for Breast Cancer' is
       false").  This mode is used in curation projects to track the evolving state of support for propositions of interest, as
-      curators continue to collect evidence and work toward a conclusive assertion.   
+      curators continue to collect evidence and work toward a conclusive assertion.
     heritableProperties:
       subject:
         oneOf:
@@ -532,12 +532,12 @@ $defs:
         enum:
           - supports
           - neutral
-          - disputes          
+          - disputes
       strength:
         description: >-
           A term used to report the strength of a Proposition's assessment in the direction indicated (i.e. how
           strongly supported or disputed the Proposition is believed to be).  Implementers may choose to frame a
-          strength assessment in terms of how *confident* an agent is that the Proposition is true or false, 
+          strength assessment in terms of how *confident* an agent is that the Proposition is true or false,
           or in terms of the *strength of all evidence* they believe supports or disputes it.
         $comment: >-
           Statements put forth a Proposition that expresses some possible fact about the world, and may provide

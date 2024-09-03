@@ -1,6 +1,6 @@
 **Computational Definition**
 
-An object holding a name-value pair used to describe any characteristic of an individual member of a Study Group (e.g. name = sex, value = female)
+An object holding a name-value pair used to describe a trait or role of an individual member of a StudyGroup.
 
 **Information Model**
 
@@ -18,12 +18,12 @@ An object holding a name-value pair used to describe any characteristic of an in
    *  - name
       - string
       - 1..1
-      - The type of the feature/trait described by the characteristic (e.g. 'ethnicity', 'sex', 'age', 'disease status').
+      - The type of the trait  or role described by the trait (e.g. 'ethnicity', 'sex', 'age', 'disease status').
    *  - value
       - string
       - 1..1
-      - The specific value(s) that the indicated feature/trait holds in all population members (e.g. 'east asian', 'female', 'adolescent', 'cancer').
-   *  - exclude
+      - The specific value(s) that the indicated traitor role holds in all population members (e.g. 'east asian', 'female', 'adolescent', 'cancer').
+   *  - valueOperator
       - boolean
       - 0..1
-      - A boolean attribute set to TRUE if the characteristic must be absent to qualify as a member of a study group or population.
+      - An operation that defines how to logically interpret a set of more than one Characteristic values ('AND', 'OR', 'NOT')

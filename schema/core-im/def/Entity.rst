@@ -22,7 +22,7 @@ Anything that exists, has existed, or will exist.
    *  - type
       - string
       - 1..1
-      - The name of the class that is instantiated by a data object representing the Entity.  
+      - The name of the class that is instantiated by a data object representing the Entity.
    *  - label
       - string
       - 0..1
@@ -38,4 +38,4 @@ Anything that exists, has existed, or will exist.
    *  - extensions
       - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
       - 0..m
-      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model. 
+      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.

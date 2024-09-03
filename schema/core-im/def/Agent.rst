@@ -35,7 +35,7 @@ Some Agent attributes are inherited from :ref:`Entity`.
    *  - extensions
       - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
       - 0..m
-      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model. 
+      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.
    *  - type
       - string
       - 1..1
@@ -43,8 +43,8 @@ Some Agent attributes are inherited from :ref:`Entity`.
    *  - name
       - string
       - 0..1
-      - The descriptive name of the agent.
+      - The given name of the Agent.
    *  - subtype
       - string
       - 0..1
-      - A more specific type of agent the agent represents.
+      - A specific type of agent the Agent object represents. Must be one of {person, organization, software}

@@ -4,19 +4,21 @@
    "title": "Characteristic",
    "type": "object",
    "maturity": "draft",
-   "description": "An object holding a name-value pair used to describe any characteristic of an individual member of a Study Group (e.g. name = sex, value = female)",
+   "description": "An object holding a name-value pair used to describe a trait or role of an individual member of a StudyGroup.",
+   "$comment": "This flexible key-value like object is where specific inclusion or exclusion criteria for membership in a StudyGroup are formally defined. It should be used to capture characteristics that inhere in individual members of the StudyGroup (e.g. inherent traits like their sex, race, or age, or roles assigned to them in a particular context such as being a control in a study).",
    "properties": {
       "name": {
          "type": "string",
-         "description": "The type of the feature/trait described by the characteristic (e.g. 'ethnicity', 'sex', 'age', 'disease status')."
+         "description": "The type of the trait  or role described by the trait (e.g. 'ethnicity', 'sex', 'age', 'disease status')."
       },
       "value": {
          "type": "string",
-         "description": "The specific value(s) that the indicated feature/trait holds in all population members (e.g. 'east asian', 'female', 'adolescent', 'cancer')."
+         "description": "The specific value(s) that the indicated traitor role holds in all population members (e.g. 'east asian', 'female', 'adolescent', 'cancer')."
       },
-      "exclude": {
+      "valueOperator": {
          "type": "boolean",
-         "description": "A boolean attribute set to TRUE if the characteristic must be absent to qualify as a member of a study group or population."
+         "description": "An operation that defines how to logically interpret a set of more than one Characteristic values ('AND', 'OR', 'NOT')",
+         "$comment": "An 'AND' operator indicates that an individual exhibits all of the characteristic values listed. An 'OR' operator indicates the individual exhibits one or more of the characteristic values listed. A 'NOT' indicates that the individual does not exhibit the characteristic value or values listed."
       }
    },
    "required": [

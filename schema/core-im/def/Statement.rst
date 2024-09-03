@@ -1,6 +1,6 @@
 **Computational Definition**
 
-A Statement (aka "Assertion") represents a claim of purported truth as made by a particular agent, on a particular occasion.
+A claim of purported truth as made by a particular agent, on a particular occasion. Statements may be used to simply put forth a possible fact (i.e. a 'proposition') as true, or to provide a more nuanced assessment of the level of confidence or evidence supporting a particular proposition.
 
 **Information Model**
 
@@ -18,7 +18,7 @@ Some Statement attributes are inherited from :ref:`InformationEntity`.
       - Description
    *  - id
       - string
-      - 1..1
+      - 0..1
       - The 'logical' identifier of the Entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system, but may or may not be globally unique outside the system. It is used within a system to reference an object from another.
    *  - type
       - string
@@ -39,15 +39,15 @@ Some Statement attributes are inherited from :ref:`InformationEntity`.
    *  - extensions
       - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
       - 0..m
-      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model. 
+      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.
    *  - specifiedBy
       - :ref:`Method` | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
       - 0..1
-      - A specification that describes all or part of the process that led to creation of the  Information Entity (e.g. a specific experimental protocol or data analysis specification  that describe how data were generated, or an evidence interpretation guideline that  describes steps taken to interpret data in making a variant pathogenicity classification).
+      - A specification that describes all or part of the process that led to creation of the Information Entity (e.g. a specific experimental protocol or data analysis specification that describe how data were generated, or an evidence interpretation guideline that describes steps taken to interpret data in making a variant pathogenicity classification).
    *  - contributions
       - :ref:`Contribution`
       - 0..m
-      - Specific actions taken by an Agent toward the creation, modification, validation, or  deprecation of an Information Entity.
+      - Specific actions taken by an Agent toward the creation, modification, validation, or deprecation of an Information Entity.
    *  - reportedIn
       - :ref:`Document` | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
       - 0..m
@@ -63,40 +63,40 @@ Some Statement attributes are inherited from :ref:`InformationEntity`.
    *  - recordMetadata
       - :ref:`RecordMetadata`
       - 0..1
-      - Provenance metadata about a specific concrete encoding/serialization of information (e.g. as a record in a  specific data/knowledgebase, or an online digital resource) - as opposed to provenance about the abstract information content a record carries.
+      - Provenance metadata about a specific concrete encoding/serialization of information (e.g. as a record in a specific data/knowledgebase, or an online digital resource) - as opposed to provenance about the abstract information content a record carries.
    *  - subject
       - object
       - 1..1
-      - The subject of the Statement.
+      - The Entity about which the Statement is made.
    *  - predicate
       - string
-      - 0..1
-      - The predicate of the Statement.
+      - 1..1
+      - The relationship declared to hold between the subject and the object of the Statement.
    *  - object
       - object
-      - 0..1
-      - The object of the Statement.
+      - 1..1
+      - An Entity or concept that is related to the subject of a Statement via its predicate.
    *  - direction
       - string
-      - 1..1
-      - The direction of this Statement with respect to the predicate.
+      - 0..1
+      - A term indicating whether the Statement supports, disputes, or remains neutral w.r.t. the validity of the Proposition it evaluates.
    *  - strength
       - `Coding </ga4gh/schema/gks-common/1.x/data-types/json/Coding>`_ | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
       - 0..1
-      - A qualitative term indicating the overall strength of support for or against the Statement based on all evidence assessed.
+      - A term used to report the strength of a Proposition's assessment in the direction indicated (i.e. how strongly supported or disputed the Proposition is believed to be).  Implementers may choose to frame a strength assessment in terms of how *confident* an agent is that the Proposition is true or false, or in terms of the *strength of all evidence* they believe supports or disputes it.
    *  - score
       - number
       - 0..1
-      - A quantitative score indicating the overall strength of support for or against the Statement based on all evidence assessed.
+      - A quantitative score that indicates the strength of a Proposition's assessment in the direction indicated (i.e. how strongly supported or disputed the Proposition is believed to be).  Depending on its implementation, a score may reflect how *confident* that agent is that the Proposition is true or false, or the *strength of evidence* they believe supports or disputes it.
    *  - statementText
       - string
       - 0..1
-      - A natural-language expression of what a structured Statement object asserts to be true. e.g. for a Variant Pathogenicity statement, "BRCA2 c.8023A>G is pathogenic for Breast Cancer", or "there is moderate evidence supporting the pathogenicity of BRCA2 c.8023A>G for Breast Cancer".
+      - A natural-language expression of what a Statement asserts to be true.
    *  - subjectClassification
       - `Coding </ga4gh/schema/gks-common/1.x/data-types/json/Coding>`_ | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
       - 0..1
-      - A single term or phrase summarizing the outcome of direction and strength assessments of a Statement's proposition, in terms of a classification of the Statement's subject. Permissible values for this attribute are typically selected to be succinct and familiar in the target community of practice. e.g.  'likely pathogenic' in the domain of variant pathogenicity classification'.
+      - A single term or phrase summarizing the outcome of direction and strength assessments of a Statement's proposition, in terms of a classification of its subject.
    *  - hasEvidenceLines
       - :ref:`EvidenceLine`
       - 0..m
-      - A discrete, independent argument relevant to the validity of the Proposition assessed or put forth in the Statement. This argument is based on the interpretation of one or more pieces of information as evidence. argument is based on the interpretation of one or more pieces of information as evidence.
+      - An evidence-based argument that supports or disputes the validity of the proposition that a Statement assesses or puts forth as true. The strength and direction of this argument (whether it supports or disputes the proposition, and how strongly) is based on an interpretation of one or more pieces of information as evidence (i.e. 'Evidence Items).

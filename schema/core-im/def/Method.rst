@@ -1,6 +1,6 @@
 **Computational Definition**
 
-A set of instructions that specify how to achieve some objective. These may vary in the level of detail they provide, and in scientific research, these include things like experimental  protocols, study designs, data analysis parameters,  curation guidelines, cohort selection criteria, and rule sets.
+A set of instructions that specify how to achieve some objective. These may vary in the level of detail they provide, and in scientific research, these include things like experimental protocols, study designs, data analysis parameters,  curation guidelines, cohort selection criteria, and rule sets.
 
 **Information Model**
 
@@ -18,7 +18,7 @@ Some Method attributes are inherited from :ref:`InformationEntity`.
       - Description
    *  - id
       - string
-      - 1..1
+      - 0..1
       - The 'logical' identifier of the Entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system, but may or may not be globally unique outside the system. It is used within a system to reference an object from another.
    *  - label
       - string
@@ -35,15 +35,15 @@ Some Method attributes are inherited from :ref:`InformationEntity`.
    *  - extensions
       - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
       - 0..m
-      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model. 
+      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.
    *  - specifiedBy
       - :ref:`Method` | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
       - 0..1
-      - A specification that describes all or part of the process that led to creation of the  Information Entity (e.g. a specific experimental protocol or data analysis specification  that describe how data were generated, or an evidence interpretation guideline that  describes steps taken to interpret data in making a variant pathogenicity classification).
+      - A specification that describes all or part of the process that led to creation of the Information Entity (e.g. a specific experimental protocol or data analysis specification that describe how data were generated, or an evidence interpretation guideline that describes steps taken to interpret data in making a variant pathogenicity classification).
    *  - contributions
       - :ref:`Contribution`
       - 0..m
-      - Specific actions taken by an Agent toward the creation, modification, validation, or  deprecation of an Information Entity.
+      - Specific actions taken by an Agent toward the creation, modification, validation, or deprecation of an Information Entity.
    *  - reportedIn
       - :ref:`Document` | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
       - 0..m
@@ -59,7 +59,7 @@ Some Method attributes are inherited from :ref:`InformationEntity`.
    *  - recordMetadata
       - :ref:`RecordMetadata`
       - 0..1
-      - Provenance metadata about a specific concrete encoding/serialization of information (e.g. as a record in a  specific data/knowledgebase, or an online digital resource) - as opposed to provenance about the abstract information content a record carries.
+      - Provenance metadata about a specific concrete encoding/serialization of information (e.g. as a record in a specific data/knowledgebase, or an online digital resource) - as opposed to provenance about the abstract information content a record carries.
    *  - type
       - string
       - 1..1

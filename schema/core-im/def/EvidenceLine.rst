@@ -1,6 +1,6 @@
 **Computational Definition**
 
-A discrete, independent argument relevant to the validity of the Proposition assessed or put forth as true in a Statement. This argument is based on an interpretation of one or more pieces of information as evidence (i.e. Evidence Items).
+An independent, evidence-based argument that may support or refute the validity of a specific proposition. The strength and direction of this argument is based on an interpretation of one or more pieces of information as evidence for or against the target proposition.
 
 **Information Model**
 
@@ -18,7 +18,7 @@ Some EvidenceLine attributes are inherited from :ref:`InformationEntity`.
       - Description
    *  - id
       - string
-      - 1..1
+      - 0..1
       - The 'logical' identifier of the Entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system, but may or may not be globally unique outside the system. It is used within a system to reference an object from another.
    *  - label
       - string
@@ -35,15 +35,15 @@ Some EvidenceLine attributes are inherited from :ref:`InformationEntity`.
    *  - extensions
       - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
       - 0..m
-      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model. 
+      - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.
    *  - specifiedBy
       - :ref:`Method` | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
       - 0..1
-      - A specification that describes all or part of the process that led to creation of the  Information Entity (e.g. a specific experimental protocol or data analysis specification  that describe how data were generated, or an evidence interpretation guideline that  describes steps taken to interpret data in making a variant pathogenicity classification).
+      - A specification that describes all or part of the process that led to creation of the Information Entity (e.g. a specific experimental protocol or data analysis specification that describe how data were generated, or an evidence interpretation guideline that describes steps taken to interpret data in making a variant pathogenicity classification).
    *  - contributions
       - :ref:`Contribution`
       - 0..m
-      - Specific actions taken by an Agent toward the creation, modification, validation, or  deprecation of an Information Entity.
+      - Specific actions taken by an Agent toward the creation, modification, validation, or deprecation of an Information Entity.
    *  - reportedIn
       - :ref:`Document` | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
       - 0..m
@@ -59,7 +59,7 @@ Some EvidenceLine attributes are inherited from :ref:`InformationEntity`.
    *  - recordMetadata
       - :ref:`RecordMetadata`
       - 0..1
-      - Provenance metadata about a specific concrete encoding/serialization of information (e.g. as a record in a  specific data/knowledgebase, or an online digital resource) - as opposed to provenance about the abstract information content a record carries.
+      - Provenance metadata about a specific concrete encoding/serialization of information (e.g. as a record in a specific data/knowledgebase, or an online digital resource) - as opposed to provenance about the abstract information content a record carries.
    *  - type
       - string
       - 1..1
@@ -71,12 +71,12 @@ Some EvidenceLine attributes are inherited from :ref:`InformationEntity`.
    *  - directionOfEvidenceProvided
       - string
       - 0..1
-      - The direction the Evidence Line favors its target Proposition (can be supporting, disputing, or neutral)
+      - The direction of support that the Evidence Line is determined to provide toward its target Proposition (supports, disputes, neutral)
    *  - strengthOfEvidenceProvided
       - `Coding </ga4gh/schema/gks-common/1.x/data-types/json/Coding>`_ | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
       - 0..1
-      - A qualitative strength of all evidence items assessed within the context of the target Proposition in the direction indicated by the directionOfEvidenceProvided value.
+      - The strength of support that an Evidence Line is determined to provide for or against its target Proposition, evaluated relative to the direction indicated by the directionOfEvidenceProvided value.
    *  - scoreOfEvidenceProvided
       - number
       - 0..1
-      - A quantitative score (or weight) of all evidence items assessed within the context of the target Proposition in the direction indicated by the directionOfEvidenceProvided value.
+      - A quantitative score indicating the strength of support that an Evidence Line is determined to provide for or against its target Proposition, evaluated relative to the direction indicated by the directionOfEvidenceProvided value.

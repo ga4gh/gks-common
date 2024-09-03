@@ -602,9 +602,9 @@ $defs:
           supporting the pathogenicity of BRCA2 c.8023A>G for Breast Cancer". This optional attribute 
           can be used instead of, or as a complement to, a structured representation of Statement 
           semantics that uses the subject-predicate-object-qualifier pattern.
-          
+
       # Note that the `proposition` property below is a proposed addition to the Statement class that is not yet
-      # implemented in the core IM, bu tincluded as below to illustrate a possible alternative modeling pattern. 
+      # implemented in the core IM, but included as below to illustrate a possible alternative modeling pattern. 
       #
       # proposition:
       #   $ref: "#/$defs/Proposition"
@@ -880,7 +880,7 @@ $defs:
       - value
 
 
-  # Note that the `Proposition` class below is a proposed addition to the model that woudl be used by both the Statement
+  # Note that the `Proposition` class below is a proposed addition to the model that woudld be used by both the Statement
   # and EvidenceLine classes, but is not yet implemented in the core IM. See the commented out attributes on these classes for more info. 
   #
   # Proposition:

@@ -12,6 +12,7 @@ $defs:
 # Condition related domain entities
   Condition:
     inherits: gks.core-im:DomainEntity
+    maturity: draft
     description: >-
       A disease or other medical disorder.
     oneOf:
@@ -21,10 +22,10 @@ $defs:
 
   TraitSet:
     type: object
+    inherits: Condition
     maturity: draft
     description: >-
       A set of phenotype and/or disease concepts that together constitute a condition.
-    inherits: Condition
     properties:
       type:
         extends: type
@@ -44,8 +45,8 @@ $defs:
 
   Disease:
     type: object
-    maturity: draft
     inherits: Condition
+    maturity: draft
     description: >-
       A particular abnormal condition that negatively affects the structure or function
       of all or part of an organism and is not immediately due to any external injury.
@@ -58,8 +59,8 @@ $defs:
 
   Phenotype:
     type: object
-    maturity: draft
     inherits: Condition
+    maturity: draft
     description: >-
       An observable characteristic or trait of an organism.
     properties:
@@ -71,11 +72,11 @@ $defs:
 
 # Gene related domain entities
   Gene:
+    type: object
     inherits: gks.core-im:DomainEntity
     maturity: draft
     description: >-
       A basic physical and functional unit of heredity.
-    type: object
     properties:
       type:
         type: string
@@ -86,6 +87,7 @@ $defs:
 # Therapeutic Procedures related domain entities
   TherapeuticProcedure:
     inherits: gks.core-im:DomainEntity
+    maturity: draft
     description: >-
       An action or administration of therapeutic agents to produce an effect
       that is intended to alter or stop a pathologic process.
@@ -97,8 +99,8 @@ $defs:
 
   TherapeuticAction:
     type: object
-    maturity: draft
     inherits: TherapeuticProcedure
+    maturity: draft
     description: >-
       A therapeutic action taken that is intended to alter or stop a pathologic
       process.
@@ -111,8 +113,8 @@ $defs:
 
   TherapeuticAgent:
     type: object
-    maturity: draft
     inherits: TherapeuticProcedure
+    maturity: draft
     description: >-
       An administered therapeutic agent that is intended to alter or stop a pathologic
       process.
@@ -125,8 +127,8 @@ $defs:
 
   CombinationTherapy:
     type: object
-    maturity: draft
     inherits: TherapeuticProcedure
+    maturity: draft
     description: >-
       A therapeutic procedure that involves multiple different therapeutic procedures
       performed in combination.
@@ -152,8 +154,8 @@ $defs:
 
   TherapeuticSubstituteGroup:
     type: object
-    maturity: draft
     inherits: TherapeuticProcedure
+    maturity: draft
     description: >-
       A group of therapeutic procedures that may be treated as substitutes for one another.
     properties:

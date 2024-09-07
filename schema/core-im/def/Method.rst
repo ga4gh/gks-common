@@ -33,11 +33,11 @@ Some Method attributes are inherited from :ref:`InformationEntity`.
       - 0..m
       - Alternative name(s) for the Entity.
    *  - extensions
-      - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
+      - `Extension </ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/Extension>`_
       - 0..m
       - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.
    *  - specifiedBy
-      - :ref:`Method` | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
+      - :ref:`Method` | `IRI </ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/IRI>`_
       - 0..1
       - A specification that describes all or part of the process that led to creation of the Information Entity (e.g. a specific experimental protocol or data analysis specification that describe how data were generated, or an evidence interpretation guideline that describes steps taken to interpret data in making a variant pathogenicity classification).
    *  - contributions
@@ -45,7 +45,7 @@ Some Method attributes are inherited from :ref:`InformationEntity`.
       - 0..m
       - Specific actions taken by an Agent toward the creation, modification, validation, or deprecation of an Information Entity.
    *  - reportedIn
-      - :ref:`Document` | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
+      - :ref:`Document` | `IRI </ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/IRI>`_
       - 0..m
       - A document in which the the Information Entity is reported.
    *  - dateAuthored
@@ -65,7 +65,7 @@ Some Method attributes are inherited from :ref:`InformationEntity`.
       - 1..1
       - MUST be "Method".
    *  - subtype
-      - `Coding </ga4gh/schema/gks-common/1.x/data-types/json/Coding>`_
+      - `Coding </ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/Coding>`_
       - 0..1
       - A specific type of method that a Method instance represents (e.g. 'Variant Interpretation Guideline', or 'Experimental Protocol')
    *  - license

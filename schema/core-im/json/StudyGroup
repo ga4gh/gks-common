@@ -1,6 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-core-im/1.x/core-im/json/StudyGroup",
+   "$id": "https://w3id.org/ga4gh/schema/gks-core-im/1.0.0-ballot.2024.08.1/core-im/json/StudyGroup",
    "title": "StudyGroup",
    "type": "object",
    "maturity": "draft",
@@ -32,7 +32,7 @@
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "/ga4gh/schema/gks-common/1.x/data-types/json/Extension"
+            "$ref": "/ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/Extension"
          },
          "description": "A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.",
          "$comment": "Extension objects have a key-value data structure that allows definition of custom fields in the data itself. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems."
@@ -51,7 +51,7 @@
       "isSubsetOf": {
          "type": "array",
          "items": {
-            "$ref": "/ga4gh/schema/gks-core-im/1.x/core-im/json/StudyGroup"
+            "$ref": "/ga4gh/schema/gks-core-im/1.0.0-ballot.2024.08.1/core-im/json/StudyGroup"
          },
          "ordered": false,
          "description": "A larger StudyGroup of which this StudyGroup represents a subset."
@@ -59,7 +59,7 @@
       "characteristics": {
          "type": "array",
          "items": {
-            "$ref": "/ga4gh/schema/gks-core-im/1.x/core-im/json/Characteristic"
+            "$ref": "/ga4gh/schema/gks-core-im/1.0.0-ballot.2024.08.1/core-im/json/Characteristic"
          },
          "ordered": false,
          "description": "A feature or role shared by all members of the StudyGroup, representing a criterion for membership in the group."

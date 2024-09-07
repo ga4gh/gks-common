@@ -1,5 +1,5 @@
 $schema: "https://json-schema.org/draft/2020-12/schema"
-$id: "https://w3id.org/ga4gh/schema/gks-common/1.x/data-types/data-types-source.yaml"
+$id: "https://w3id.org/ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/data-types-source.yaml"
 title: GKS Common Complex and Simple Data Type Class Definitions
 strict: true
 

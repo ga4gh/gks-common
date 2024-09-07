@@ -1,6 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/data-types/json/Coding",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/Coding",
    "title": "Coding",
    "type": "object",
    "maturity": "draft",
@@ -19,7 +19,7 @@
          "description": "Version of the terminology or code system that provided the code."
       },
       "code": {
-         "$ref": "/ga4gh/schema/gks-common/1.x/data-types/json/Code",
+         "$ref": "/ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/Code",
          "description": "A symbol uniquely identifying the concept, as in a syntax defined by the code system. CURIE format is preferred where possible (e.g. 'SO:0000704' is the CURIE form of the Sequence Ontology code for 'gene')."
       }
    },

@@ -3,7 +3,7 @@
    "$id": "https://w3id.org/ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/Extension",
    "title": "Extension",
    "type": "object",
-   "maturity": "draft",
+   "maturity": "trial use",
    "description": "The Extension class provides entities with a means to include additional attributes that are outside of the specified standard but needed by a given content provider or system implementer. These extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems.",
    "properties": {
       "name": {

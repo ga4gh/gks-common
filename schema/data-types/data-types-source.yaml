@@ -6,7 +6,7 @@ strict: true
 $defs:
   Coding:
     type: object
-    maturity: draft
+    maturity: trial use
     description: >-
       A structured representation of a code for a defined concept in a terminology or code system.
     properties:
@@ -60,7 +60,7 @@ $defs:
 
   Extension:
     type: object
-    maturity: draft
+    maturity: trial use
     description: >-
       The Extension class provides entities with a means to include
       additional attributes that are outside of the specified standard
@@ -89,7 +89,7 @@ $defs:
 
   Code:    
     type: string
-    maturity: draft
+    maturity: trial use
     description: >-
       Indicates that the value is taken from a set of controlled strings defined elsewhere.
       Technically, a code is restricted to a string which has at least one character and no leading or
@@ -99,7 +99,7 @@ $defs:
 
   IRI:
     type: string
-    maturity: draft
+    maturity: trial use
     description: >-
       An IRI Reference (either an IRI or a relative-reference), according to `RFC3986 section 4.1
       <https://datatracker.ietf.org/doc/html/rfc3986#section-4.1>`_ and `RFC3987 section 2.1

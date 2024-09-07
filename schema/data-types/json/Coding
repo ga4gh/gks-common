@@ -3,7 +3,7 @@
    "$id": "https://w3id.org/ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/Coding",
    "title": "Coding",
    "type": "object",
-   "maturity": "draft",
+   "maturity": "trial use",
    "description": "A structured representation of a code for a defined concept in a terminology or code system.",
    "properties": {
       "label": {

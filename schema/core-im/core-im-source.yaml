@@ -7,7 +7,7 @@ imports:
 
 $defs:
   Entity:
-    maturity: draft
+    maturity: trial use
     description: Anything that exists, has existed, or will exist.
     $comment: >-
       Entity is the root class of the 'gks-common' core information model. All common classes that

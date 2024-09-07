@@ -37,11 +37,11 @@ Some Statement attributes are inherited from :ref:`InformationEntity`.
       - 0..m
       - Alternative name(s) for the Entity.
    *  - extensions
-      - `Extension </ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/Extension>`_
+      - :ref:`Extension`
       - 0..m
       - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.
    *  - specifiedBy
-      - :ref:`Method` | `IRI </ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/IRI>`_
+      - :ref:`Method` | :ref:`IRI`
       - 0..1
       - A specification that describes all or part of the process that led to creation of the Information Entity (e.g. a specific experimental protocol or data analysis specification that describe how data were generated, or an evidence interpretation guideline that describes steps taken to interpret data in making a variant pathogenicity classification).
    *  - contributions
@@ -49,7 +49,7 @@ Some Statement attributes are inherited from :ref:`InformationEntity`.
       - 0..m
       - Specific actions taken by an Agent toward the creation, modification, validation, or deprecation of an Information Entity.
    *  - reportedIn
-      - :ref:`Document` | `IRI </ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/IRI>`_
+      - :ref:`Document` | :ref:`IRI`
       - 0..m
       - A document in which the the Information Entity is reported.
    *  - dateAuthored
@@ -81,7 +81,7 @@ Some Statement attributes are inherited from :ref:`InformationEntity`.
       - 0..1
       - A term indicating whether the Statement supports, disputes, or remains neutral w.r.t. the validity of the Proposition it evaluates.
    *  - strength
-      - `Coding </ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/Coding>`_ | `IRI </ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/IRI>`_
+      - :ref:`Coding` | :ref:`IRI`
       - 0..1
       - A term used to report the strength of a Proposition's assessment in the direction indicated (i.e. how strongly supported or disputed the Proposition is believed to be).  Implementers may choose to frame a strength assessment in terms of how *confident* an agent is that the Proposition is true or false, or in terms of the *strength of all evidence* they believe supports or disputes it.
    *  - score
@@ -93,7 +93,7 @@ Some Statement attributes are inherited from :ref:`InformationEntity`.
       - 0..1
       - A natural-language expression of what a Statement asserts to be true.
    *  - subjectClassification
-      - `Coding </ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/Coding>`_ | `IRI </ga4gh/schema/gks-common/1.0.0-ballot.2024.08.1/data-types/json/IRI>`_
+      - :ref:`Coding` | :ref:`IRI`
       - 0..1
       - A single term or phrase summarizing the outcome of direction and strength assessments of a Statement's proposition, in terms of a classification of its subject.
    *  - hasEvidenceLines

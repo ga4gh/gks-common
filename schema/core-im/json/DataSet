@@ -2,8 +2,8 @@
    "$schema": "https://json-schema.org/draft/2020-12/schema",
    "$id": "https://w3id.org/ga4gh/schema/gks-core-im/1.x/core-im/json/DataSet",
    "title": "DataSet",
-   "maturity": "draft",
    "type": "object",
+   "maturity": "draft",
    "description": "A collection of related data items or records that are organized together in a common format or structure, to enable their computational manipulation as a unit.",
    "$comment": "Instances of this class represent a specific version of a given dataset. Examples include the gnomAD version 3.1.2 dataset carrying allele population frequencies, or a specific version of a VCF file that describes variations observed in a particular patient and various annotations made on them, or a SIFT dataset of computational predictions functional impact for a set of variants.",
    "properties": {

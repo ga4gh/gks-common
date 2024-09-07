@@ -2,9 +2,9 @@
    "$schema": "https://json-schema.org/draft/2020-12/schema",
    "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/domain-entities/json/Gene",
    "title": "Gene",
+   "type": "object",
    "maturity": "draft",
    "description": "A basic physical and functional unit of heredity.",
-   "type": "object",
    "properties": {
       "id": {
          "type": "string",

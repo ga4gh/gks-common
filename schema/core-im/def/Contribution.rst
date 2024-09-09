@@ -37,7 +37,7 @@ Some Contribution attributes are inherited from :ref:`Activity`.
       - 0..m
       - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.
    *  - subtype
-      - {'$ref': '/ga4gh/schema/gks-common/1.x/data-types/json/Coding'}
+      - :ref:`Coding`
       - 0..1
       - A specific type of activity the Activity instance represents.
    *  - date

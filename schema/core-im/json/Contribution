@@ -37,9 +37,7 @@
          "$comment": "Extension objects have a key-value data structure that allows definition of custom fields in the data itself. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems."
       },
       "subtype": {
-         "type": {
-            "$ref": "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
-         },
+         "$ref": "/ga4gh/schema/gks-common/1.x/data-types/json/Coding",
          "description": "A specific type of activity the Activity instance represents.",
          "$comment": "This attribute can be used to report a specific type for the Activity, in cases where a model does not define Activity subclasses for this purpose. Implementers can define their own set of data set type codes/terms, to match the needs of the domain or application."
       },

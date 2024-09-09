@@ -81,15 +81,14 @@ $defs:
     inherits: Entity
     maturity: draft
     description: >-
-      An abstract (non-physical) entity that is about something. It represents the abstract 'information content'
-      conveyed by physical or digital information artifacts like books, web pages, data tables, or photographs.
+      An abstract (non-physical) entity that is about something - representing the underlying
+      'information content' conveyed by physical or digital information artifacts like books, web pages,
+      data tables, or photographs.
     $comment: >-
-      Information Entities represent the abstract 'information content' that can be concretized in
-      physical or digital artifacts such as books, photographs, files, web pages, the neural connections
-      of a human brain, etc. They are independent of any specific language, representational format, or
-      physical/digital medium, and can be simultaneously concretized in many distinct physical artifacts
-      (e.g. all physical copies of the first edition of "War and Peace" carry the same information content,
-      and thus concretize the same Information Entity).
+      As abstract, non-physical entities, Information Entities represent information independent of any
+      specific language, format, or physical/digital medium. They can be simultaneously concretized in
+      many distinct physical artifacts (e.g. all physical copies of the first edition of "War and Peace"
+      carry the same information content, and thus concretize the same Information Entity).
     heritableProperties:
       type:
         type: string
@@ -102,10 +101,11 @@ $defs:
         - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
         description: >-
           A specification that describes all or part of the process that led to creation of the
-          Information Entity (e.g. a specific experimental protocol or data analysis specification
-          that describe how data were generated, or an evidence interpretation guideline that
-          describes steps taken to interpret data in making a variant pathogenicity classification).
+          Information Entity 
         $comment: >-
+          Examples - a specific experimental protocol or data analysis specification
+          that describe how data were generated, or an evidence interpretation guideline that
+          describes steps taken to interpret data in making a variant pathogenicity classification.
           Note that this attribute captures specific *instances* of specifications/methods (e.g. the specific
           electron microscopy method described in https://doi.org/10.1002/cpz1.1045) - as opposed to reporting
           a *type* of method applied (e.g. 'Transmission Electron Microscopy').
@@ -148,9 +148,8 @@ $defs:
       recordMetadata:
         $ref: "#/$defs/RecordMetadata"
         description: >-
-          Provenance metadata about a specific concrete encoding/serialization of information (e.g. as a record in a
-          specific data/knowledgebase, or an online digital resource) - as opposed to provenance about the abstract
-          information content a record carries.
+          Provenance metadata about a specific concrete record of information as encoded/serialized in a particular
+          data set or object (as opposed to provenance about the abstract information content the encoding carries).
         $comment: >-
           This attribute holds a structured RecordMetadata object, which can be used to capture when, how, and
           by whom a record serialization was generated or modified; what upstream resources it was derived or retrieved
@@ -161,10 +160,10 @@ $defs:
     inherits: InformationEntity
     maturity: draft
     description: >-
-      A set of instructions that specify how to achieve some objective. These may vary in the level
-      of detail they provide, and in scientific research, these include things like experimental
-      protocols, study designs, data analysis parameters,  curation guidelines, cohort selection
-      criteria, and rule sets.
+      A set of instructions that specify how to achieve some objective. 
+    $comment: >-
+      In scientific research, these include things like experimental protocols, study designs,
+      data analysis parameters, curation guidelines, cohort selection criteria, and rule sets.
     properties:
       type:
         extends: type

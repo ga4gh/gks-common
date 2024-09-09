@@ -1,6 +1,6 @@
 **Computational Definition**
 
-A set of instructions that specify how to achieve some objective. These may vary in the level of detail they provide, and in scientific research, these include things like experimental protocols, study designs, data analysis parameters,  curation guidelines, cohort selection criteria, and rule sets.
+A set of instructions that specify how to achieve some objective. 
 
 **Information Model**
 
@@ -39,7 +39,7 @@ Some Method attributes are inherited from :ref:`InformationEntity`.
    *  - specifiedBy
       - :ref:`Method` | :ref:`IRI`
       - 0..1
-      - A specification that describes all or part of the process that led to creation of the Information Entity (e.g. a specific experimental protocol or data analysis specification that describe how data were generated, or an evidence interpretation guideline that describes steps taken to interpret data in making a variant pathogenicity classification).
+      - A specification that describes all or part of the process that led to creation of the Information Entity 
    *  - contributions
       - :ref:`Contribution`
       - 0..m
@@ -59,7 +59,7 @@ Some Method attributes are inherited from :ref:`InformationEntity`.
    *  - recordMetadata
       - :ref:`RecordMetadata`
       - 0..1
-      - Provenance metadata about a specific concrete encoding/serialization of information (e.g. as a record in a specific data/knowledgebase, or an online digital resource) - as opposed to provenance about the abstract information content a record carries.
+      - Provenance metadata about a specific concrete record of information as encoded/serialized in a particular data set or object (as opposed to provenance about the abstract information content the encoding carries).
    *  - type
       - string
       - 1..1
@@ -67,8 +67,8 @@ Some Method attributes are inherited from :ref:`InformationEntity`.
    *  - subtype
       - :ref:`Coding`
       - 0..1
-      - A specific type of method that a Method instance represents (e.g. 'Variant Interpretation Guideline', or 'Experimental Protocol')
+      - A specific type of method that a Method instance represents (e.g. 'Variant Interpretation Guideline', or 'Experimental Protocol').
    *  - license
       - string
       - 0..1
-      - A specific license that dictates legal permissions for how a method can be used (by whom, where, for what purposes, with what additional requirements, etc.)
+      - A specific license that dictates legal permissions for how a method can be used (by whom, where, for what purposes, with what additional requirements, etc.).

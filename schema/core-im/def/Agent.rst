@@ -47,4 +47,4 @@ Some Agent attributes are inherited from :ref:`Entity`.
    *  - subtype
       - string
       - 0..1
-      - A specific type of agent the Agent object represents. Must be one of {person, organization, software}
+      - A specific type of agent the Agent object represents. Must be one of {person, organization, software}.

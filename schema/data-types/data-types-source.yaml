@@ -21,7 +21,7 @@ $defs:
           When the 'code' is reported as a CURIE, the 'system' should be reported as the uri that
           the CURIE's prefix expands to (e.g. 'http://purl.obofoundry.org/so.owl/' for the
           Sequence Ontology).
-      version:
+      systemVersion:
         type: string
         description: Version of the terminology or code system that provided the code.
       code:

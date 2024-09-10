@@ -420,7 +420,7 @@ $defs:
       #     in determining the overall strength and direction of support they provide. For example, in an ACMG Guideline-based
       #     assessment of variant pathogenicity, the support provided by distinct lines of evidence are assessed against
       #     a target proposition that the variant is pathogenic for a specific disease.
-      evidenceItems:
+      hasEvidenceItems:
         type: array
         ordered: false
         items:

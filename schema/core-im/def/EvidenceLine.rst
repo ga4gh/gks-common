@@ -64,7 +64,7 @@ Some EvidenceLine attributes are inherited from :ref:`InformationEntity`.
       - string
       - 1..1
       - Must be "EvidenceLine"
-   *  - evidenceItems
+   *  - hasEvidenceItems
       - :ref:`InformationEntity`
       - 0..m
       - An individual piece of information that was evaluated as evidence in building the argument represented by an Evidence Line.

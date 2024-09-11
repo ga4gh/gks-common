@@ -117,7 +117,7 @@
          "default": "EvidenceLine",
          "description": "Must be \"EvidenceLine\""
       },
-      "evidenceItems": {
+      "hasEvidenceItems": {
          "type": "array",
          "ordered": false,
          "items": {

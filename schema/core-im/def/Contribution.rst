@@ -33,11 +33,11 @@ Some Contribution attributes are inherited from :ref:`Activity`.
       - 0..m
       - Alternative name(s) for the Entity.
    *  - extensions
-      - :ref:`Extension`
+      - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
       - 0..m
       - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.
    *  - subtype
-      - :ref:`Coding`
+      - `Coding </ga4gh/schema/gks-common/1.x/data-types/json/Coding>`_
       - 0..1
       - A specific type of activity the Activity instance represents.
    *  - date
@@ -57,6 +57,6 @@ Some Contribution attributes are inherited from :ref:`Activity`.
       - 1..1
       - The agent that made the contribution.
    *  - activityType
-      - :ref:`Coding`
+      - `Coding </ga4gh/schema/gks-common/1.x/data-types/json/Coding>`_
       - 0..1
       - The specific type of activity performed or role played by an agent in making the contribution (e.g. for a publication, agents may contribute as a primary author, editor, figure designer, data generator, etc. . Values of this property may be framed as activities or as contribution roles (e.g. using terms from the Contribution Role Ontology (CRO)).

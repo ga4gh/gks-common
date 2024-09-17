@@ -1,6 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-core-im/1.x/core-im/json/Agent",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/core-im/json/Agent",
    "title": "Agent",
    "type": "object",
    "maturity": "draft",

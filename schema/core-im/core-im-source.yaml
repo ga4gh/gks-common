@@ -1,5 +1,5 @@
 $schema: "https://json-schema.org/draft/2020-12/schema"
-$id: "https://w3id.org/ga4gh/schema/gks-core-im/1.x/core-im/core-im-source.yaml"
+$id: "https://w3id.org/ga4gh/schema/gks-common/1.x/core-im/core-im-source.yaml"
 title: GKS Commons Core Information Class Definitions
 
 imports:

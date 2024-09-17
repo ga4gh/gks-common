@@ -1,6 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-core-im/1.x/core-im/json/Contribution",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/core-im/json/Contribution",
    "title": "Contribution",
    "type": "object",
    "maturity": "draft",
@@ -51,7 +51,7 @@
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "/ga4gh/schema/gks-core-im/1.x/core-im/json/Method"
+            "$ref": "/ga4gh/schema/gks-common/1.x/core-im/json/Method"
          },
          "description": "A method that was followed in performing an Activity, that describes how it was executed."
       },
@@ -66,7 +66,7 @@
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "/ga4gh/schema/gks-core-im/1.x/core-im/json/Agent"
+            "$ref": "/ga4gh/schema/gks-common/1.x/core-im/json/Agent"
          },
          "description": "The agent that made the contribution.",
          "minItems": 1,

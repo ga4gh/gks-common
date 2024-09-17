@@ -37,11 +37,11 @@ Some InformationEntity attributes are inherited from :ref:`Entity`.
       - 0..m
       - Alternative name(s) for the Entity.
    *  - extensions
-      - :ref:`Extension`
+      - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
       - 0..m
       - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.
    *  - specifiedBy
-      - :ref:`Method` | :ref:`IRI`
+      - :ref:`Method` | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
       - 0..1
       - A specification that describes all or part of the process that led to creation of the Information Entity 
    *  - contributions
@@ -49,7 +49,7 @@ Some InformationEntity attributes are inherited from :ref:`Entity`.
       - 0..m
       - Specific actions taken by an Agent toward the creation, modification, validation, or deprecation of an Information Entity.
    *  - reportedIn
-      - :ref:`Document` | :ref:`IRI`
+      - :ref:`Document` | `IRI </ga4gh/schema/gks-common/1.x/data-types/json/IRI>`_
       - 0..m
       - A document in which the the Information Entity is reported.
    *  - dateAuthored

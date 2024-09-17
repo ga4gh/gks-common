@@ -1,6 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-core-im/1.x/core-im/json/StudyGroup",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/core-im/json/StudyGroup",
    "title": "StudyGroup",
    "type": "object",
    "maturity": "draft",
@@ -51,7 +51,7 @@
       "isSubsetOf": {
          "type": "array",
          "items": {
-            "$ref": "/ga4gh/schema/gks-core-im/1.x/core-im/json/StudyGroup"
+            "$ref": "/ga4gh/schema/gks-common/1.x/core-im/json/StudyGroup"
          },
          "ordered": false,
          "description": "A larger StudyGroup of which this StudyGroup represents a subset."
@@ -59,7 +59,7 @@
       "characteristics": {
          "type": "array",
          "items": {
-            "$ref": "/ga4gh/schema/gks-core-im/1.x/core-im/json/Characteristic"
+            "$ref": "/ga4gh/schema/gks-common/1.x/core-im/json/Characteristic"
          },
          "ordered": false,
          "description": "A feature or role shared by all members of the StudyGroup, representing a criterion for membership in the group."

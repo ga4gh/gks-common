@@ -33,11 +33,11 @@ Some CombinationTherapy attributes are inherited from :ref:`gks.core-im:DomainEn
       - 0..m
       - Alternative name(s) for the Entity.
    *  - extensions
-      - :ref:`Extension`
+      - `Extension </ga4gh/schema/gks-common/1.x/data-types/json/Extension>`_
       - 0..m
       - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.
    *  - mappings
-      - :ref:`ConceptMapping`
+      - `ConceptMapping </ga4gh/schema/gks-common/1.x/data-types/json/ConceptMapping>`_
       - 0..m
       - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.
    *  - type

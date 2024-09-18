@@ -101,7 +101,7 @@ $defs:
         - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
         description: >-
           A specification that describes all or part of the process that led to creation of the
-          Information Entity 
+          Information Entity
         $comment: >-
           Examples - a specific experimental protocol or data analysis specification
           that describe how data were generated, or an evidence interpretation guideline that
@@ -160,7 +160,7 @@ $defs:
     inherits: InformationEntity
     maturity: draft
     description: >-
-      A set of instructions that specify how to achieve some objective. 
+      A set of instructions that specify how to achieve some objective.
     $comment: >-
       In scientific research, these include things like experimental protocols, study designs,
       data analysis parameters, curation guidelines, cohort selection criteria, and rule sets.
@@ -398,7 +398,7 @@ $defs:
       scope of evidence items they can collectively assess. Narrow scoping will bucket available evidence
       into many, fine-grained Evidence Lines that make the most atomic independently meaningful arguments
       possible. The ACMG Variant Pathogenicity Interpretation Guidelines are an example of a fairly fine-grained
-      evidence interpretation framework. Broader scoping approaches may organize the same available evidence into 
+      evidence interpretation framework. Broader scoping approaches may organize the same available evidence into
       fewer Evidence Lines that build and assess less atomic arguments based on a wider and more diverse set of evidence
       items. For example, CIViC curators assess the strength and direction of evidence items at the level of
       *all information reported in a publication for a specific study* - which can encompass many different results

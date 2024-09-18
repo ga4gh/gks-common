@@ -1,5 +1,5 @@
 $schema: "https://json-schema.org/draft/2020-12/schema"
-$id: "https://w3id.org/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/core-im-source.yaml"
+$id: "https://w3id.org/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/core-im-source.yaml"
 title: GKS Commons Core Information Class Definitions
 
 imports:
@@ -48,7 +48,7 @@ $defs:
         type: array
         ordered: false
         items:
-          $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Extension"
+          $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/Extension"
         description: >-
           A list of extensions to the Entity, that allow for capture of information not directly
           supported by elements defined in the model.
@@ -72,7 +72,7 @@ $defs:
         type: array
         ordered: false
         items:
-          $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/ConceptMapping"
+          $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/ConceptMapping"
         description: >-
           A list of mappings to concepts in terminologies or code systems. Each mapping should
           include a coding and a relation.
@@ -98,7 +98,7 @@ $defs:
       specifiedBy:
         oneOf:
         - $ref: "#/$defs/Method"
-        - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
+        - $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/IRI"
         description: >-
           A specification that describes all or part of the process that led to creation of the
           Information Entity 
@@ -126,7 +126,7 @@ $defs:
         items:
           oneOf:
           - $ref: "#/$defs/Document"
-          - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
+          - $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/IRI"
         description: A document in which the the Information Entity is reported.
       dateAuthored:
         type: string
@@ -171,7 +171,7 @@ $defs:
         default: Method
         description: MUST be "Method".
       subtype:
-        $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
+        $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/Coding"
         description: >-
           A specific type of method that a Method instance represents (e.g. 'Variant Interpretation
           Guideline', or 'Experimental Protocol').
@@ -207,7 +207,7 @@ $defs:
         default: Document
         description: Must be "Document"
       subtype:
-        $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
+        $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/Coding"
         description: >-
           A specific type of document that a Document instance represents (e.g.  'publication',
           'patent', 'pathology report')
@@ -273,7 +273,7 @@ $defs:
       Activities may use, generate, modify, move, or destroy one or more entities.
     heritableProperties:
       subtype:
-        $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
+        $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/Coding"
         description: >-
           A specific type of activity the Activity instance represents.
         $comment: >-
@@ -328,7 +328,7 @@ $defs:
           If multiple Agents contributed to an entity, a separate Contribution instances MUST be
           created for each.
       activityType:
-        $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
+        $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/Coding"
         description: >-
           The specific type of activity performed or role played by an agent in making the contribution
           (e.g. for a publication, agents may contribute as a primary author, editor, figure designer,
@@ -446,8 +446,8 @@ $defs:
           (supports, disputes, neutral)
       strengthOfEvidenceProvided:
         oneOf:
-          - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
-          - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
+          - $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/Coding"
+          - $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/IRI"
         description: >-
           The strength of support that an Evidence Line is determined to provide for or against its target Proposition,
           evaluated relative to the direction indicated by the directionOfEvidenceProvided value.
@@ -580,8 +580,8 @@ $defs:
           values that don't commit to one or the other if they don't want to make the distinction (e.g. 'high' vs
           'medium' vs 'low').
         oneOf:
-          - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
-          - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
+          - $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/Coding"
+          - $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/IRI"
       score:
         type: number
         description: >-
@@ -619,8 +619,8 @@ $defs:
       #     using the 'subject', 'predicate', 'object', and 'qualifier' properties defined in the Statement object itself.
       classification:
         oneOf:
-          - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
-          - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
+          - $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/Coding"
+          - $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/IRI"
         description: >-
           A single term or phrase summarizing the outcome of direction and strength
           assessments of a Statement's proposition, in terms of a classification of
@@ -678,7 +678,7 @@ $defs:
         default: DataSet
         description: MUST be "DataSet".
       subtype:
-        $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
+        $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/Coding"
         description: >-
           A specific type of data set the DataSet instance represents (e.g. a
           'clinical data set', a 'sequencing data set', a 'gene expression data set',
@@ -732,8 +732,8 @@ $defs:
       focus:
         oneOf:
           - $ref: "#/$defs/DomainEntity"
-          - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
-          - $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
+          - $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/Coding"
+          - $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/IRI"
         description: >-
           The specific subject or experimental unit in a Study that data in the StudyResult object is about -
           e.g. a particular variant in a population allele frequency dataset like ExAC or gnomAD.
@@ -914,7 +914,7 @@ $defs:
   #       description: The Entity or concept about which the Proposition is made.
   #     predicate:
   #       type:
-  #         $ref: "/ga4gh/schema/gks-common/1.x/data-types/json/Coding"
+  #         $ref: "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/Coding"
   #       description: The relationship asserted to hold between the subject and the object of the Proposition.
   #     object:
   #       type:

@@ -1,6 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/EvidenceLine",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/EvidenceLine",
    "title": "EvidenceLine",
    "type": "object",
    "maturity": "draft",
@@ -32,7 +32,7 @@
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/data-types/json/Extension"
+            "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/Extension"
          },
          "description": "A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.",
          "$comment": "Extension objects have a key-value data structure that allows definition of custom fields in the data itself. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems."
@@ -40,10 +40,10 @@
       "specifiedBy": {
          "oneOf": [
             {
-               "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/Method"
+               "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/Method"
             },
             {
-               "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/data-types/json/IRI"
+               "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/IRI"
             }
          ],
          "description": "A specification that describes all or part of the process that led to creation of the Information Entity ",
@@ -53,7 +53,7 @@
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/Contribution"
+            "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/Contribution"
          },
          "description": "Specific actions taken by an Agent toward the creation, modification, validation, or deprecation of an Information Entity.",
          "$comment": "This attribute holds one or more Contribution objects, which provide structured descriptions of a contribution made to the Information Entity by a particular agent."
@@ -64,10 +64,10 @@
          "items": {
             "oneOf": [
                {
-                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/Document"
+                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/Document"
                },
                {
-                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/data-types/json/IRI"
+                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/IRI"
                }
             ]
          },
@@ -85,29 +85,29 @@
          "items": {
             "oneOf": [
                {
-                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/DataSet"
+                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/DataSet"
                },
                {
-                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/Document"
+                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/Document"
                },
                {
-                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/EvidenceLine"
+                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/EvidenceLine"
                },
                {
-                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/Method"
+                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/Method"
                },
                {
-                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/Statement"
+                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/Statement"
                },
                {
-                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/StudyResult"
+                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/StudyResult"
                }
             ]
          },
          "description": "Another Information Entity from which this Information Entity is derived, in whole or in part."
       },
       "recordMetadata": {
-         "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/RecordMetadata",
+         "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/RecordMetadata",
          "description": "Provenance metadata about a specific concrete record of information as encoded/serialized in a particular data set or object (as opposed to provenance about the abstract information content the encoding carries).",
          "$comment": "This attribute holds a structured RecordMetadata object, which can be used to capture when, how, and by whom a record serialization was generated or modified; what upstream resources it was derived or retrieved from; and record-level administrative information such as versioning and lifecycle status."
       },
@@ -123,22 +123,22 @@
          "items": {
             "oneOf": [
                {
-                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/DataSet"
+                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/DataSet"
                },
                {
-                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/Document"
+                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/Document"
                },
                {
-                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/EvidenceLine"
+                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/EvidenceLine"
                },
                {
-                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/Method"
+                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/Method"
                },
                {
-                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/Statement"
+                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/Statement"
                },
                {
-                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/core-im/json/StudyResult"
+                  "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/core-im/json/StudyResult"
                }
             ]
          },
@@ -157,10 +157,10 @@
       "strengthOfEvidenceProvided": {
          "oneOf": [
             {
-               "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/data-types/json/Coding"
+               "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/Coding"
             },
             {
-               "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/data-types/json/IRI"
+               "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.2/data-types/json/IRI"
             }
          ],
          "description": "The strength of support that an Evidence Line is determined to provide for or against its target Proposition, evaluated relative to the direction indicated by the directionOfEvidenceProvided value.",

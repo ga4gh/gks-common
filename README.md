@@ -1,6 +1,6 @@
 # gks-common
 
-Common classes and schemas used by all GKS specifications (ie. VR, VA, etc..)
+Common classes and schemas used by all GKS specifications (ie. VR, Cat-VRS, VA, etc..)
 
 For more info
 [GKS Repository Organization](https://docs.google.com/document/d/16SrjqPJ1ct_z8OK6kNcu3KO1ia6LAyVriSbuDLXRAI8/edit)
@@ -19,15 +19,14 @@ Fork the repo at <https://github.com/ga4gh/gks-common>.
 
 GKS Common uses the following source documents for JSON Schema:
 
-* [common-source.yaml](./schema/gks-common/common-source.yaml)
-* [conditions-source.yaml](./schema/gks-common/conditions-source.yaml)
-* [genes-source.yaml](./schema/gks-common/genes-source.yaml)
-* [therapeutics-source.yaml](./schema/gks-common/therapeutics-source.yaml)
+* [core-im/core-im-source.yaml](./schema/gks-common/core-im/core-im-source.yaml)
+* [data-types/data-types-source.yaml](./schema/gks-common/data-types/data-types-source.yaml)
+* [domain-entities-source.yaml](./schema/gks-common/domain-entities/domain-entities-source.yaml)
 
 To create the corresponding def and json files after making changes to any of of the
 source documents, from the root directory:
 
-    cd schema/gks-common
+    cd schema
     make all
 
 > _Note: We have a custom pre-commit hook to run these commands after you stage a source
@@ -37,4 +36,5 @@ source documents, from the root directory:
 
 To run the tests:
 
+    (from the root directory of the project)
     make test

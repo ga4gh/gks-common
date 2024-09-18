@@ -1,21 +1,21 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/domain-entities/json/TherapeuticProcedure",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/domain-entities/json/TherapeuticProcedure",
    "title": "TherapeuticProcedure",
    "maturity": "draft",
    "description": "An action or administration of therapeutic agents to produce an effect that is intended to alter or stop a pathologic process.",
    "oneOf": [
       {
-         "$ref": "/ga4gh/schema/gks-common/1.x/domain-entities/json/CombinationTherapy"
+         "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/domain-entities/json/CombinationTherapy"
       },
       {
-         "$ref": "/ga4gh/schema/gks-common/1.x/domain-entities/json/TherapeuticAction"
+         "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/domain-entities/json/TherapeuticAction"
       },
       {
-         "$ref": "/ga4gh/schema/gks-common/1.x/domain-entities/json/TherapeuticAgent"
+         "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/domain-entities/json/TherapeuticAgent"
       },
       {
-         "$ref": "/ga4gh/schema/gks-common/1.x/domain-entities/json/TherapeuticSubstituteGroup"
+         "$ref": "/ga4gh/schema/gks-common/1.0.0-connect.2024-09.1/domain-entities/json/TherapeuticSubstituteGroup"
       }
    ]
 }

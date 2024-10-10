@@ -1,6 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/data-types/json/Code",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/core-im/json/Code",
    "title": "Code",
    "type": "string",
    "maturity": "draft",

@@ -1,5 +1,5 @@
 tests:
-- test_file: data-types/coding.yaml
+- test_file: core-im/coding.yaml
   description: simple coding example
   schema: data-types
   definition: Coding

@@ -1,6 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/data-types/json/Extension",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/core-im/json/Extension",
    "title": "Extension",
    "type": "object",
    "maturity": "draft",
@@ -30,6 +30,5 @@
    "required": [
       "name",
       "value"
-   ],
-   "additionalProperties": false
+   ]
 }

@@ -5,7 +5,6 @@ strict: true
 
 imports:
   gks.core-im: ../core-im/core-im-source.yaml
-  gks.data-types: ../data-types/data-types-source.yaml
 
 $defs:
 

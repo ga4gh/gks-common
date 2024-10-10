@@ -32,7 +32,7 @@
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "/ga4gh/schema/gks-common/1.x/data-types/json/Extension"
+            "$ref": "/ga4gh/schema/gks-common/1.x/core-im/json/Extension"
          },
          "description": "A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.",
          "$comment": "Extension objects have a key-value data structure that allows definition of custom fields in the data itself. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems."
@@ -40,10 +40,10 @@
       "specifiedBy": {
          "oneOf": [
             {
-               "$ref": "/ga4gh/schema/gks-common/1.x/core-im/json/Method"
+               "$ref": "/ga4gh/schema/gks-common/1.x/core-im/json/IRI"
             },
             {
-               "$ref": "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
+               "$ref": "/ga4gh/schema/gks-common/1.x/core-im/json/Method"
             }
          ],
          "description": "A specification that describes all or part of the process that led to creation of the Information Entity",
@@ -67,7 +67,7 @@
                   "$ref": "/ga4gh/schema/gks-common/1.x/core-im/json/Document"
                },
                {
-                  "$ref": "/ga4gh/schema/gks-common/1.x/data-types/json/IRI"
+                  "$ref": "/ga4gh/schema/gks-common/1.x/core-im/json/IRI"
                }
             ]
          },
@@ -118,7 +118,7 @@
          "description": "Must be \"Document\""
       },
       "subtype": {
-         "$ref": "/ga4gh/schema/gks-common/1.x/data-types/json/Coding",
+         "$ref": "/ga4gh/schema/gks-common/1.x/core-im/json/Coding",
          "description": "A specific type of document that a Document instance represents (e.g.  'publication', 'patent', 'pathology report')",
          "$comment": "This attribute can be used to report a specific type for the Document, in cases where a model does not define Document subclasses for this purpose.  Implementers can define their own set of document type codes/terms, to match the needs of their application."
       },

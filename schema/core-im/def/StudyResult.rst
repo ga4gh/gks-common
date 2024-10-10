@@ -79,8 +79,8 @@ Some StudyResult attributes are inherited from :ref:`InformationEntity`.
    *  - ancillaryResults
       - object
       - 0..1
-      -
+      - 
    *  - qualityMeasures
       - object
       - 0..1
-      -
+      - 

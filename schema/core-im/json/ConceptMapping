@@ -1,13 +1,13 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/data-types/json/ConceptMapping",
+   "$id": "https://w3id.org/ga4gh/schema/gks-common/1.x/core-im/json/ConceptMapping",
    "title": "ConceptMapping",
    "type": "object",
    "maturity": "draft",
    "description": "A mapping to a concept in a terminology or code system.",
    "properties": {
       "coding": {
-         "$ref": "/ga4gh/schema/gks-common/1.x/data-types/json/Coding",
+         "$ref": "/ga4gh/schema/gks-common/1.x/core-im/json/Coding",
          "description": "A structured representation of a code for a defined concept in a terminology or code system."
       },
       "relation": {
@@ -25,6 +25,5 @@
    "required": [
       "coding",
       "relation"
-   ],
-   "additionalProperties": false
+   ]
 }

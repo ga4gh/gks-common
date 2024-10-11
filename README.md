@@ -20,7 +20,6 @@ Fork the repo at <https://github.com/ga4gh/gks-common>.
 GKS Common uses the following source documents for JSON Schema:
 
 * [core-im/core-im-source.yaml](./schema/gks-common/core-im/core-im-source.yaml)
-* [data-types/data-types-source.yaml](./schema/gks-common/data-types/data-types-source.yaml)
 * [domain-entities-source.yaml](./schema/gks-common/domain-entities/domain-entities-source.yaml)
 
 To create the corresponding def and json files after making changes to any of of the

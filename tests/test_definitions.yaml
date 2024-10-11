@@ -1,7 +1,7 @@
 tests:
 - test_file: core-im/coding.yaml
   description: simple coding example
-  schema: data-types
+  schema: core-im
   definition: Coding
 - test_file: domain-entities/gene.yaml
   description: simple gene example

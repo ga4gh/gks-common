@@ -51,4 +51,6 @@ Some Extension attributes are inherited from :ref:`Element`.
       - 0..1
       - A description of the meaning or utility of the Extension, to explain the type of information it is meant to hold.
 
+**Inherits:** :ref:`Element`
+
 **Used in:** :ref:`Coding`, :ref:`ConceptMapping`, :ref:`ConceptSet`, :ref:`Entity`, :ref:`MappableConcept`

@@ -1,6 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gkm-core/1.2.1-ballot.2026-09.1/json/ConceptSet",
+   "$id": "https://w3id.org/ga4gh/schema/gkm-core/1.3.0-ballot.2026-09.1/json/ConceptSet",
    "title": "ConceptSet",
    "maturity": "trial use",
    "description": "A set of concepts that may be considered as dependent (occurring together), or independent (existing separately) in the context of some knowledge reported about them, as indicated by a set membership operator. e.g. a set of independent molecular consequences that both result from the presence of a particular genetic variant (membership operator = OR).",
@@ -35,7 +35,7 @@
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "/ga4gh/schema/gkm-core/1.2.1-ballot.2026-09.1/json/Extension"
+            "$ref": "/ga4gh/schema/gkm-core/1.3.0-ballot.2026-09.1/json/Extension"
          },
          "description": "A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model."
       },
@@ -49,10 +49,10 @@
          "items": {
             "oneOf": [
                {
-                  "$ref": "/ga4gh/schema/gkm-core/1.2.1-ballot.2026-09.1/json/MappableConcept"
+                  "$ref": "/ga4gh/schema/gkm-core/1.3.0-ballot.2026-09.1/json/MappableConcept"
                },
                {
-                  "$ref": "/ga4gh/schema/gkm-core/1.2.1-ballot.2026-09.1/json/ConceptSet"
+                  "$ref": "/ga4gh/schema/gkm-core/1.3.0-ballot.2026-09.1/json/ConceptSet"
                }
             ]
          },

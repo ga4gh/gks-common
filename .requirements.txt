@@ -2,5 +2,5 @@ pytest
 jsonschema
 referencing
 pyyaml
-ga4gh.gkm.metaschema==0.4.1
+ga4gh.gkm.metaschema==0.4.3
 pre-commit

@@ -1,0 +1,4 @@
+# Invalid: MappableConcept's anyOf requires at least one of `name` or
+# `primaryCoding`; neither is provided.
+type: MappableConcept
+conceptType: Gene

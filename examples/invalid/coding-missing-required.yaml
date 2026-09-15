@@ -1,0 +1,3 @@
+# Invalid: Coding requires both `system` and `code`; `code` is omitted.
+name: foo
+system: https://bar.com

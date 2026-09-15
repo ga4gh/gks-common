@@ -1,0 +1,3 @@
+# Invalid: Extension requires both `name` and `value`; `value` is omitted.
+name: assayType
+description: The type of assay used to generate the associated evidence.

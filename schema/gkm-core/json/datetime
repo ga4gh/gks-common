@@ -1,9 +1,9 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gkm-core/v1/json/datetime",
+   "$id": "https://w3id.org/ga4gh/schema/gkm-core/1.3.0-ballot.2026-09.1/json/datetime",
    "title": "datetime",
    "type": "string",
    "maturity": "trial use",
-   "description": "A string is valid against this format if it represents a date-time in the following format: YYYY:MM::DDThh:mm:ss.sTZD.",
+   "description": "A string is valid against this format if it represents a date-time in the following format: YYYY-MM-DDThh:mm:ss.sTZD.",
    "format": "date-time"
 }

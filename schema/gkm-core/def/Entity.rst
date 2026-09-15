@@ -1,6 +1,9 @@
-.. note:: This data class is at a **trial use** maturity level and may \
-    change in future releases. Maturity \
-    levels are described in the :ref:`maturity-model`.
+.. admonition:: Trial Use
+    :class: note
+
+    May change in future releases. See |maturity-model|.
+
+**Abstract Class** — not instantiated directly; concrete subclasses inherit its attributes.
 
 **Computational Definition**
 
@@ -56,3 +59,5 @@ Anything that exists, has existed, or will exist.
       - :ref:`Extension`
       - 0..m
       - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.
+
+**Subclasses:** :ref:`ConceptSet`, :ref:`MappableConcept`

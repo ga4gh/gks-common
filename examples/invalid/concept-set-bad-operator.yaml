@@ -1,0 +1,8 @@
+# Invalid: `membershipOperator` must be "AND" or "OR"; "XOR" is not allowed.
+type: ConceptSet
+membershipOperator: XOR
+concepts:
+  - type: MappableConcept
+    name: missense_variant
+  - type: MappableConcept
+    name: stop_gained

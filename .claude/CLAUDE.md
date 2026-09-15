@@ -27,7 +27,7 @@ make all      # runs source2classes, source2splitjs, y2t, then prune.mk in each 
 make clean    # removes build/, def/, json/ contents
 ```
 
-The build tools (`source2classes`, `source2splitjs`, `y2t`) come from the `ga4gh.gks.metaschema` package (pinned to `==0.3.2` in `.requirements.txt`). `prune.mk` deletes any `json/`/`def/` files whose class no longer exists in the source.
+The build tools (`source2classes`, `source2splitjs`, `y2t`) come from the `ga4gh.gkm.metaschema` package — the "metaschema processor" (MSP). It is pinned in `.requirements.txt` to a git ref of `ga4gh/gks-metaschema` (the 0.4.0-line MSP with the abstract-class convention), since that release is not yet on PyPI. Note the package was renamed `ga4gh.gks.metaschema` → `ga4gh.gkm.metaschema` as part of the GKS→GKM rebrand; imports use the `ga4gh.gkm.metaschema` path. `prune.mk` deletes any `json/`/`def/` files whose class no longer exists in the source.
 
 A **pre-commit hook** (`pre-commit-hooks/update-json-def-files.sh`, wired in `.pre-commit-config.yaml`) auto-runs `make all` and stages regenerated `json/`/`def/` files whenever a `*-source.yaml` is staged — so committing a source change keeps generated artifacts in sync automatically. Install it once with `pre-commit install`.
 
@@ -36,7 +36,8 @@ A **pre-commit hook** (`pre-commit-hooks/update-json-def-files.sh`, wired in `.p
 `gkm-core-source.yaml` uses GA4GH-specific keys beyond standard JSON Schema. Key idioms (see `Entity`/`Element` for the canonical examples):
 
 - **`inherits: <Class>`** — class inheritance. `Entity` and `Element` are abstract roots; concrete classes (`Coding`, `MappableConcept`, `ConceptMapping`, `ConceptSet`, `Extension`) inherit from one of them.
-- **`heritableProperties` / `heritableRequired`** — properties/required-fields that descend to all subclasses (used on abstract base classes instead of `properties`/`required`).
+- **`abstract: true`** — marks a class as abstract (used on `Entity`/`Element`). Abstract classes emit `type: object` and are left "open" (no `additionalProperties`/`unevaluatedProperties` closure); concrete classes are closed (`additionalProperties: false`, or `unevaluatedProperties: false` when composed via inheritance). The processor injects `type: object` automatically, so concrete classes no longer declare it.
+- **`properties` / `required`** — on an abstract base class these descend to all subclasses (superclass-first). *(Superseded the old `heritableProperties` / `heritableRequired` keys under the 0.4.0 MSP abstract-class convention.)*
 - **`maturity`** (e.g. `trial use`), **`strict: true`**, **`ordered: false`** on arrays — metaschema annotations carried into generated output.
 - **`$id`** is a versioned w3id URL: `https://w3id.org/ga4gh/schema/gkm-core/<VERSION>/gkm-core-source.yaml`. The `<VERSION>` token is branch-specific (see Versioning) — preserve it across edits; only change it deliberately as part of a release.
 

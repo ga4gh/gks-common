@@ -7,3 +7,15 @@ tests:
   description: mappable concept gene example
   schema: gkm-core
   definition: MappableConcept
+- test_file: concept-mapping.yaml
+  description: concept mapping example
+  schema: gkm-core
+  definition: ConceptMapping
+- test_file: concept-set.yaml
+  description: concept set of molecular consequences
+  schema: gkm-core
+  definition: ConceptSet
+- test_file: extension.yaml
+  description: extension example
+  schema: gkm-core
+  definition: Extension

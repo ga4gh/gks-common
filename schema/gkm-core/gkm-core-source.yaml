@@ -1,5 +1,5 @@
 $schema: "https://json-schema.org/draft/2020-12/schema"
-$id: "https://w3id.org/ga4gh/schema/gkm-core/v1/gkm-core-source.yaml"
+$id: "https://w3id.org/ga4gh/schema/gkm-core/1.3.0-ballot.2026-09.1/gkm-core-source.yaml"
 title: GKM Core Class Definitions
 strict: true
 
@@ -7,12 +7,14 @@ $defs:
   # abstract core classes section -- Entity, Element
   Entity:
     maturity: trial use
+    type: object
+    abstract: true
     description: Anything that exists, has existed, or will exist.
     $comment: >-
       Entity is the root class of the 'gkm-core' information model. All core classes that
       have ids and other general metadata like name, description, type, or extensions descend from
       this class and inherit its attributes.
-    heritableProperties:
+    properties:
       id:
         type: string
         description: >-
@@ -55,14 +57,16 @@ $defs:
           Extension objects have a key-value data structure that allows definition of custom
           fields in the data itself. Extensions are not expected to be natively understood,
           but may be used for pre-negotiated exchange of message attributes between systems.
-    heritableRequired:
+    required:
       - type
 
   Element:
     maturity: trial use
+    type: object
+    abstract: true
     description: >-
       The base definition for all identifiable data objects.
-    heritableProperties:
+    properties:
       id:
         type: string
         description: >-
@@ -85,7 +89,6 @@ $defs:
   # general-purpose data classes section -- Extension, MappableConcept, ConceptMapping, Coding
   Extension:
     inherits: Element
-    type: object
     maturity: trial use
     description: >-
       The Extension class provides entities with a means to include
@@ -115,7 +118,6 @@ $defs:
 
   MappableConcept:
     inherits: Entity
-    type: object
     maturity: trial use
     description: >-
       A concept based on a primaryCoding and/or name that may be mapped to one or more other :ref:`Codings <Coding>`.
@@ -154,7 +156,6 @@ $defs:
           - primaryCoding
 
   ConceptMapping:
-    type: object
     inherits: Element
     maturity: trial use
     description: >-
@@ -180,7 +181,6 @@ $defs:
 
   # A ConceptSet data structure to provide support for sets of generic concepts.
   ConceptSet:
-    type: object
     maturity: trial use
     inherits: Entity
     description: >-
@@ -193,6 +193,12 @@ $defs:
         const: ConceptSet
         default: ConceptSet
         description: MUST be "ConceptSet".
+      conceptSetType:
+        type: string
+        description: >-
+          A term indicating the type of concept being represented by the ConceptSet.
+        $comment: >-
+          This attribute can be used to indicate the type of concept being represented by the ConceptSet.
       concepts:
         type: array
         ordered: false
@@ -221,7 +227,6 @@ $defs:
 
   Coding:
     inherits: Element
-    type: object
     maturity: trial use
     description: >-
       A structured representation of a code for a defined concept in a terminology or code system.
@@ -289,5 +294,5 @@ $defs:
     maturity: trial use
     description: >-
       A string is valid against this format if it represents a date-time in the following format:
-      YYYY:MM::DDThh:mm:ss.sTZD.
+      YYYY-MM-DDThh:mm:ss.sTZD.
     format: date-time

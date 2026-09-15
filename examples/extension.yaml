@@ -1,0 +1,3 @@
+name: assayType
+value: functional
+description: The type of assay used to generate the associated evidence.

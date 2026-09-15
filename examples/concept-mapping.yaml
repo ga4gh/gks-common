@@ -1,0 +1,6 @@
+coding:
+  code: ENSG00000139618
+  system: https://www.ensembl.org/
+  iris:
+    - https://identifiers.org/ensembl:ENSG00000139618
+relation: closeMatch

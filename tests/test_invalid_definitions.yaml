@@ -1,0 +1,33 @@
+# Each instance below MUST fail validation against the named class. These are
+# negative tests: they assert that schema constraints (required fields, closure
+# via additionalProperties/unevaluatedProperties, enums, minItems, anyOf) are
+# actually enforced, not just that valid instances pass.
+tests:
+- test_file: coding-missing-required.yaml
+  description: Coding missing required `code`
+  schema: gkm-core
+  definition: Coding
+- test_file: coding-additional-property.yaml
+  description: Coding with an undefined property (closure)
+  schema: gkm-core
+  definition: Coding
+- test_file: concept-mapping-bad-relation.yaml
+  description: ConceptMapping with an out-of-enum `relation`
+  schema: gkm-core
+  definition: ConceptMapping
+- test_file: concept-set-too-few-concepts.yaml
+  description: ConceptSet with fewer than minItems concepts
+  schema: gkm-core
+  definition: ConceptSet
+- test_file: concept-set-bad-operator.yaml
+  description: ConceptSet with an out-of-enum `membershipOperator`
+  schema: gkm-core
+  definition: ConceptSet
+- test_file: mappable-concept-missing-name-and-coding.yaml
+  description: MappableConcept satisfying neither anyOf branch
+  schema: gkm-core
+  definition: MappableConcept
+- test_file: extension-missing-value.yaml
+  description: Extension missing required `value`
+  schema: gkm-core
+  definition: Extension

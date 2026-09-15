@@ -1,0 +1,5 @@
+# Invalid: `relation` must be one of the SKOS enum values; "supersedes" is not.
+coding:
+  code: ENSG00000139618
+  system: https://www.ensembl.org/
+relation: supersedes

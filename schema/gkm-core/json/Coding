@@ -1,8 +1,7 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/gkm-core/v1/json/Coding",
+   "$id": "https://w3id.org/ga4gh/schema/gkm-core/1.3.0-ballot.2026-09.1/json/Coding",
    "title": "Coding",
-   "type": "object",
    "maturity": "trial use",
    "description": "A structured representation of a code for a defined concept in a terminology or code system.",
    "properties": {
@@ -14,10 +13,9 @@
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "/ga4gh/schema/gkm-core/v1/json/Extension"
+            "$ref": "/ga4gh/schema/gkm-core/1.3.0-ballot.2026-09.1/json/Extension"
          },
-         "description": "A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.",
-         "$comment": "Extension objects have a key-value data structure that allows definition of custom fields in the data itself. Extensions are not expected to be natively understood, but may be used for pre-negotiated exchange of message attributes between systems."
+         "description": "A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model."
       },
       "name": {
          "type": "string",
@@ -32,14 +30,14 @@
          "description": "Version of the terminology or code system that provided the code."
       },
       "code": {
-         "$ref": "/ga4gh/schema/gkm-core/v1/json/code",
+         "$ref": "/ga4gh/schema/gkm-core/1.3.0-ballot.2026-09.1/json/code",
          "description": "A symbol uniquely identifying the concept, as in a syntax defined by the code system. e.g. 'civic.did:30', 'MONDO:005061', and 'C3512' are codes defined by different systems for representing the concept of 'lung adenocarcinoma'.  If a dereferencable identifier is available for the code, it should be provided in the `iris` field."
       },
       "iris": {
          "type": "array",
          "ordered": false,
          "items": {
-            "$ref": "/ga4gh/schema/gkm-core/v1/json/iriReference"
+            "$ref": "/ga4gh/schema/gkm-core/1.3.0-ballot.2026-09.1/json/iriReference"
          },
          "description": "A list of IRIs that are associated with the coding. This can be used to provide additional context or to link to additional information about the concept."
       }
@@ -48,5 +46,6 @@
       "code",
       "system"
    ],
+   "type": "object",
    "additionalProperties": false
 }

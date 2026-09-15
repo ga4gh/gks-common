@@ -1,0 +1,6 @@
+# Invalid: `concepts` has `minItems: 2`; only one concept is provided.
+type: ConceptSet
+membershipOperator: OR
+concepts:
+  - type: MappableConcept
+    name: missense_variant

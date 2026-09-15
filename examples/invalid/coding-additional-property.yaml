@@ -1,0 +1,5 @@
+# Invalid: Coding is a concrete (closed) class; `foo` is not a defined property
+# so `additionalProperties: false` must reject it.
+system: https://bar.com
+code: "SCV213.1"
+foo: bar

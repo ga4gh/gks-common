@@ -1,6 +1,7 @@
-.. note:: This data class is at a **trial use** maturity level and may \
-    change in future releases. Maturity \
-    levels are described in the :ref:`maturity-model`.
+.. admonition:: Trial Use
+    :class: note
+
+    May change in future releases. See |maturity-model|.
 
 **Computational Definition**
 
@@ -62,3 +63,7 @@ Some Coding attributes are inherited from :ref:`Element`.
       - :ref:`iriReference`
       - 0..m
       - A list of IRIs that are associated with the coding. This can be used to provide additional context or to link to additional information about the concept.
+
+**Inherits:** :ref:`Element`
+
+**Used in:** :ref:`ConceptMapping`, :ref:`MappableConcept`

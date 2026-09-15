@@ -4,6 +4,7 @@
    "title": "Element",
    "maturity": "trial use",
    "type": "object",
+   "abstract": true,
    "description": "The base definition for all identifiable data objects.",
    "properties": {
       "id": {

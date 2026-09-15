@@ -4,6 +4,7 @@
    "title": "Entity",
    "maturity": "trial use",
    "type": "object",
+   "abstract": true,
    "description": "Anything that exists, has existed, or will exist.",
    "properties": {
       "id": {
